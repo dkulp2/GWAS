@@ -1,6 +1,6 @@
 #Code Snippet 2: SNP level filtering
 
-source("globals.R")
+source("globals.R") 
 
 # load data created in previous snippet
 load(genotype.subset.fname)
