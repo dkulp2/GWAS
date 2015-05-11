@@ -1,14 +1,13 @@
 #Code Snippet 4: Generating principal components
 
-# customize as needed
-out.dir <- '/Volumes/genome/Research/GWAS' # same as input dir, but can be different
-genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData", out.dir)
-pcs.fn <- sprintf("%s/GWAStutorial_pcs.RData", out.dir)
-
-##################
+source("globals.R")
 
 # load data created in previous snippets
 load(genotype.subset.fname)
+
+##################
+
+library(snpStats)
 
 # Find and record first 10 principal components
 # pcs will be a N:10 matrix.  Each column is a principal component.
@@ -23,5 +22,7 @@ colnames(pcs) <- paste("pc",1:num.princ.comp,sep="")
 
 rm(xxmat)
 
-# Create a file of the first 10 principal components
-save(pcs, file=pcs.fn)
+##################
+
+# Store pcs for future reference with the rest of the derived data
+save(genotype, genoBim, clinical, pcs, file=genotype.subset.fname)

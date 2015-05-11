@@ -1,25 +1,24 @@
 #Code Snippet 5: Genotype imputation
 
-# customize as needed
-out.dir <- '/Volumes/genome/Research/GWAS' # same as input dir, but can be different
-genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData", out.dir)
-hapmap.url <- "ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2009-01_phaseIII/hapmap_format/polymorphic/genotypes_chr%s_CEU_phase3.2_nr.b36_fwd.txt.gz"
-
-##################
-
-library(chopsticks)                     # masks snpStats functions
+source("globals.R")
 
 # load data created in previous snippets
 load(genotype.subset.fname)     # loads genotype, genoBim and clinical
 
-# Imputation of non-typed HapMap SNPs
-presSnps <- colnames(genotype)
+##################
 
 # read in hapmap data for chromosomes 16
 chrNum<-16
 
+library(chopsticks)                     # HapMap routines
+
+# Imputation of non-typed HapMap SNPs
+presSnps <- colnames(genotype)
+
 HapMap16 <- read.HapMap.data(sprintf(hapmap.url, chrNum))
+
 detach("package:chopsticks", unload=TRUE) # remove to unmask snpStats functions
+library(snpStats)
 
 # Impute SNPs on given chromosome
 
@@ -47,9 +46,14 @@ rules <- snp.imputation(present,missing,pos.pres,pos.miss)
 # Obtain 'best guess' genotypes of imputed snps
 target <- genotype[,targetSnps]
 imputed <- impute.snps(rules, target, as.numeric=FALSE)
-dim(imputed)  # 21342 SNPs were imputed
+print(dim(imputed))  # 21342 SNPs were imputed
 
 rm(hapMatrix)
 rm(missing)
 rm(present)
 rm(HapMap16)
+
+##################
+
+# Add new imputed, target and rules data to saved results
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, file=genotype.subset.fname)

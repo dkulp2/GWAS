@@ -1,10 +1,6 @@
 #Code Snippet 1: Reading data into R
 
-# customize as needed
-data.dir <- '/Volumes/genome/Research/GWAS'
-out.dir <- data.dir
-gwas.fn = lapply(c(bed='bed',bim='bim',fam='fam',gds='gds'), function(n) sprintf("%s/GWAStutorial.%s", data.dir, n))
-genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData",out.dir)
+source("globals.R")
 
 ##################
 
@@ -42,7 +38,7 @@ geno<-read.plink(gwas.fn$bed,gwas.fn$bim,gwas.fn$fam, na.strings=("-9"))
 # Obtain the genotypes table from snpMatrix objects
 # Note: Phenotypes and covariates will be read from the clinical data file, below
 genotype <- geno$genotype
-dim(genotype)                  # 861473 SNPs read in for 1401 subjects
+print(dim(genotype))                  # 861473 SNPs read in for 1401 subjects
 
 #Obtain the SNP information table from snpMatrix objects
 genoBim <- geno$map
@@ -60,6 +56,8 @@ rownames(clinical) <- clinical$FamID
 # Subset genotype for subject data (and for chr16 -- DEBUG ONLY, REMOVE BEFORE PUB)
 genotype <- genotype[clinical$FamID, chr16.snps ]
 # All 1401 subjects contain both clinical and genotype data
+
+##################
 
 # Write genotype, genoBim, clinical for future use
 save(genotype, genoBim, clinical, file=genotype.subset.fname)

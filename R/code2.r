@@ -1,17 +1,18 @@
 #Code Snippet 2: SNP level filtering
 
-# customize as needed
-out.dir <- '/Volumes/genome/Research/GWAS' # same as input dir, but can be different
-genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData",out.dir)
+source("globals.R")
+
+# load data created in previous snippet
+load(genotype.subset.fname)
+
+##################
 
 # Setting thresholds
 call <- 0.9
 minor <- 0.01
 hardy <- 10^-6
 
-##################
-
-load(genotype.subset.fname)
+library(snpStats)
 
 # Create SNP summary statistics (MAF, Call rate, Hardy-Weinberg, etc.)
 snpsum.col <- col.summary(genotype)
@@ -39,7 +40,9 @@ cat(ncol(genotype)-sum(HWEuse),"SNPs will be removed due to high HWE.\n")  # 220
 genotype <- genotype[,HWEuse]
 snpsum.col <- snpsum.col[HWEuse,]
 
-dim(genotype)                           # 695185 SNPs remain
+print(dim(genotype))                           # 695185 SNPs remain
 
-# Write subsetted genotype file for future use
-save(genotype, genoBim, clinical, file=genotype.subset.fname)
+##################
+
+# Write subsetted genotype data and derived results for future use
+save(genotype, snpsum.col, genoBim, clinical, file=genotype.subset.fname)

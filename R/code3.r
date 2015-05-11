@@ -1,8 +1,11 @@
 #Code Snippet 3: Sample level filtering
 
-# customize as needed
-out.dir <- '/Volumes/genome/Research/GWAS' # same as input dir, but can be different
-genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData",out.dir)
+source("globals.R")
+
+# load data created in previous snippets
+load(genotype.subset.fname)
+
+##################
 
 # Setting thresholds
 sampcall <- 0.9
@@ -10,18 +13,14 @@ hetcutoff <- 0.1
 ld.thresh <- 0.2
 kin.thresh <- 0.1
 
-##################
-
+library(snpStats)
 library(SNPRelate)                      # Estimating relatedness
 library(plyr)
-
-# load data created in previous snippets
-load(genotype.subset.fname)
 
 # Create sample statistics (Call rate, Heterozygosity)
 snpsum.row <- row.summary(genotype)
 
-# Calculating F-stat
+# Calculating F stat (inbreeding coefficient)
 MAF <- snpsum.col$MAF
 callmatrix <- !is.na(genotype)
 hetExp <- callmatrix %*% (2*MAF*(1-MAF))
@@ -30,7 +29,7 @@ hetF<-1-(hetObs/hetExp)
 
 sampleuse <- with(snpsum.row, !is.na(Call.rate) & Call.rate > sampcall & abs(hetF)<=hetcutoff)
 sampleuse[is.na(sampleuse)] <- FALSE    # remove NA's as well
-cat(nrow(genotype)-sum(sampleuse), "subjects will be removed due to low sample call rate or high F statistic.\n") #0 subjects removed
+cat(nrow(genotype)-sum(sampleuse), "subjects will be removed due to low sample call rate or inbreeding coefficient.\n") #0 subjects removed
 
 # Subset genotype and clinical data for subjects who pass call rate and heterozygosity crtieria
 genotype <- genotype[sampleuse,]
@@ -49,7 +48,7 @@ snpSUB <- snpgdsLDpruning(genofile, ld.threshold=ld.thresh,
                           sample.id=geno.sample.ids, # Only analyze the filtered samples
                           snp.id=colnames(genotype)) # Only analyze the filtered SNPs
 snpset.ibd <- unlist(snpSUB, use.names=FALSE)
-length(snpset.ibd)  #74870 SNPs will be used in IBD analysis
+print(length(snpset.ibd))  #74870 SNPs will be used in IBD analysis
 
 # Find IBD coefficients using Method of Moments procedure.  Include pairwise kinship.
 ibd <- snpgdsIBDMoM(genofile, kinship=TRUE,
@@ -62,7 +61,7 @@ ibdcoeff$ID2 <- sub("-1", "", ibdcoeff$ID2) # ""
 
 # Check if there are any candidates for relatedness
 ibdcoeff <- ibdcoeff[ ibdcoeff$kinship >= kin.thresh, ]
-nrow(ibdcoeff)
+print(nrow(ibdcoeff))
 
 # iteratively remove samples with high kinship starting with the sample with the most pairings
 related.samples <- NULL
@@ -85,7 +84,7 @@ clinical <- clinical[ !(clinical$FamID %in% related.samples), ]
 geno.sample.ids <- paste(rownames(genotype),1,sep="-") # Samples all have an extra "-1" in GDS.
 
 cat(length(related.samples), "similar samples removed due to correlation coefficient >=", kin.thresh,"\n") 
-dim(genotype) #All 1401 subjects remain
+print(dim(genotype)) #All 1401 subjects remain
 
 # Checking for ancestry (MDS)
 
@@ -99,6 +98,8 @@ MDS2 <- loc[, 2]
 
 # Plot the first two MDS components
 plot(MDS2, MDS1, xlab="MDS Component 2", ylab="MDS Component 1", main="Multidemensional Scaling Analysis for Ancestry")
+
+##################
 
 # Overwrite old genotype with new filtered version
 save(genotype, genoBim, clinical, file=genotype.subset.fname)
