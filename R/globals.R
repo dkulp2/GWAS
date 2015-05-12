@@ -16,3 +16,7 @@ CETP.fname <- sprintf("%s/CETP_GWASout.csv", out.dir)
 
 hapmap.url <- "ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2009-01_phaseIII/hapmap_format/polymorphic/genotypes_chr%s_CEU_phase3.2_nr.b36_fwd.txt.gz"
 
+
+bonferroni.alpha <- 0.05
+bonferroni.adjustment <- 1000000
+bonferroni.thresh <- -log10(bonferroni.alpha / bonferroni.adjustment)
