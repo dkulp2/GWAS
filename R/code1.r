@@ -7,7 +7,7 @@ source("globals.R")
 library(snpStats)                       # loading SNPs and performing QC
 
 # Read in PLINK filesto create snpMatrix objects
-geno <- read.plink(gwas.fn$bed,gwas.fn$bim,gwas.fn$fam, na.strings=("-9"))
+geno <- read.plink(gwas.fn$bed, gwas.fn$bim, gwas.fn$fam, na.strings = ("-9"))
 
 # geno is now a list of three large objects as follows:
 # geno$genotypes
@@ -60,4 +60,4 @@ rownames(clinical) <- clinical$FamID
 ##################
 
 # Write genotype, genoBim, clinical for future use
-save(genotype, genoBim, clinical, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, file = genotype.subset.fname)

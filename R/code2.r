@@ -8,7 +8,7 @@ load(genotype.subset.fname)
 ##################
 
 # Setting thresholds
-call <- 0.9
+call <- 0.95
 minor <- 0.01
 
 library(snpStats)
@@ -20,13 +20,13 @@ snpsum.col <- col.summary(genotype)
 use <- with(snpsum.col, (!is.na(MAF) & MAF > minor) & Call.rate >= call)
 use[is.na(use)] <- FALSE                # Remove NA's as well
 
-cat(ncol(genotype)-sum(use),"SNPs will be removed due to low MAF or call rate.\n") #164080 SNPs will be removed
+cat(ncol(genotype)-sum(use),"SNPs will be removed due to low MAF or call rate.\n") #203287 SNPs will be removed
 
 # Subset genotype and SNP summary data for SNPs that pass call rate and MAF criteria
 genotype <- genotype[,use]
 snpsum.col <- snpsum.col[use,]
 
-print(dim(genotype))                           # 697393 SNPs remain
+print(dim(genotype))                           # 658186 SNPs remain
 
 ##################
 
