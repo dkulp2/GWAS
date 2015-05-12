@@ -17,7 +17,6 @@ GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"), col.detected=c("blu
     
     #defining the postitions of each snp in the plot
     manhat.ord$pos <- manhat.ord$position + max.pos2[as.numeric(manhat.ord$chr)]
-    manhat.ord$Neg_logP <- abs(manhat.ord$Neg_logP)
     
     #defining the coloring for the Manhattan plot
     manhat.ord$col[as.numeric(manhat.ord$chr)%%2==0] <- col.snps[1]
@@ -31,7 +30,7 @@ GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"), col.detected=c("blu
     axis(2)
     abline(h=0)
     
-    SigNifSNPs <- as.character(GWAS[GWAS$Neg_logP > -log10(0.05/1000000), 1])
+    SigNifSNPs <- as.character(GWAS[GWAS$Neg_logP > bonferroni.thresh, 1])
     
     #Add legend
     legend("topright",c("Bonferroni-wide Significant", "Bonferroni-wide Significance Threshold*"),
@@ -41,7 +40,7 @@ GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"), col.detected=c("blu
     #Add chromosome number
     text(text.pos/1000000, -.3, seq(1,22,by=1), xpd=TRUE, cex=1)
     
-    abline(h=-log10(0.05/1000000), untf = FALSE,col = "gray60")
+    abline(h=bonferroni.thresh, untf = FALSE,col = "gray60")
     
     #Plotting detected genes
     #Were any genes detected?
