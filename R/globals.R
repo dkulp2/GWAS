@@ -2,7 +2,7 @@
 # Intermediate data files will also be stored in this same location unless you set out.dir
 
 # customize as needed
-data.dir <- '/Volumes/genome/Research/GWAS'
+data.dir <- '/Users/ericreed/Desktop/FoulkesLab/SIMFiles'
 out.dir <- data.dir                     # may want to write to a separate dir to avoid clutter
 
 genotype.subset.fname <- sprintf("%s/subsetted_genotype.RData",out.dir)
