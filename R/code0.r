@@ -1,4 +1,5 @@
-#Code Snippet 0: run this once interactively to download and install BioConductor and the snpStats package
+# ---- code0 ----
+# Run this once interactively to download and install BioConductor packages and other packages.
 
 source("http://bioconductor.org/biocLite.R")
 biocLite("snpStats")
