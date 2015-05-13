@@ -1,7 +1,10 @@
 #Plot method
 GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"), col.detected=c("blue"),
-                           col.text="black", title="GWAS Tutorial Manhattan Plot", display.text=TRUE) {
+                           col.text="black", title="GWAS Tutorial Manhattan Plot",
+                           display.text=TRUE, bonferroni.alpha=0.05, bonferroni.adjustment=1000000) {
     
+    bonferroni.thresh <- -log10(bonferroni.alpha / bonferroni.adjustment)
+
     manhat <- GWAS[!grepl("[A-z]",GWAS$chr),]    
     
     #sort the data by chromosome and then location
