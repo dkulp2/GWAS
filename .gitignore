@@ -16,4 +16,8 @@ vignettes/*.pdf
 *~
 .Rproj.user
 *.Rproj
+R/tutorial_cache/*
+R/tutorial_files/*
 
+
+R/tutorial.html
