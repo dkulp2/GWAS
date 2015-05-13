@@ -3,7 +3,7 @@
 source("globals.R")
 
 # load data derived in previous snippets
-load(genotype.subset.fname)
+load(working.data.fname)
 
 ##################
 
