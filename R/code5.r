@@ -1,28 +1,25 @@
-#Code Snippet 5: Genotype imputation
+# ---- code5 ----
+# Genotype imputation
 
 source("globals.R")
 
 # load data created in previous snippets
-load(genotype.subset.fname)     # loads genotype, genoBim and clinical
+load(working.data.fname)     # loads genotype, genoBim and clinical
 
-##################
-
-# read in hapmap data for chromosomes 16
-chrNum<-16
+# ---- code5-a ----
 
 library(chopsticks)                     # HapMap routines
 
-# Imputation of non-typed HapMap SNPs
-presSnps <- colnames(genotype)
-
-HapMap16 <- read.HapMap.data(sprintf(hapmap.url, chrNum))
+# read in hapmap data for chromosomes 16
+HapMap16 <- read.HapMap.data(sprintf(hapmap.url, 16))
 
 detach("package:chopsticks", unload=TRUE) # remove to unmask snpStats functions
 library(snpStats)
 
-# Impute SNPs on given chromosome
+# Impute SNPs
 
 # Subset for SNPs on given chromosome
+presSnps <- colnames(genotype)
 presDatChr <- genoBim[genoBim$SNP %in% presSnps & genoBim$chr==chrNum, ]
 targetSnps <- presDatChr$SNP
 
@@ -48,12 +45,12 @@ target <- genotype[,targetSnps]
 imputed <- impute.snps(rules, target, as.numeric=FALSE)
 print(dim(imputed))  # 21342 SNPs were imputed
 
+# ---- code5-end ----
+
 rm(hapMatrix)
 rm(missing)
 rm(present)
 rm(HapMap16)
 
-##################
-
 # Add new imputed, target and rules data to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, file=working.data.fname)

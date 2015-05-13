@@ -1,32 +1,39 @@
-#Code Snippet 3: Sample level filtering
+# ---- code3 ----
+# Sample level filtering
 
 source("globals.R")
 
 # load data created in previous snippets
-load(genotype.subset.fname)
-
-##################
-
-# Setting thresholds
-sampcall <- 0.95
-hetcutoff <- 0.1
-ld.thresh <- 0.2
-kin.thresh <- 0.1
-hardy <- 10^-6
+load(working.data.fname)
 
 library(snpStats)
-library(SNPRelate)                      # Estimating relatedness
+
+# ---- code3-a ----
+library(SNPRelate)                      # Estimating LD, relatedness, PCA
 library(plyr)
 
 # Create sample statistics (Call rate, Heterozygosity)
 snpsum.row <- row.summary(genotype)
 
-# Calculating F stat (inbreeding coefficient)
+# Add the F stat (inbreeding coefficient) to snpsum.row
 MAF <- snpsum.col$MAF
 callmatrix <- !is.na(genotype)
 hetExp <- callmatrix %*% (2*MAF*(1-MAF))
 hetObs <- with(snpsum.row, Heterozygosity*(ncol(genotype))*Call.rate)
-hetF<-1-(hetObs/hetExp)
+snpsum.row$hetF <- 1-(hetObs/hetExp)
+
+head(snpsum.row)
+
+# ---- code3-b ----
+# Setting thresholds
+sampcall <- 0.95    # Sample call rate cut-off
+hetcutoff <- 0.1    # Inbreeding coefficient cut-off
+ld.thresh <- 0.2    # LD cut-off
+kin.thresh <- 0.1   # Kinship cut-off
+hardy <- 10^-6      # HWE cut-off
+num.princ.comp <- 10  # Find and record first 10 principal components
+
+
 
 sampleuse <- with(snpsum.row, !is.na(Call.rate) & Call.rate > sampcall & abs(hetF) <= hetcutoff)
 sampleuse[is.na(sampleuse)] <- FALSE    # remove NA's as well
@@ -36,11 +43,14 @@ cat(nrow(genotype)-sum(sampleuse), "subjects will be removed due to low sample c
 genotype <- genotype[sampleuse,]
 clinical<- clinical[ rownames(genotype), ]
 
+# ---- code3-b ----
 # Checking for Relatedness
 
 # Create gds file, required for SNPRelate functions
 snpgdsBED2GDS(gwas.fn$bed, gwas.fn$fam, gwas.fn$bim, gwas.fn$gds)
 genofile <- openfn.gds(gwas.fn$gds, readonly = FALSE)
+
+# Automatically added "-1" sample suffixes are removed
 gds.ids <- read.gdsn(index.gdsn(genofile, "sample.id"))
 gds.ids <- sub("-1", "", gds.ids)
 add.gdsn(genofile, "sample.id", gds.ids, replace = TRUE)
@@ -52,18 +62,21 @@ snpSUB <- snpgdsLDpruning(genofile, ld.threshold = ld.thresh,
                           sample.id = geno.sample.ids, # Only analyze the filtered samples
                           snp.id = colnames(genotype)) # Only analyze the filtered SNPs
 snpset.ibd <- unlist(snpSUB, use.names=FALSE)
-print(length(snpset.ibd))  #72812 SNPs will be used in IBD analysis
+cat(length(snpset.ibd),"will be used in IBD analysis\n")  # Tutorial: expect 72812 SNPs
 
+# ---- code3-c ----
 # Find IBD coefficients using Method of Moments procedure.  Include pairwise kinship.
 ibd <- snpgdsIBDMoM(genofile, kinship=TRUE,
                     sample.id = geno.sample.ids,
                     snp.id = snpset.ibd,
                     num.thread = 1)
 ibdcoeff <- snpgdsIBDSelection(ibd)     # Pairwise sample comparison
+head(ibdcoeff)
+
+# ---- code3-d ----
 
 # Check if there are any candidates for relatedness
 ibdcoeff <- ibdcoeff[ ibdcoeff$kinship >= kin.thresh, ]
-print(nrow(ibdcoeff))
 
 # iteratively remove samples with high kinship starting with the sample with the most pairings
 related.samples <- NULL
@@ -86,25 +99,24 @@ clinical <- clinical[ !(clinical$FamID %in% related.samples), ]
 geno.sample.ids <- rownames(genotype)
 
 cat(length(related.samples), "similar samples removed due to correlation coefficient >=", kin.thresh,"\n") 
-print(dim(genotype)) #All 1401 subjects remain
+print(genotype)                         # Tutorial: expect all 1401 subjects remain
 
-# Checking for ancestry (PCA)
+# ---- code3-e ----
+# Checking for ancestry
 
 # Find PCA matrix
 pca <- snpgdsPCA(genofile, sample.id = geno.sample.ids,  snp.id = snpset.ibd, num.thread=1)
 
 # Create data frame of first two principal comonents
 pctab <- data.frame(sample.id = pca$sample.id,
-                  PC1 = pca$eigenvect[,1],    # the first eigenvector
-                  PC2 = pca$eigenvect[,2],    # the second eigenvector
-                  stringsAsFactors = FALSE)
+                    PC1 = pca$eigenvect[,1],    # the first eigenvector
+                    PC2 = pca$eigenvect[,2],    # the second eigenvector
+                    stringsAsFactors = FALSE)
 
 # Plot the first two principal comonents
 plot(pctab$PC2, pctab$PC1, xlab="Principal Component 2", ylab="Principal Component 1")
 
-# Close GDS file
-closefn.gds(genofile)
-
+# ---- code3-f ----
 # Hardy-Weinberg SNP filtering on CAD controls
 
 CADcontrols <- clinical[ clinical$CAD==0, 'FamID' ]
@@ -118,11 +130,14 @@ cat(ncol(genotype)-sum(HWEuse),"SNPs will be removed due to high HWE.\n")  # 129
 # Subset genotype and SNP summary data for SNPs that pass HWE criteria
 genotype <- genotype[,HWEuse]
 
-print(dim(genotype))                           # 656890 SNPs remain
+print(genotype)                           # 656890 SNPs remain
 
 
 
-##################
+# ---- code3-end ----
+
+# Close GDS file
+closefn.gds(genofile)
 
 # Overwrite old genotype with new filtered version
-save(genotype, genoBim, clinical, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, file=working.data.fname)
