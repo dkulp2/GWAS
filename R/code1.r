@@ -7,7 +7,7 @@ source("globals.R")
 library(snpStats)                       # loading SNPs and performing QC
 
 # Read in PLINK filesto create snpMatrix objects
-geno<-read.plink(gwas.fn$bed,gwas.fn$bim,gwas.fn$fam, na.strings=("-9"))
+geno <- read.plink(gwas.fn$bed, gwas.fn$bim, gwas.fn$fam, na.strings = ("-9"))
 
 # geno is now a list of three large objects as follows:
 # geno$genotypes
@@ -43,7 +43,7 @@ print(dim(genotype))                  # 861473 SNPs read in for 1401 subjects
 #Obtain the SNP information table from snpMatrix objects
 genoBim <- geno$map
 colnames(genoBim) <- c("chr", "SNP", "gen.dist", "position", "A1", "A2")
-chr16.snps <- genoBim[genoBim$chr == '16','SNP']
+#chr16.snps <- genoBim[genoBim$chr == '16','SNP']
 
 # Remove raw file to open up memory
 rm(geno)
@@ -54,10 +54,10 @@ clinical <- read.csv(sprintf("%s/GWAStutorial_clinical.csv", data.dir),
 rownames(clinical) <- clinical$FamID
 
 # Subset genotype for subject data (and for chr16 -- DEBUG ONLY, REMOVE BEFORE PUB)
-genotype <- genotype[clinical$FamID, chr16.snps ]
+# genotype <- genotype[clinical$FamID, chr16.snps ]
 # All 1401 subjects contain both clinical and genotype data
 
 ##################
 
 # Write genotype, genoBim, clinical for future use
-save(genotype, genoBim, clinical, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, file = genotype.subset.fname)

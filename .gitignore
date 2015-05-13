@@ -11,4 +11,7 @@ vignettes/*.pdf
 # Emacs backup files
 *~
 .Rproj.user
+<<<<<<< HEAD
 GWAS_Ereed.Rproj
+=======
+>>>>>>> ff7d9d87912b06438c7ff2a833185224eed942cb
