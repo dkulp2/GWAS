@@ -10,6 +10,7 @@ load(genotype.subset.fname)
 library(GenABEL)
 library(LDheatmap)
 library(rtracklayer)
+library(plyr)
 
 # Create Manhattan Plot
 source("GWAS_ManhattanFunction.R")

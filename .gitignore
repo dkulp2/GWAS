@@ -15,3 +15,5 @@ vignettes/*.pdf
 # Emacs backup files
 *~
 .Rproj.user
+*.Rproj
+
