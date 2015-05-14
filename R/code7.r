@@ -11,12 +11,15 @@ library(snpStats)
 library(plyr)
 
 # Carry out association testing for imputed SNPs using single.snp.tests()
-imp <- single.snp.tests(phenotype=hdl, stratum=sex, data=clinical, snp.data=target, rules=rules)
+rownames(phenoSub)<-phenoSub$id
+
+imp <- snp.rhs.tests(phenotype ~ sex + age + pc1 + pc2 + pc3 + pc4 + pc5 + pc6 + pc7 + pc8 + pc9 + pc10, family = "Gaussian", data = phenoSub, snp.data = target, rules = rules)
 
 # Obtain p values for imputed SNPs
-pVals <- p.value(imp,df=1)
-pVals <- pVals[!is.na(pVals)]
-results <- data.frame(SNP=names(pVals), p.value=pVals)
+pVals <- p.value(imp)
+results <- data.frame(SNP=imp@snp.names, p.value=pVals)
+results<- results[!is.na(results$p.value),]
+
 
 #Write a file containing the results
 write.csv(results, impute.out.fname, row.names=FALSE)

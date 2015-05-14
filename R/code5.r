@@ -42,19 +42,19 @@ rules <- snp.imputation(present, missing, pos.pres, pos.miss)
 
 # Remove failed imputations
 rules <- rules[can.impute(rules)]
-cat("Imputation rules for",length(rules),"SNPs were estimated\n")  # Imputation rules for 197888 SNPs were estimated
+cat("Imputation rules for", length(rules), "SNPs were estimated\n")  # Imputation rules for 197888 SNPs were estimated
 
-# Quality control for imputation certainty and 
+# Quality control for imputation certainty and MAF
 # Set thresholds
 r2threshold <- 0.7
 minor <- 0.01
 
 # Filter on imputation certainty and MAF
-rules <- rules[imputation.r2(rules)>=r2threshold]
+rules <- rules[imputation.r2(rules) >= r2threshold]
 
 cat(length(rules),"imputation rules remain after uncertain impuations were removed\n")  # 162565 imputation rules remain after uncertain impuations were removed
 
-rules <- rules[imputation.maf(rules)>=minor]
+rules <- rules[imputation.maf(rules) >= minor]
 cat(length(rules),"imputation rules remain after MAF filtering\n")  # 162565 imputation rules remain after MAF filtering
 
 
