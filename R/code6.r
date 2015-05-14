@@ -10,14 +10,14 @@ load(genotype.subset.fname)
 library(snpStats)
 library(GenABEL)
 library(parallel)
+library(reshape)
 source("GWAA.R")
 
 ##################
 
-# Create data frame from genotype file and merge with clincal data to create
+# Merge with clincal data and principal components to create
 # phenotype table
-pcs.df <- data.frame(FamID=row.names(genotype),pcs)
-phenoSub <- merge(clinical,pcs.df)      # data.frame => [ FamID CAD sex age hdl pc1 pc2 ... pc10 ]
+phenoSub <- merge(clinical,pcs)      # data.frame => [ FamID CAD sex age hdl pc1 pc2 ... pc10 ]
 
 # We will do a rank-based inverse normal transformation of hdl
 phenoSub$phenotype <- rntransform(phenoSub$hdl, family="gaussian")
@@ -27,8 +27,10 @@ par(mfrow=c(1,2))
 hist(phenoSub$hdl, main="Histogram of HDL", xlab="HDL")
 hist(phenoSub$phenotype, main="Histogram of Tranformed HDL", xlab="Transformed HDL")
 
-# Remove hdl column from table
+# Remove unnecessary columns from table
 phenoSub$hdl <- NULL
+phenoSub$ldl <- NULL
+phenoSub$tg <- NULL
 phenoSub$CAD <- NULL
 
 # Rename columns to match names necessary for GWAS() function
@@ -48,4 +50,4 @@ print(end-start)
 ##################
 
 # Add phenosub to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=genotype.subset.fname)

@@ -1,19 +1,19 @@
 # History files
 .Rhistory
 .Rapp.history
-
 # Example code in package build process
 *-Ex.R
-
 # RStudio files
 .Rproj.user/
-
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
-
 # Emacs backup files
 *~
+<<<<<<< HEAD
+GWAS_Ereed.Rproj
+=======
 .Rproj.user
 *.Rproj
 
+>>>>>>> 5ff5eb30d59ee97b1410dd1ddb081e99905e9b7d

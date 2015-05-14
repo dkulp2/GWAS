@@ -50,7 +50,7 @@ rm(geno)
 
 # Read in clinical file
 clinical <- read.csv(sprintf("%s/GWAStutorial_clinical.csv", data.dir),
-                     colClasses=c("character", "factor", "factor", "numeric", "numeric"))
+                     colClasses=c("character", "factor", "factor", rep("numeric", 4)))
 rownames(clinical) <- clinical$FamID
 
 # Subset genotype for subject data (and for chr16 -- DEBUG ONLY, REMOVE BEFORE PUB)
