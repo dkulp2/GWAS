@@ -6,4 +6,5 @@ biocLite("snpStats")
 biocLite("SNPRelate")
 biocLite("chopsticks")
 biocLite("rtracklayer")
-install.packages(c('plyr', 'GenABEL', 'LDheatmap', 'reshape'))
+install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel','reshape'))
+
