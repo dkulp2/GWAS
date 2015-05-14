@@ -3,7 +3,7 @@
 source("globals.R")
 
 # load derived data from previous snippets
-load(genotype.subset.fname)
+load(working.data.fname)
 
 ##################
 
@@ -48,4 +48,6 @@ impCETPgeno <- imputed[, colnames(imputed) %in% impCETP$SNP ]
 
 ##################
 
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, genes, impCETP, impCETPgeno, imputeOut, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules,
+     phenoSub, genes, impCETP, impCETPgeno, imputeOut, file=working.data.fname)
+

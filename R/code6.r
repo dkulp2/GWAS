@@ -3,7 +3,7 @@
 source("globals.R")
 
 # load derived data from previous snippets
-load(genotype.subset.fname)
+load(working.data.fname)
 
 ##################
 
@@ -50,4 +50,4 @@ print(end-start)
 ##################
 
 # Add phenosub to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=working.data.fname)

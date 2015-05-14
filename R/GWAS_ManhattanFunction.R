@@ -1,6 +1,13 @@
 #Plot method
-GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"), col.detected=c("blue"), col.imputed=c("red"), col.text="black", title="GWAS Tutorial Manhattan Plot", display.text=TRUE) {
+GWAS_Manhattan <- function(GWAS, col.snps=c("black","gray"),
+                           col.detected=c("blue"), col.imputed=c("red"), col.text="black",
+                           title="GWAS Tutorial Manhattan Plot", display.text=TRUE,
+                           bonferroni.alpha=0.05, bonferroni.adjustment=1000000,
+                           Lstringent.adjustment=10000) {
     
+    bonferroni.thresh <- -log10(bonferroni.alpha / bonferroni.adjustment)
+    Lstringent.thresh <- -log10(bonferroni.alpha / Lstringent.adjustment)
+
     manhat <- GWAS[!grepl("[A-z]",GWAS$chr),]
     
     #sort the data by chromosome and then location

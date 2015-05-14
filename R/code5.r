@@ -1,14 +1,14 @@
-#Code Snippet 5: Genotype imputation
+# ---- code5 ----
+# Genotype imputation
 
 source("globals.R")
 
 # load data created in previous snippets
-load(genotype.subset.fname)     # loads genotype, genoBim and clinical
-
-##################
+load(working.data.fname)     # loads genotype, genoBim and clinical
 
 library(snpStats)
 
+# ---- code5-a ----
 # read in 1000g data for chromosomes 16
 chrNum <- 16
 
@@ -24,6 +24,7 @@ colnames(support)<-c("SNP", "position", "A1", "A2")
 presSnps <- colnames(genotype)
 
 # Subset for SNPs on given chromosome
+presSnps <- colnames(genotype)
 presDatChr <- genoBim[genoBim$SNP %in% presSnps & genoBim$chr==chrNum, ]
 targetSnps <- presDatChr$SNP
 
@@ -63,11 +64,11 @@ target <- genotype[,targetSnps]
 imputed <- impute.snps(rules, target, as.numeric=FALSE)
 print(dim(imputed))  # 162565 SNPs were imputed
 
+# ---- code5-end ----
 rm(genoMatrix)
 rm(missing)
 rm(present)
 
-##################
-
 # Add new imputed, target and rules data to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=working.data.fname)
+
