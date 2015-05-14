@@ -1,18 +1,18 @@
-#Code Snippet 6: Association analysis of typed SNPs (using parallel processing)
+# ---- code6 ----
+# Association analysis of typed SNPs (using parallel processing)
 
 source("globals.R")
 
 # load derived data from previous snippets
 load(working.data.fname)
 
-##################
-
 library(snpStats)
+library(plyr)
+
+# ---- code6-a ----
 library(GenABEL)
 library(parallel)
 source("GWAA.R")
-
-##################
 
 # Create data frame from genotype file and merge with clincal data to create
 # phenotype table
@@ -38,14 +38,18 @@ phenoSub <- rename(phenoSub, replace=c(FamID="id"))
 phenoSub<-phenoSub[!is.na(phenoSub$phenotype),]
 # 1309 subjects included with phenotype data
 
+print(head(phenoSub))
+
+# ---- code6-b ----
+
 # Run GWAS analysis
 # Note: This function writes a file, but does not produce an R object
 start <- Sys.time()
-GWAA(genodata=genotype, phenodata=phenoSub, filename=gwaa.fname, nSplits=10)
+GWAA(genodata=genotype, phenodata=phenoSub, filename=gwaa.fname)
 end <- Sys.time()
 print(end-start)
 
-##################
+# ---- code6-end ----
 
 # Add phenosub to saved results
 save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, file=working.data.fname)
