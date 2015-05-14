@@ -50,4 +50,4 @@ print(end-start)
 ##################
 
 # Add phenosub to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=genotype.subset.fname)

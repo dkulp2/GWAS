@@ -11,7 +11,7 @@ library(snpStats)
 library(plyr)
 
 # Carry out association testing for imputed SNPs using single.snp.tests()
-rownames(phenoSub)<-phenoSub$id
+rownames(phenoSub) <- phenoSub$id
 
 imp <- snp.rhs.tests(phenotype ~ sex + age + pc1 + pc2 + pc3 + pc4 + pc5 + pc6 + pc7 + pc8 + pc9 + pc10, family = "Gaussian", data = phenoSub, snp.data = target, rules = rules)
 
@@ -25,9 +25,10 @@ results<- results[!is.na(results$p.value),]
 write.csv(results, impute.out.fname, row.names=FALSE)
 
 # Merge imputation testing results with support to obtain coordinates
-# Read in file containing SNPs mapped to protein coding genes within 5kb
-genes<-read.csv(protein.coding.snps.fname)
-imputeOut<-merge(results, genes)
+imputeOut<-merge(results, support[, c("SNP", "position")])
+imputeOut$chr <- 16
+
+imputeOut$type <- "imputed"
 
 # Find the -log_10 of the p-values
 imputeOut$Neg_logP <- -log10(imputeOut$p.value)
@@ -36,12 +37,15 @@ imputeOut$Neg_logP <- -log10(imputeOut$p.value)
 imputeOut <- arrange(imputeOut, p.value)
 print(head(imputeOut))
 
+# Read in file containing protein coding genes coords
+genes <- read.csv(protein.coding.coords.fname)
+
 # Subset for CETP SNPs
-impCETP <- imputeOut[imputeOut$gene=="CETP",c("SNP", "chr", "position","p.value", "Neg_logP")]
-impCETP$type <- "imputed"
+source("map2gene.R")
+impCETP <- map2gene("CETP", coords = genes, SNPs = imputeOut)
 
 impCETPgeno <- imputed[, colnames(imputed) %in% impCETP$SNP ]
 
 ##################
 
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, impCETP, impCETPgeno, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, genes, impCETP, impCETPgeno, imputeOut, file=genotype.subset.fname)

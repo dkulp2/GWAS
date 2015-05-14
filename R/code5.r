@@ -18,7 +18,7 @@ thougeno <- read.pedfile(onethou.fn$ped, snps = onethou.fn$info, which=1)
 # Obtain genotype data for given chromosome
 genoMatrix <- thougeno$genotypes
 support <- thougeno$map
-colnames(support)<-c("SNP", "Position", "A1", "A2")
+colnames(support)<-c("SNP", "position", "A1", "A2")
 
 # Imputation of non-typed 1000g SNPs
 presSnps <- colnames(genotype)
@@ -34,8 +34,8 @@ missing <- genoMatrix[,!is.present]
 present <- genoMatrix[,is.present]
 
 # Obtain positions of SNPs to be used for imputation rules
-pos.pres <- support$Position[is.present]
-pos.miss <- support$Position[!is.present]
+pos.pres <- support$position[is.present]
+pos.miss <- support$position[!is.present]
 
 # Calculate and store imputation rules using snp.imputation()
 rules <- snp.imputation(present, missing, pos.pres, pos.miss)
@@ -70,4 +70,4 @@ rm(present)
 ##################
 
 # Add new imputed, target and rules data to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, file=genotype.subset.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=genotype.subset.fname)
