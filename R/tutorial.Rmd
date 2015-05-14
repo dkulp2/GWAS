@@ -95,11 +95,16 @@ knitr::read_chunk('code3.r')
 
 ### Basic sample filtering
 
-Filtering on call rate, heterozygosity and inbreeding is achieved
-using `row.summary`, augmented by an additional heterozygosity F
-statistic.
+Filtering samples is achieved using `row.summary`, 
+augmented by an additional heterozygosity F statistic.
 
 ```{r code3-a}
+```
+
+We then apply filtering on call rate and heterozygosity, selecting only 
+those samples that meet our criteria.
+
+```{r code3-b}
 ```
 
 ### IBD analysis
@@ -112,14 +117,14 @@ performed on only a subset of SNPs that are in linkage equilibrium by
 iteratively removing adjacent SNPs that exceed an LD threshold in a
 sliding window (function `snpgdsLDpruning`).
 
-```{r code3-b}
+```{r code3-c}
 ```
 
 The `snpgdsIBDMoM` function computes the IBD coefficients using method
 of moments.  The result is a table indicating kinship among pairs of
 samples.
 
-```{r code3-c}
+```{r code3-d}
 ```
 
 Using the IBD pairwise sample relatedness measure, we iteratively
@@ -128,7 +133,7 @@ the sample with the largest number of related samples is removed.  The
 process is repeated until there are no more pairs of samples with
 kinship above our cut-off.
 
-```{r code3-d}
+```{r code3-e}
 ```
 
 ### Ancestry
@@ -136,7 +141,7 @@ kinship above our cut-off.
 To better understand ancestry, we plot the first two principal
 components of the genotype data.
 
-```{r code3-e}
+```{r code3-f}
 ```
 
 ## SNP Filtering - HWE filtering on control samples
@@ -145,7 +150,7 @@ Finally, once samples are filtered, we return to SNP level filtering
 and apply a check of Hardy-Weinberg equilibrium for just the study controls
 and remove those that exceed our cut-off.
 
-```{r code3-f}
+```{r code3-g}
 ```
 
 ## Re-compute PCA
@@ -154,7 +159,7 @@ With our final set of filtered SNPs and samples, we recompute the
 principal components again to be used in later model fitting.
 
 ```{r cache=FALSE, echo=FALSE}
-knitr::read_chunk('code5.r') 
+knitr::read_chunk('code4.r') 
 ```
 ```{r code4-a}
 ```
@@ -177,7 +182,51 @@ rules, we impute the genotypes for all HapMap SNPs.
 ```{r code5-a}
 ```
 
+## Genome-wide association analysis
 
+```{r cache=FALSE, echo=FALSE}
+knitr::read_chunk('code6.r') 
+```
+```{r cache=FALSE, echo=FALSE}
+knitr::read_chunk('GWAA.R') 
+```
+
+Now that our data is loaded, filtered, and additional SNP genotypes
+imputed, we are ready to perform genome-wide association analysis.
+This involves regressing each SNP separately on a given trait,
+adjusted for patient level clinical, demographic and environmental
+factors.  Due to the large number of SNPs and the generally
+uncharacterized relationships to the outcome, a simple single additive
+model will be employed.  A Bonferonni corrected significant threshold
+of $5 x 10^-8$ is used to control for family-wide error rate.
+
+Due to the large number of models that require fitting, the GWA
+analysis can be deployed in parallel across multiple processors or
+machines to reduce the running time.  Here we demonstrate two basic
+methods for performing parallel processing using the *doParallel*.
+These approaches are demonstrated in the function GWAA:
+
+### GWAA function
+
+```{r gwaa}
+```
+
+### Phenotype data preparation
+
+First we create a data.frame of phenotype features that is the
+concatenation of clinical features and the first ten principal
+components.  HDL is normalized.
+
+```{r code6-a}
+```
+
+### Parallel model fitting
+
+Using this phenotype data, we perform model fitting on each SNP and
+write the results to a CSV file.
+
+```{r code6-b}
+```
 
 ## Post-analytic visualization and genomic integration
 
