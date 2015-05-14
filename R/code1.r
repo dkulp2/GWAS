@@ -26,7 +26,7 @@ rm(geno)
 # ---- code1-c ----
 # Read in clinical file
 clinical <- read.csv(sprintf("%s/GWAStutorial_clinical.csv", data.dir),
-                     colClasses=c("character", "factor", "factor", "numeric", "numeric"))
+                     colClasses=c("character", "factor", "factor", rep("numeric", 4)))
 rownames(clinical) <- clinical$FamID
 print(head(clinical))
 

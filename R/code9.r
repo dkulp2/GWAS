@@ -12,10 +12,11 @@ library(LDheatmap)
 library(rtracklayer)
 library(plyr)
 
+
 # Create Manhattan Plot
 source("GWAS_ManhattanFunction.R")
 par(mfrow=c(1,1))
-GWAS_Manhattan(GWASout)
+GWAS_Manhattan(GWAScomb)
 
 # Rerun the GWAS using unadjusted model
 phenoSub2 <- phenoSub[,c("id","phenotype")]
