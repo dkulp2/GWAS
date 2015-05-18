@@ -38,4 +38,4 @@ write.csv(CETP, CETP.fname, row.names=FALSE)
 ##################
 
 save(genotype, clinical, pcs, imputed, target, rules, phenoSub, genes,
-     impCETP, impCETPgeno, GWASout, GWAScomb, CETP, file=genotype.subset.fname)
+     impCETP, impCETPgeno, GWASout, GWAScomb, CETP, file=working.data.fname)
