@@ -60,7 +60,7 @@ rules <- rules[imputation.maf(rules) >= minor]
 cat(length(rules),"imputation rules remain after MAF filtering\n")  # 162565 imputation rules remain after MAF filtering
 
 
-# Obtain 'best guess' genotypes of imputed snps
+# Obtain posterior expectation of genotypes of imputed snps
 target <- genotype[,targetSnps]
 imputed <- impute.snps(rules, target, as.numeric=FALSE)
 print(imputed)  # 162565 SNPs were imputed
