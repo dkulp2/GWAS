@@ -10,7 +10,6 @@ vignettes/*.html
 vignettes/*.pdf
 # Emacs backup files
 *~
-GWAS_Ereed.Rproj
 .Rproj.user
 *.Rproj
 R/tutorial_cache/*
