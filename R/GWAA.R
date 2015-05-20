@@ -1,8 +1,13 @@
+# ---- gwaa ----
+
+# Genome-wide Association Analysis
+# Parallel implementation of linear model fitting on each SNP
+
 GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
-                 append=FALSE, nCores=4, flip=TRUE, select.snps=NULL,
-                 type="parallel", nSplits=4)
+                 append=FALSE, workers=getOption("mc.cores",2L), flip=TRUE,
+                 select.snps=NULL, hosts=NULL, nSplits=100)
 {
-    #Check to that a filename was specified
+    #Check that a filename was specified
     if(is.null(filename)) stop("Must specify a filename for output.")
     
     #Check that the genotype data is of class 'SnpMatrix'
@@ -20,9 +25,6 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
     #Check that there are still SNPs in 'SnpMatrix' object
     if(ncol(genodata)==0) stop("There are no SNPs in the 'SnpMatrix' object.")
     
-    #Check if type of parallelization is specified
-    if(!type %in% c("parallel","doParallel")) stop("Parallelization type not-supported")
-    
     #Print the number of SNPs to be checked
     print(paste(ncol(genodata), " SNPs included in analysis."))
     
@@ -32,83 +34,66 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
         write.table(t(columns), filename, row.names=FALSE, col.names=FALSE, quote=FALSE)
     }
 
-    #This function will change which allele is counted (major or minor)
-    flip<-function(x) {
+    # Check sample counts
+    if (nrow(phenodata) != nrow(genodata)) {
+        warning("Number of samples mismatch.  Using subset found in phenodata.")
+    }
+    cat(nrow(genodata), "samples included in analysis.\n")
+
+    # Order genodata rows to be the same as phenodata
+    genodata <- genodata[phenodata$id,]
+
+    # Change which allele is counted (major or minor)
+    flip.matrix<-function(x) {
         zero2 <- which(x==0)
         two0 <- which(x==2)
-        one1 <- which(x==1)
-        mat <- matrix(data=NA, nrow=nrow(x), ncol=ncol(x))
-        rownames(mat) <- rownames(x)
-        colnames(mat) <- colnames(x)
-        mat[zero2] <- 2
-        mat[two0] <- 0
-        mat[one1] <- 1
-        mat
+        x[zero2] <- 2
+        x[two0] <- 0
+        return(x)
     }
 
-    #This function contains the linear model for GWAS
-    GWAAModel<-function(SNPuse, genodatasub=genoNum) {
-        tempSNP <- data.frame(id=row.names(genodatasub), snp=genodatasub[,SNPuse])
-        dat <- merge(phenodata, tempSNP, by.x="id", by.y="id", all.x=TRUE)
-        a <- summary(glm(phenotype~ . - id, family = gaussian, data=dat))
-        out <- as.matrix(a$coefficients['snp',])
-        write.table(cbind(SNPuse,t(out)), filename, append=TRUE, quote=FALSE, col.names=FALSE, row.names=FALSE)
-        invisible(out)
+    nSNPs <- ncol(genodata)
+    genosplit <- ceiling(nSNPs/nSplits) # number of SNPs in each subset
+
+    snp.start <- seq(1, nSNPs, genosplit) # index of first SNP in group
+    snp.stop <- pmin(snp.start+genosplit-1, nSNPs) # index of last SNP in group
+
+    if (is.null(hosts)) {
+        # On Unix this will use fork and mclapply.  On Windows it
+        # will create multiple processes on localhost.
+        cl <- makeCluster(workers)
+    } else {
+        # The listed hosts must be accessible by the current user using
+        # password-less ssh with R installed on all hosts, all 
+        # packages installed, and "rscript" is in the default PATH.
+        # See docs for makeCluster() for more information.
+        cl <- makeCluster(hosts, "PSOCK")
     }
+    show(cl)                            # report number of workers and type of parallel implementation
+    registerDoParallel(cl)
 
-    #We will split up the analysis into 4 subsets if there are at least 500 SNPs in analysis
-    if(ncol(genodata) > 500) {
-        nSNPs <- ncol(genodata)
-        genosplit <- ceiling(nSNPs/nSplits)
+    foreach (part=1:nSplits) %do% {
+        # Returns a standar matrix of the alleles encoded as 0, 1 or 2
+        genoNum <- as(genodata[,snp.start[part]:snp.stop[part]], "numeric")
 
-        mat <- matrix(1:nSplits, nSplits, 3)
-        mat[,2] <- genosplit*1:nSplits
-        mat[2:nSplits,1] <- genosplit*1:(nSplits-1)+1
-        mat[nSplits,2] <- nSNPs
+        # Flip the numeric values of genotypes to count minor allele
+        if (isTRUE(flip)) genoNum <- flip.matrix(genoNum)
 
-        if(type=="parallel"){
-
-            splitGWAS <- function(matrow) {
-                genoNum <- as(genodata[,matrow[1]:matrow[2]], "numeric")
-                #By default we will flip the numeric values of genotypes to count minor allele
-
-                if (isTRUE(flip)) genoNum<-flip(genoNum)
-
-                rsList <- as.list(as.matrix(colnames(genoNum)))
-                mclapply(rsList, GWAAModel, genodata=genoNum ,mc.cores=nCores)
-                print(paste("The GWAS is", 100*matrow[3]/nSplits, "% finished"))
-            }
-      
-            apply(mat,1,splitGWAS)
+        # For each SNP, concatenate the genotype column to the
+        # phenodata and fit a generalized linear model
+        rsVec <- colnames(genoNum)
+        res <- foreach(snp.name=rsVec, .combine='rbind') %dopar% {
+            a <- summary(glm(phenotype~ . - id, family=gaussian, data=cbind(phenodata, snp=genoNum[,snp.name])))
+            a$coefficients['snp',]
         }
-        else { # doParallel
 
-            splitGWAS <- function(matrow, GWAAModel, phenodata, genodata) {
-                cl <- makeCluster(nCores)
-                registerDoParallel(cl)
-                genoNum <- as(genodata[,matrow[1]:matrow[2]], "numeric")
+        # write results so far to a file
+        write.table(cbind(rsVec,res), filename, append=TRUE, quote=FALSE, col.names=FALSE, row.names=FALSE)
 
-                #By default we will flip the numeric values of genotypes to count minor allele
-                if (isTRUE(flip)) genoNum<-flip(genoNum)
-
-                rsVec <- colnames(genoNum)
-                foreach(i=rsVec) %dopar% GWAAModel(i, genoNum)
-                print(paste("The GWAS is", 100*matrow[3]/nSplits, "% finished"))
-                stopCluster(cl)
-            }
-      
-            apply(mat,1,splitGWAS, GWAAModel, phenodata, genodata)
-        }
-    } 
-    else { # small SNP count
-        genoNum <- as(genodata, "numeric")
-        if (isTRUE(flip)) genoNum<-flip(genoNum)
-
-        rsList <- as.list(as.matrix(colnames(genoNum)))
-
-        lapply(rsList,GWAAModel, genodata=genoNum)
+        cat(sprintf("GWAS SNPs %s-%s (%s%% finished)\n", snp.start[part], snp.stop[part], 100*part/nSplits))
     }
-  
+
+    stopCluster(cl)
   
     return(print("Done."))
 }

@@ -3,7 +3,7 @@
 source("globals.R")
 
 # load data derived in previous snippets
-load(genotype.subset.fname)
+load(working.data.fname)
 
 ##################
 
@@ -21,14 +21,21 @@ rm(genoBim)
 
 # Order SNPs by signal
 GWASout <- arrange(GWASout, -Neg_logP)
+print(head(GWASout))
 
-# Merge SNP output with file containing protein coding SNP information
-GWASgenes <- merge(GWASout, genes[,c("SNP", "gene")], sort=FALSE) # Merge gene file with GWASout
-CETP <- GWASgenes[GWASgenes$gene=="CETP",] # Subset CETP SNPs
+# Combine typed and imputed
+GWASout$type<-"typed"
+GWAScomb<-rbind.fill(GWASout, imputeOut)
+
+# Subset for CETP SNPs
+source("map2gene.R")
+typCETP <- map2gene("CETP", coords = genes, SNPs = GWASout)
 
 # Combine CETP SNPs from imputed and typed analysis
-CETP <- CETP[,c("SNP", "chr", "position","p.value", "Neg_logP")]
-CETP$type <- "typed"
-CETP <- rbind(CETP, impCETP)
-CETP <- arrange(CETP, p.value)
+CETP <- rbind.fill(typCETP, impCETP)
 write.csv(CETP, CETP.fname, row.names=FALSE)
+
+##################
+
+save(genotype, clinical, pcs, imputed, target, rules, phenoSub, genes,
+     impCETP, impCETPgeno, GWASout, GWAScomb, CETP, file=working.data.fname)
