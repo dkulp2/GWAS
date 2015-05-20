@@ -15,3 +15,7 @@ vignettes/*.pdf
 R/tutorial_cache/*
 R/tutorial_files/*
 R/tutorial.html
+R/tutorial.Rmd
+.RData
+cache
+*.Rout

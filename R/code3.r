@@ -139,4 +139,4 @@ print(genotype)                           # 656890 SNPs remain
 closefn.gds(genofile)
 
 # Overwrite old genotype with new filtered version
-save(genotype, genoBim, clinical, pcs, file=working.data.fname)
+save(genotype, genoBim, clinical, file=working.data.fname)

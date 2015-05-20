@@ -9,9 +9,6 @@ load(working.data.fname)     # loads genotype, genoBim and clinical
 library(snpStats)
 
 # ---- code5-a ----
-# read in 1000g data for chromosomes 16
-chrNum <- 16
-
 # Read in 1000g data for given chromosome 16
 thougeno <- read.pedfile(onethou.fn$ped, snps = onethou.fn$info, which=1)
 
@@ -25,14 +22,18 @@ presSnps <- colnames(genotype)
 
 # Subset for SNPs on given chromosome
 presSnps <- colnames(genotype)
-presDatChr <- genoBim[genoBim$SNP %in% presSnps & genoBim$chr==chrNum, ]
+presDatChr <- genoBim[genoBim$SNP %in% presSnps & genoBim$chr==16, ]
 targetSnps <- presDatChr$SNP
 
 # Subset 1000g data for our SNPs
 # "missing" and "present" are snpMatrix objects needed for imputation rules
 is.present <- colnames(genoMatrix) %in% targetSnps
+
 missing <- genoMatrix[,!is.present]
+print(missing)                          # Almost 400,000 SNPs
+
 present <- genoMatrix[,is.present]
+print(present)                          # Our typed SNPs
 
 # Obtain positions of SNPs to be used for imputation rules
 pos.pres <- support$position[is.present]
@@ -62,7 +63,7 @@ cat(length(rules),"imputation rules remain after MAF filtering\n")  # 162565 imp
 # Obtain posterior expectation of genotypes of imputed snps
 target <- genotype[,targetSnps]
 imputed <- impute.snps(rules, target, as.numeric=FALSE)
-print(dim(imputed))  # 162565 SNPs were imputed
+print(imputed)  # 162565 SNPs were imputed
 
 # ---- code5-end ----
 rm(genoMatrix)

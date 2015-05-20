@@ -7,6 +7,8 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
                  append=FALSE, workers=getOption("mc.cores",2L), flip=TRUE,
                  select.snps=NULL, hosts=NULL, nSplits=100)
 {
+    if (!require(doParallel)) { stop("Missing doParallel package") }
+    
     #Check that a filename was specified
     if(is.null(filename)) stop("Must specify a filename for output.")
     
@@ -26,7 +28,7 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
     if(ncol(genodata)==0) stop("There are no SNPs in the 'SnpMatrix' object.")
     
     #Print the number of SNPs to be checked
-    print(paste(ncol(genodata), " SNPs included in analysis."))
+    cat(paste(ncol(genodata), " SNPs included in analysis.\n"))
     
     #If append=FALSE than we will overwrite file with column names
     if(!isTRUE(append)) {
@@ -38,10 +40,11 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
     if (nrow(phenodata) != nrow(genodata)) {
         warning("Number of samples mismatch.  Using subset found in phenodata.")
     }
-    cat(nrow(genodata), "samples included in analysis.\n")
 
     # Order genodata rows to be the same as phenodata
     genodata <- genodata[phenodata$id,]
+
+    cat(nrow(genodata), "samples included in analysis.\n")
 
     # Change which allele is counted (major or minor)
     flip.matrix<-function(x) {
