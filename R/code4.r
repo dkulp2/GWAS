@@ -39,4 +39,4 @@ print(head(pcs))
 closefn.gds(genofile)
 
 # Store pcs for future reference with the rest of the derived data
-save(genotype, genoBim, clinical, file=working.data.fname)
+save(genotype, genoBim, clinical, pcs, file=working.data.fname)

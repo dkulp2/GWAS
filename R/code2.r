@@ -9,7 +9,6 @@ load(working.data.fname)
 library(snpStats)
 
 # ---- code2-a ----
-
 # Create SNP summary statistics (MAF, call rate, etc.)
 snpsum.col <- col.summary(genotype)
 print(head(snpsum.col))
