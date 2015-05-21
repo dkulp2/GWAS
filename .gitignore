@@ -21,4 +21,11 @@ GWAS_Ereed.Rproj
 R/tutorial_cache/*
 R/tutorial_files/*
 R/tutorial.html
+<<<<<<< HEAD
 >>>>>>> 14b86acaa5369142300e88b322db98e3d006e309
+=======
+R/tutorial.Rmd
+.RData
+cache
+*.Rout
+>>>>>>> origin/master
