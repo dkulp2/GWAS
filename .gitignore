@@ -20,3 +20,5 @@ R/figure
 .RData
 cache
 *.Rout
+
+R/Rplots.pdf
