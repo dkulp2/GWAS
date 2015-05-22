@@ -189,7 +189,7 @@ concatenation of clinical features and the first ten principal
 components.  The HDL feature is normalized using a rank-based inverse
 normal transform.
 
-```{r "code6.r"/code6-a, eval=FALSE}
+```{r "code6.r"/code6-a}
 ```
 
 ### Parallel model fitting
@@ -197,7 +197,7 @@ normal transform.
 Using this phenotype data, we perform model fitting on each of the
 SNPs genotyped in the study and write the results to a CSV file.
 
-```{r "code6.r"/code6-b, eval=FALSE}
+```{r "code6.r"/code6-b}
 ```
 
 ### Model fitting of non-typed SNPs using rules
