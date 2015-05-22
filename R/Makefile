@@ -20,7 +20,7 @@ RTEST=$(RCODE:.r=.r.Rout)
 
 .PHONY: all
 all:	$(RMD)
-	@echo "Now process $(RMD) in Rstudio or run 'make html' to approximate Rstudio's output"
+	@echo "Now process $(RMD) in Rstudio or run 'make tutorial.html' to approximate Rstudio's output"
 
 %.Rmd : %.Rmdp
 	$(PERL) rmd-inline.pl $< > $@
