@@ -1,3 +1,6 @@
+# ---- map2gene ----
+# Returns the subset of SNPs that are within extend.boundary of gene
+# using the coords table of gene locations.
 map2gene <- function(gene, coords, SNPs, extend.boundary = 5000) {
   coordsSub <- coords[coords$gene == gene,] #Subset coordinate file for spcified gene
   
