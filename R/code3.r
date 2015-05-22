@@ -111,7 +111,7 @@ pctab <- data.frame(sample.id = pca$sample.id,
                     stringsAsFactors = FALSE)
 
 # Plot the first two principal comonents
-plot(pctab$PC2, pctab$PC1, xlab="Principal Component 2", ylab="Principal Component 1")
+plot(pctab$PC2, pctab$PC1, xlab="Principal Component 2", ylab="Principal Component 1", main = "Ancestry Plot")
 
 # ---- code3-g ----
 # Hardy-Weinberg SNP filtering on CAD controls
