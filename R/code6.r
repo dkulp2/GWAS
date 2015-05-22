@@ -11,7 +11,6 @@ library(plyr)
 
 # ---- code6-a ----
 library(GenABEL)
-library(parallel)
 source("GWAA.R")
 
 # Merge clincal data and principal components to create phenotype table
