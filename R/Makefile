@@ -36,6 +36,9 @@ all:	$(RMD)
 	--variable 'theme:bootstrap' --mathjax --variable 'mathjax-url:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' \
 	--no-highlight --variable highlightjs=/usr/local/Cellar/r/3.1.2_1/R.framework/Versions/3.1/Resources/library/rmarkdown/rmd/h/highlight 
 
+%.html : %.Rmd
+	$(RSCRIPT) --vanilla -e 'library(knitr); knitr::knit2html(commandArgs(TRUE)[1])' $<
+
 %.r.Rout : %.r
 	$(RBATCH) $<
 
