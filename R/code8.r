@@ -1,41 +1,47 @@
-#Code Snippet 8: Data Integration
+# ---- code8 ----
+# Data Integration
 
 source("globals.R")
 
 # load data derived in previous snippets
 load(working.data.fname)
 
-##################
-
 library(plyr)
+source("map2gene.R")
 
-# (1) Read in GWAS output, (2) add position and chromosome number, (3) order by significance
+# ---- code8-a ----
+# Read in GWAS output that was produced by GWAA function
 GWASout <- read.table(gwaa.fname, header=TRUE, colClasses=c("character", rep("numeric",4)))
 
 # Find the -log_10 of the p-values
 GWASout$Neg_logP <- -log10(GWASout$p.value)
 
-# Merge output with genoBim to obtain coordinates
+# Merge output with genoBim by SNP name to add position and chromosome number
 GWASout <- merge(GWASout, genoBim[,c("SNP", "chr", "position")])
 rm(genoBim)
 
-# Order SNPs by signal
+# Order SNPs by significance
 GWASout <- arrange(GWASout, -Neg_logP)
 print(head(GWASout))
 
+# ---- code8-b ----
 # Combine typed and imputed
-GWASout$type<-"typed"
+GWASout$type <- "typed"
+
 GWAScomb<-rbind.fill(GWASout, imputeOut)
+head(GWAScomb)
+tail(GWAScomb)
 
 # Subset for CETP SNPs
-source("map2gene.R")
 typCETP <- map2gene("CETP", coords = genes, SNPs = GWASout)
 
 # Combine CETP SNPs from imputed and typed analysis
-CETP <- rbind.fill(typCETP, impCETP)
-write.csv(CETP, CETP.fname, row.names=FALSE)
+CETP <- rbind.fill(typCETP, impCETP)[,c("SNP","p.value","Neg_logP","chr","position","type","gene")]
+print(CETP)
+# ---- code8-end ----
 
-##################
 
-save(genotype, clinical, pcs, imputed, target, rules, phenoSub, genes,
-     impCETP, impCETPgeno, GWASout, GWAScomb, CETP, file=working.data.fname)
+write.csv(CETP, CETP.fname, row.names=FALSE) # save for future use
+
+save(genotype, clinical, pcs, imputed, target, rules, phenoSub, support, genes,
+     impCETP, impCETPgeno, imputeOut, GWASout, GWAScomb, CETP, file=working.data.fname)

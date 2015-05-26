@@ -3,7 +3,8 @@
 
 # Modify data.dir to indicate the location of the GWAStutorial files
 # Intermediate data files will also be stored in this same location unless you set out.dir
-data.dir <- '/Users/ericreed/Desktop/FoulkesLab/SIMFiles'
+#data.dir <- '/Users/ericreed/Desktop/FoulkesLab/SIMFiles'
+data.dir <- '/Volumes/genome/Research/GWAS'
 out.dir <- data.dir                     # may want to write to a separate dir to avoid clutter
 
 # Input files

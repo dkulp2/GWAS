@@ -20,7 +20,7 @@ RTEST=$(RCODE:.r=.r.Rout)
 
 .PHONY: all
 all:	$(RMD)
-	@echo "Now process $(RMD) in Rstudio or run 'make html' to approximate Rstudio's output"
+	@echo "Now process $(RMD) in Rstudio or run 'make tutorial.html' to approximate Rstudio's output"
 
 %.Rmd : %.Rmdp
 	$(PERL) rmd-inline.pl $< > $@
@@ -35,6 +35,9 @@ all:	$(RMD)
 	--template /usr/local/Cellar/r/3.1.2_1/R.framework/Versions/3.1/Resources/library/rmarkdown/rmd/h/default.html \
 	--variable 'theme:bootstrap' --mathjax --variable 'mathjax-url:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' \
 	--no-highlight --variable highlightjs=/usr/local/Cellar/r/3.1.2_1/R.framework/Versions/3.1/Resources/library/rmarkdown/rmd/h/highlight 
+
+%.html : %.Rmd
+	$(RSCRIPT) --vanilla -e 'library(knitr); knitr::knit2html(commandArgs(TRUE)[1])' $<
 
 %.r.Rout : %.r
 	$(RBATCH) $<

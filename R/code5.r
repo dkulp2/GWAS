@@ -14,8 +14,11 @@ thougeno <- read.pedfile(onethou.fn$ped, snps = onethou.fn$info, which=1)
 
 # Obtain genotype data for given chromosome
 genoMatrix <- thougeno$genotypes
+
+# Obtain the chromosome position for each SNP
 support <- thougeno$map
 colnames(support)<-c("SNP", "position", "A1", "A2")
+head(support)
 
 # Imputation of non-typed 1000g SNPs
 presSnps <- colnames(genotype)
@@ -54,7 +57,7 @@ minor <- 0.01
 # Filter on imputation certainty and MAF
 rules <- rules[imputation.r2(rules) >= r2threshold]
 
-cat(length(rules),"imputation rules remain after uncertain impuations were removed\n")  # 162565 imputation rules remain after uncertain impuations were removed
+cat(length(rules),"imputation rules remain after uncertain imputations were removed\n")  # 162565 imputation rules remain after uncertain impuations were removed
 
 rules <- rules[imputation.maf(rules) >= minor]
 cat(length(rules),"imputation rules remain after MAF filtering\n")  # 162565 imputation rules remain after MAF filtering
