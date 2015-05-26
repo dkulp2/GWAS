@@ -21,7 +21,7 @@ snpSUB <- snpgdsLDpruning(genofile, ld.threshold = ld.thresh,
                           sample.id = geno.sample.ids, # Only analyze the filtered samples
                           snp.id = colnames(genotype)) # Only analyze the filtered SNPs
 snpset.pca <- unlist(snpSUB, use.names=FALSE)
-print(length(snpset.pca))  #72578 SNPs will be used in PCA analysis
+cat(length(snpset.pca),"\n")  #72578 SNPs will be used in PCA analysis
 
 pca <- snpgdsPCA(genofile, sample.id = geno.sample.ids,  snp.id = snpset.pca, num.thread=1)
 

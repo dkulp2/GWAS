@@ -4,7 +4,7 @@
 source("globals.R")
 
 # ---- code1-a ----
-library(snpStats)                       # loading SNPs and performing QC
+library(snpStats)
 
 # Read in PLINK filesto create snpMatrix objects
 geno <- read.plink(gwas.fn$bed, gwas.fn$bim, gwas.fn$fam, na.strings = ("-9"))

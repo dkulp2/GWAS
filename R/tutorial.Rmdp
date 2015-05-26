@@ -5,11 +5,20 @@ date: "May 12, 2015"
 output: html_document
 ---
 
+# Supplementary web-based tutorial on genome-wide association analysis and post-analytic interrogation
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-This tutorial presents fundamental concepts and specific software tools for implementing a complete genome wide association (GWA) analysis, as well as post-analytic visualization and interrogation of potentially novel findings.  In this tutorial we use complete GWA data on 1401 individuals from the [PennCATH study of coronary artery disease (CAD)](http://link-here/).
+This web tutorial is derived from 'A guide to genome-wide association
+analysis and post-analytic interrogation' (*Statistics in Medicine*, in
+review). The tutorial presents fundamental concepts and specific
+software tools for implementing a complete genome wide association
+(GWA) analysis, as well as post-analytic visualization and
+interrogation of potentially novel findings.  In this tutorial we use
+complete GWA data on 1401 individuals from the [PennCATH study of
+coronary artery disease (CAD)](http://link-here/).
 
 The tutorial follows the steps described in the following workflow diagram.
 
@@ -17,36 +26,51 @@ The tutorial follows the steps described in the following workflow diagram.
 
 ## Installing necessary packages
 
-Before beginning, make sure that all the necessary dependencies are installed using R version 3 as follows:
+Before beginning, make sure that all the necessary dependencies are
+installed using R version 3 as follows:
 
 ```{r "code0.r"/code0, eval=FALSE}
 ```
 
 ## Configuring global parameters
 
-We first attempt to isolate most of the variable parameters used in the data processing and analysis.  Of particular note, users should set the location of the GWA data set.  Other variables here specify input and output.  Some analysis threshold parameters are also included.
+We first attempt to isolate most of the variable parameters used in
+the data processing and analysis.  Of particular note, users should
+set the location of the GWA data set.  Other variables here specify
+input and output.  Some analysis threshold parameters are also
+included.
 
 ```{r "globals.R"/globals}
 ```
 
 ## Data pre-processing
 
-First we use the `read.plink` function in the *snpStats* package to read the genotype data from the collection of `.bfam`, `.bim` and `.bed` files.  
+First we use the `read.plink` function in the *snpStats* package to
+read the genotype data from the collection of `.bfam`, `.bim` and
+`.bed` files.
 
 
 ```{r "code1.r"/code1-a}
 ```
 
-The `geno` object contains a `genotype` member of type `snpMatrix` where each column is a SNP and each row is a sample.  For convenience, we assign that to the variable `genotype`.  `geno` also contains a table of information about each sample, called a `map` that we assign to `genoBim`.
+The `geno` object contains a `genotype` member of type `snpMatrix`
+where each column is a SNP and each row is a sample.  For convenience,
+we assign that to the variable `genotype`.  `geno` also contains a
+table of information about each sample, called a `map` that we assign
+to `genoBim`.
 
 ```{r "code1.r"/code1-b}
 ```
 
-Supplemental clinical data is found in a corresponding CSV file for each sample ID.
+Supplemental clinical data is found in a corresponding CSV file for
+each sample ID.
+
 ```{r "code1.r"/code1-c}
 ```
 
-We then filter the genotype data to only include samples with corresponding clinical data by indexing the SnpMatrix using the sample IDs, which match the row names.
+We then filter the genotype data to only include samples with
+corresponding clinical data by indexing the SnpMatrix using the sample
+IDs, which match the row names.
 
 ```{r "code1.r"/code1-d}
 ```
@@ -60,8 +84,8 @@ that return statistics on SNPs and samples, respectively.
 
 ```{r "code2.r"/code2-a}
 ```
-
-Using these summary statistics, we keep the subset of SNPs that our criteria for minimum call rate and variability.
+Using these summary statistics, we keep the subset of SNPs that our
+criteria for minimum call rate and variability.
 
 ```{r "code2.r"/code2-b}
 ```
