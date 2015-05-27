@@ -20,14 +20,29 @@ interrogation of potentially novel findings.  In this tutorial we use
 complete GWA data on 1401 individuals from the [PennCATH study of
 coronary artery disease (CAD)](http://link-here/).
 
-The tutorial follows the steps described in the following workflow diagram.
-
-![GWA analysis workflow](figures/GWAS_workflow.png)
+In the steps to follow we begin by demonstrating a method for downloading necessary R packages and setting global parameters as a means for saving progress while working through a GWA analysis.  Next, we include quality control steps for both SNP and sample level filtering. The third section is split into principal component calculation for population stratification in statistical modelling, as well as imputation of non-typed SNPs using [1000 Genomes](http://www.1000genomes.org/) reference genotype data.  We then demonstrate strategies to carry out the GWA analysis on the typed data using basic linear modelling functionality in R, as well as imputed data using functionality contained within the [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html) package. Finally, we demonstrate means for post-analytic interrogation, including methods for evaluating the performance of statistical models, as well as visualization of the global and subsetted GWAS output.
 
 ## Installing necessary packages
 
-Before beginning, make sure that all the necessary dependencies are
-installed using R version 3 as follows:
+This tutorial utlizes several packages available from
+[Bioconductor](http://www.bioconductor.org/), an open-soure
+bioinformatic software repository. Of these, we make the most use of
+[**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html),
+which includes functions to read in various formats of genotype data,
+and carry out quality control, imputation and association analysis, as
+well as
+[**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html),
+which include functions for sample level quality control, and
+computationally efficient principal component calculation. Other
+packages include funtionality for data visualization
+([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html),
+[**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html),
+[**ggplot2**](http://ggplot2.org/)), data manipulation
+([**plyr**](http://plyr.had.co.nz/),
+[**GenABEL**](http://www.genabel.org/packages/GenABEL)), and parallel
+processing
+([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
+
 
 ```{r "code0.r"/code0, eval=FALSE}
 ```
@@ -37,17 +52,43 @@ installed using R version 3 as follows:
 We first attempt to isolate most of the variable parameters used in
 the data processing and analysis.  Of particular note, users should
 set the location of the GWA data set.  Other variables here specify
-input and output.  Some analysis threshold parameters are also
-included.
+input and output.
 
 ```{r "globals.R"/globals}
 ```
 
 ## Data pre-processing
 
-First we use the `read.plink` function in the *snpStats* package to
-read the genotype data from the collection of `.bfam`, `.bim` and
-`.bed` files.
+For this tutorial we use genotype data files formatted for use with
+[PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/) software.  We
+utilize the function, `read.plink`, from **snpStats**, which allows
+the reading in of data formatted as *.bed*, *.bim*, and *.fam* files.
+The *.bed* file contains the genotype information, coded in binary.
+The *.bim* file contains information for each SNP with a respective
+column for each of the following information: chromosome number, SNP
+name (typically an rs #), genetic distance (not necessary for this
+tutorial), chromosomal position, identity of allele 1, and identity of
+allele 2. The assignment of allele 1 and allele 2, pertains to the
+effect allele, or which allele is being counted when we assign a
+numeric value to a genotype. This is typically assigned based on
+allele frequency, though not always. In this tutorial allele 1
+pertains to the minor, or less common, allele. Lastly, the *.fam* file
+contains information for each sample with a respective column for each
+of the following information: family ID (this will be used to identify
+each subject when read into R), individual ID, paternal ID, maternal
+ID, sex (coded as 1 = male and 2 = female), and phenotype (note: in
+this tutorial we utilize a supplemental clinical file for outcome
+variables and additional covariates).
+
+Alternatively, similar genotype information can also be formatted for
+PLINK software as *.ped* and *map* files.  The information of the
+*.ped* file can be thought of as a combination of the *.bed* and
+*.fam* files. It is a large table with the first six columns,
+identical to a *.fam* file, followed a column with the genotype data
+for each SNP. The *.map* file contains the first the first four
+columns of the *.bim* file, without the allele assignments.  These
+files can be read in using the function, `read.pedfile`, from
+**snpStats**.
 
 
 ```{r "code1.r"/code1-a}
@@ -55,22 +96,28 @@ read the genotype data from the collection of `.bfam`, `.bim` and
 
 The `geno` object contains a `genotype` member of type `snpMatrix`
 where each column is a SNP and each row is a sample.  For convenience,
-we assign that to the variable `genotype`.  `geno` also contains a
-table of information about each sample, called a `map` that we assign
-to `genoBim`.
+we assign that to the object, `genotype`. Within this object
+individual genotypes are assigned in the `snpMatrix` specific `RAW`
+format. `geno` also contains the information from the *.bim* file
+within the `map` member that we assign to `genoBim`.
 
 ```{r "code1.r"/code1-b}
 ```
 
 Supplemental clinical data is found in a corresponding CSV file for
-each sample ID.
+each sample. It contains a column for the subject ID (Family ID in the
+*.fam* file) and a respective column for each of the following
+variables: coronary artery disease status (coded as 0 = control and 1
+= affected), sex (coded as 1 = male, 2 = female), age (years),
+triglyceride level (mg/dL), high-density lipoprotein level (mg/dL),
+low-density lipoprotein level (mg/dL).
 
 ```{r "code1.r"/code1-c}
 ```
 
-We then filter the genotype data to only include samples with
-corresponding clinical data by indexing the SnpMatrix using the sample
-IDs, which match the row names.
+We filter the genotype data to only include samples with corresponding
+clinical data by indexing the `SnpMatrix` using the sample IDs, which
+match the row names.
 
 ```{r "code1.r"/code1-d}
 ```
@@ -79,13 +126,13 @@ IDs, which match the row names.
 
 Once the data is loaded, we are ready to remove SNPs that fail to meet
 minimum criteria due to missing data, low variability or genotyping
-errors.  *snpStats* provides `col.summary` and `row.summary` functions
+errors.  **snpStats** provides `col.summary` and `row.summary` functions
 that return statistics on SNPs and samples, respectively.
 
 ```{r "code2.r"/code2-a}
 ```
 Using these summary statistics, we keep the subset of SNPs that our
-criteria for minimum call rate and variability.
+criteria for minimum call rate and minor allele frequency.
 
 ```{r "code2.r"/code2-b}
 ```
@@ -102,13 +149,19 @@ ancestry.
 
 ### Basic sample filtering
 
-Filtering samples is achieved using `row.summary`, 
-augmented by an additional heterozygosity F statistic.
+Sample level quality control for missing data and heterozygosity is
+achieved using the `row.summary` function from **snpStats**.  An
+additional heterozygosity F statistic calculation is carried out with
+the form, $|F|=(1-O/E)$, where $O$ is observed proportion of
+heterozygous genotypes for a given sample and $E$ is the expected
+proportion of heterozygous genotypes for a given sample based on the
+minor allele frequency accross all non-missing SNPs for a given
+sample.
 
 ```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row'}
 ```
 
-We then apply filtering on call rate and heterozygosity, selecting only 
+We apply filtering on call rate and heterozygosity, selecting only 
 those samples that meet our criteria.
 
 ```{r "code3.r"/code3-b}
@@ -117,7 +170,7 @@ those samples that meet our criteria.
 ### IBD analysis
 
 In addition to these summary statistics, we also want to filter on
-relateness criteria.  We use the *SNPRelate* package to perform
+relateness criteria.  We use the **SNPRelate** package to perform
 identity-by-descent (IBD) analysis.  This package requires that the
 data be transformed into a *GDS* format file.  IBD analysis is
 performed on only a subset of SNPs that are in linkage equilibrium by
@@ -138,7 +191,7 @@ Using the IBD pairwise sample relatedness measure, we iteratively
 remove samples that are too similar using a greedy strategy in which
 the sample with the largest number of related samples is removed.  The
 process is repeated until there are no more pairs of samples with
-kinship above our cut-off.
+kinship coefficients above our cut-off.
 
 ```{r "code3.r"/code3-e}
 ```
@@ -146,7 +199,10 @@ kinship above our cut-off.
 ### Ancestry
 
 To better understand ancestry, we plot the first two principal
-components of the genotype data.
+components of the genotype data.  It is important to note that this
+example we are reasonably confident that our samples are homogeneous,
+coming from european ancestry. Therefore, given that there are no
+clear outliers we fail to remove any samples.
 
 ```{r "code3.r"/code3-f, fig.align='center'}
 ```
@@ -154,8 +210,8 @@ components of the genotype data.
 ## SNP Filtering - HWE filtering on control samples
 
 Finally, once samples are filtered, we return to SNP level filtering
-and apply a check of Hardy-Weinberg equilibrium for just the study controls
-and remove those that exceed our cut-off.
+and apply a check of Hardy-Weinberg equilibrium for just the study
+controlsand remove those that exceed our cut-off.
 
 ```{r "code3.r"/code3-g}
 ```

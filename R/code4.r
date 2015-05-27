@@ -9,7 +9,7 @@ load(working.data.fname)
 library(SNPRelate)                      # for LD, PCA
 
 # Read in gds file for SNPRelate functions
-genofile <- openfn.gds(gwas.fn$gds, readonly = TRUE)
+genofile <- snpgdsOpen(gwas.fn$gds, readonly = TRUE)
 
 # ---- code4-a ----
 # Set LD threshold to 0.2
