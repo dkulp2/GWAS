@@ -5,11 +5,8 @@ date: "May 12, 2015"
 output: html_document
 ---
 
-<<<<<<< HEAD
-```{r setup, include=FALSE, eval=FALSE}
-=======
+
 ```{r setup, include=FALSE}
->>>>>>> origin/master
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
@@ -19,56 +16,55 @@ In the steps to follow we begin by demonstrating a method for downloading necess
 
 ## Installing necessary packages
 
-This tutorial utlizes several packages available from [Bioconductor](http://www.bioconductor.org/), an open-soure bioinformatic software repository. Of these, we make the most use of [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html), which includes functions to read in various formats of genotype data, and carry out quality control, imputation and association analysis, as well as [**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html), which include functions for sample level quality control, and computationally efficient principal component calculation. Other packages include funtionality for data visualization ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html), [**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html), [**ggplot2**](http://ggplot2.org/)), data manipulation ([**plyr**](http://plyr.had.co.nz/), [**GenABEL**](http://www.genabel.org/packages/GenABEL)), and parallel processing ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
+This tutorial utlizes several packages available from [Bioconductor](http://www.bioconductor.org/), an open-soure bioinformatic software repository. Of these, we make the most use of [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html), which includes functions to read in various formats of genotype data, carry out quality control, imputation and association analysis. [**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html) is also well utilized and includes functions for sample level quality control, and computationally efficient principal component calculation. Other packages include funtionality for data visualization ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html), [**ggplot2**](http://ggplot2.org/), [**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html)), data manipulation and analysis ([**plyr**](http://plyr.had.co.nz/)), and parallel processing ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
 
-```{r "code0.r"/code0, eval=FALSE}
+```{r "code0.r"/code0}
 ```
 
 ## Configuring global parameters
 
 We first attempt to isolate most of the variable parameters used in the data processing and analysis.  Of particular note, users should set the location of the GWA data set.  Other variables here specify input and output.
 
-```{r "globals.R"/globals, eval=FALSE}
+```{r "globals.R"/globals}
 ```
 
 ## Data pre-processing
 
-For this tutorial we use genotype data files formatted for use with [PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/) software.  We utilize the function, `read.plink`, from **snpStats**, which allows the reading in of data formatted as *.bed*, *.bim*, and *.fam* files.  The *.bed* file contains the genotype information, coded in binary.  The *.bim* file contains information for each SNP with a respective column for each of the following information: chromosome number, SNP name (typically an rs #), genetic distance (not necessary for this tutorial), chromosomal position, identity of allele 1, and identity of allele 2. The assignment of allele 1 and allele 2, pertains to the effect allele, or which allele is being counted when we assign a numeric value to a genotype. This is typically assigned based on allele frequency, though not always. In this tutorial allele 1 pertains to the minor, or less common, allele. Lastly, the *.fam* file contains information for each sample with a respective column for each of the following information: family ID (this will be used to identify each sample when read into R), individual ID, paternal ID, maternal ID, sex (coded as 1 = male and 2 = female), and phenotype (note: in this tutorial we utilize a supplemental clinical file for outcome variables and additional covariates).
+For this tutorial we use genotype data files formatted for use with [PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/) software.  We utilize the function, `read.plink` from **snpStats**, which allows the reading in of data formatted as *.bed*, *.bim*, and *.fam* files.  The *.bed* file contains the genotype information, coded in binary.  The *.bim* file contains information for each SNP with a respective column for each of the following information: chromosome number, SNP name (typically an rs #), genetic distance (not necessary for this tutorial), chromosomal position, identity of allele 1, and identity of allele 2. The assignment of allele 1 and allele 2, is related to the effect allele, or the allele that is being counted when we assign a numeric value to a genotype. This is typically assigned based on allele frequency, though not always. In this tutorial, allele 1 pertains to the minor, or less common allele. Lastly, the *.fam* file contains information for each samples with a respective column for each of the following information: family ID (this will be used to identify each sample when read into R), individual ID, paternal ID, maternal ID, sex (coded as 1 = male, 2 = female), and phenotype. In this tutorial we utilize a supplemental clinical file for outcome variables and additional covariates.
 
-Alternatively, similar genotype information can also be formatted for PLINK software as *.ped* and *map* files.  The information of the *.ped* file can be thought of as a combination of the *.bed*  and *.fam* files. It is a large table with the first six columns, identical to a *.fam* file, followed a column with the genotype data for each SNP. The *.map* file contains the first the first four columns of the *.bim* file, without the allele assignments.  These files can be read in using the function, `read.pedfile`,  from  **snpStats**.  
+Alternatively, similar genotype information can also be formatted for PLINK software as *.ped* and *map* files.  The information of the *.ped* file can be thought of as a combination of the *.bed*  and *.fam* files. It is a large table with the first six columns identical to a *.fam* file, followed by  a columns containing the genotype data for each SNP. The *.map* file contains the first the first four columns of the *.bim* file, without the allele assignments.  These files can be read in using the function, `read.pedfile`,  from  **snpStats**.  More information about the formatting of these files can be found on the PLINK website.
 
 
-```{r "code1.r"/code1-a, eval=FALSE}
+```{r "code1.r"/code1-a}
 ```
 
-The `geno` object contains a `genotype` member of type `snpMatrix` where each column is a SNP and each row is a sample.  For convenience, we assign that to the object, `genotype`. Within this object individual genotypes are assigned in the `snpMatrix` specific `RAW` format. `geno` also contains the information from the *.bim* file within the `map` member that we assign to `genoBim`.
+The `geno` object contains a `genotype` member of type `SnpMatrix` where each column is a SNP and each row is a sample.  For convenience, we assign that to the object, `genotype`. Within this object individual genotypes are assigned in the `SnpMatrix` specific `RAW` format. `geno` also contains the SNP information from the *.bim* file within the `map` member that we assign to `genoBim`.
 
-```{r "code1.r"/code1-b, eval=FALSE}
+```{r "code1.r"/code1-b}
 ```
 
 Supplemental clinical data is found in a corresponding CSV file for each sample. It contains a column for the sample ID (Family ID in the *.fam* file) and a respective column for each of the following variables: coronary artery disease status (coded as 0 = control and 1 = affected), sex (coded as 1 = male, 2 = female), age (years), triglyceride level (mg/dL), high-density lipoprotein level (mg/dL), low-density lipoprotein level (mg/dL).
 
-```{r "code1.r"/code1-c, eval=FALSE}
+```{r "code1.r"/code1-c}
 ```
 
-We filter the genotype data to only include samples with corresponding clinical data by indexing the `SnpMatrix` using the sample IDs, which match the row names.
+We filter the genotype data to only include samples with corresponding clinical data by indexing the `genotype` object using only row names that match the sample IDs.
 
-```{r "code1.r"/code1-d, eval=FALSE}
+```{r "code1.r"/code1-d}
 ```
 
 ## SNP level filtering
 
 Once the data is loaded, we are ready to remove SNPs that fail to meet
 minimum criteria due to missing data, low variability or genotyping
-errors.  **snpStats** provides `col.summary` and `row.summary` functions
-that return statistics on SNPs and samples, respectively.
+errors.  **snpStats** provides functions, `col.summary` and `row.summary`, that return statistics on SNPs and samples, respectively.
 
-```{r "code2.r"/code2-a, eval=FALSE}
+```{r "code2.r"/code2-a}
 ```
 
-Using these summary statistics, we keep the subset of SNPs that our criteria for minimum call rate and minor allele frequency.
+Using these summary statistics, we keep the subset of SNPs that meet our criteria for minimum call rate and minor allele frequency.
 
-```{r "code2.r"/code2-b, eval=FALSE}
+```{r "code2.r"/code2-b}
 ```
 
 ## Sample level filtering
@@ -85,17 +81,14 @@ ancestry.
 
 Sample level quality control for missing data and heterozygosity is achieved using the `row.summary` function from **snpStats**.  An additional heterozygosity F statistic calculation is carried out with the form, $|F|=(1-O/E)$, where $O$ is observed proportion of heterozygous genotypes for a given sample and $E$ is the expected proportion of heterozygous genotypes for a given sample based on the minor allele frequency accross all non-missing SNPs for a given sample. 
 
-<<<<<<< HEAD
-```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row', eval=FALSE}
-=======
+
 ```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row'}
->>>>>>> origin/master
 ```
 
 We apply filtering on call rate and heterozygosity, selecting only 
 those samples that meet our criteria.
 
-```{r "code3.r"/code3-b, eval=FALSE}
+```{r "code3.r"/code3-b}
 ```
 
 ### IBD analysis
@@ -108,14 +101,14 @@ performed on only a subset of SNPs that are in linkage equilibrium by
 iteratively removing adjacent SNPs that exceed an LD threshold in a
 sliding window using the `snpgdsLDpruning` function.
 
-```{r "code3.r"/code3-c, eval=FALSE}
+```{r "code3.r"/code3-c}
 ```
 
 The `snpgdsIBDMoM` function computes the IBD coefficients using method
 of moments.  The result is a table indicating kinship among pairs of
 samples.
 
-```{r "code3.r"/code3-d, eval=FALSE}
+```{r "code3.r"/code3-d}
 ```
 
 Using the IBD pairwise sample relatedness measure, we iteratively
@@ -124,85 +117,67 @@ the sample with the largest number of related samples is removed.  The
 process is repeated until there are no more pairs of samples with
 kinship coefficients above our cut-off.
 
-```{r "code3.r"/code3-e, eval=FALSE}
+```{r "code3.r"/code3-e}
 ```
 
 ### Ancestry
 
 To better understand ancestry, we plot the first two principal
-components of the genotype data, using the `snpgdsPCA` function from **SNPRelate**.  It is important to note that in this example we are reasonably confident that our samples are homogeneous, coming from european ancestry. Therefore, given that there are no clear outliers we fail to remove any samples. 
+components of the genotype data.  Principal component calculation is achieved via the `snpgdsPCA` function from **SNPRelate**.  It is important to note that in this example we are reasonably confident that our samples are homogeneous, coming from european ancestry. Therefore, given that there are no clear outliers we fail to remove any samples. 
 
-```{r "code3.r"/code3-f, fig.align='center', eval=FALSE}
+```{r "code3.r"/code3-f, fig.align='center'}
 ```
 
 ## SNP Filtering - HWE filtering on control samples
 
 Finally, once samples are filtered, we return to SNP level filtering
-and apply a check of Hardy-Weinberg equilibrium. Rejection of Hardy-Weiberg equilibrium can be an indication of population substructure or genotyping errors. Given that we are performing a statistical test at every SNP, it is common to use a relatively lenient cut-off. In this example we only remove SNPs with p-values corresponding to the HWE test on CAD controls, of less than $1 \times 10^{-6}$. 
+and apply a check of Hardy-Weinberg equilibrium . Rejection of Hardy-Weiberg equilibrium can be an indication of population substructure or genotyping errors. Given that we are performing a statistical test at every SNP, it is common to use a relatively lenient cut-off. In this example we only remove SNPs with p-values, corresponding to the HWE test statistic on CAD controls, of less than $1 \times 10^{-6}$. 
 
-```{r "code3.r"/code3-g, eval=FALSE}
+```{r "code3.r"/code3-g}
 ```
 
 ## Re-compute PCA
 
 Now that we have performed SNP and sample level quality control on our genotype data, we will calculate principal components to be included as covariates in the GWA models. These serve to adjust for any remaining substructure that may confound SNP level assocation.  As with Ancestry filtering we will calculate PCs using the `snpgdsPCA` function from **SNPRelate**, after performing LD pruning once again on the filtered genotype data set. In this example we will include the first 10 principal components in our models. 
 
-<<<<<<< HEAD
-```{r "code4.r"/code4-a, eval=FALSE}
-=======
+
 ```{r "code4.r"/code4-a}
->>>>>>> origin/master
 ```
 
 
 ## Imputation of SNPs
 
 In addition to the genotyped SNPs from our study, it is useful to
-<<<<<<< HEAD
-extend the analysis to other known SNPs, that were not typed or were removed by SNP level filtering. In this example we impute SNPs on chromosome 16, in which we will find SNP with the largest GWA signal (lowest p-value) after performing the GWA analysis on typed SNPs only.
+extend the analysis to other known SNPs, that were not typed or were removed by SNP level filtering. In this example we impute SNPs on chromosome 16.
 
-Performance of genotype imputation requires reference data, which has typed genotypes at the SNPs of interest, on a reasonably large sample from similar homogeneous population. Sources for this data include [HapMap](http://hapmap.ncbi.nlm.nih.gov/) and [1000 Genomes](http://www.1000genomes.org/data). 
+Performance of genotype imputation requires reference data, which has typed genotypes at the SNPs of interest from similar homogeneous sample. Sources for this data include [HapMap](http://hapmap.ncbi.nlm.nih.gov/) and [1000 Genomes](http://www.1000genomes.org/data). 
 
 For this example, we will use 1000 Genomes data, read in from *.ped* and*.info* using the `read.pedfile` in from **snpStats**. Note, that the *.info* file is similar to the *.map* file. To specify the column in the *.info* file with the SNP IDs, we use the `which` argument. 
-=======
-extend the analysis to other known SNPs in our region of interest
-(chromsome 16).  We retrieve additional SNPs by reading a PED file
-from the 1000 Genomes project.  Then we derive imputation "rules" for
-the additional SNPs that were not typed in our study using
-`snp.imputation` based on the haplotypes from the 1000 Genomes data.
-Each rule is a model for the distribution of the genotypes for each
-SNP based on the typed SNPs.  Using these rules, we impute the
-genotypes of the additional SNPs for the samples in our study.
->>>>>>> origin/master
 
-Next,  we derive imputation "rules" for
-the additional SNPs that were not typed in our study using
-`snp.imputation` based on the genotypes from the 1000 Genomes data.
-Each rule is a model for the distribution of the genotypes for each
-SNP based on the typed SNPs.  Using these rules, we calculate the expected posterior values for of the non-typed SNPs using the `impute` function.
+We derive imputation "rules" for the additional SNPs that were not typed in our study using `snp.imputation` based on the genotypes from the 1000 Genomes data. Each rule represents a predictive model for genotypes of untyped SNPs associated with near-by typed SNPs.  Using these rules, we can calculate the expected posterior value of the non-typed SNPs using the `impute` function from **SNPRelate**.
 
-In the last step we remove SNPs in which we fail to derive impuation "rules".  We also filter out SNPs that have low estimated minor allele frequency, and low imputation accuracy.  The latter is based on the $R^2$ value of the model estimated by the `snp.imputation` function. 
+In the last step we remove un-typed SNPs in which we fail to derive impuation "rules".  We also filter out SNPs that have low estimated minor allele frequency, and low imputation accuracy.  The latter is based on the $R^2$ value of the model estimated by the `snp.imputation` function. 
 
-```{r "code5.r"/code5-a, eval=FALSE}
+```{r "code5.r"/code5-a}
 ```
 
 ## Genome-wide association analysis
 
 Now that our data is loaded, filtered, and additional SNP genotypes
-imputed, we are ready to perform genome-wide association analysis.
+imputed we are ready to perform genome-wide association analysis.
 This involves regressing each SNP separately on a given trait,
-adjusted for sample level clinical,environmental, and demographic factors.  Due to the large number of SNPs and the generally uncharacterized relationships to the outcome, a simple single additive model will be employed.  
+adjusted for sample level clinical, environmental, and demographic factors.  Due to the large number of SNPs and the generally uncharacterized relationships to the outcome, a simple single additive model will be employed.  
 
-The `GWAA` function requires two arguments.  The `genodata` argument should specify the entire genotype data object in `snpMatrix` format.  The `phenodata` argument should be a data frame with a column of sample IDs, corresponding to the row names of `genodata`, and a columns for a continous outcome variable.  These columns must be named "id", and "phenotype" respectively.  In order to fit the model, genotype data is converted to `numeric` formatting using the `as` function from **snpStats**. The genotypes of each SNP are then coded as continuous which can take on the value of 0, 1, and 2. For this example we wish for the value of the genotype to reflect the number of minor alleles. However, following conversion to `numeric` format, our values will reflect the opposite. To fix this a `flip.matrix` procedure is included in our `GWAA` function, which can be turned on or off using the `flip` argument,.
+The `GWAA` function requires two arguments.  The `genodata` argument should specify the entire genotype data object in `SnpMatrix` format.  The `phenodata` argument should be a data frame with a column of sample IDs, corresponding to the row names of `genodata`, and a columns for the continous outcome variable.  These columns must be named "id" and "phenotype" respectively.  In order to fit the model, genotype data is converted to `numeric` format using the `as` function from **snpStats**. The genotypes of each SNP are then coded as continuous, thereby taking on the value of 0, 1, and 2. For this example, we wish for the value of the genotype to reflect the number of minor alleles. However, following conversion our values will reflect the opposite. To fix this a `flip.matrix` procedure is included in our `GWAA` function, which can be turned on or off using the `flip` argument,.
 
 Due to the large number of models that require fitting, the GWA
 analysis can be deployed in parallel across multiple processors or
 machines to reduce the running time.  Here we demonstrate two basic
-methods for performing parallel processing using the **doParallel** package.  This will be carried out differently depending on whether or not the analysis is run on a UNIX based system, though the arguments are the same.  The user can specify the number of proccesses using the `worker` argument (set to 2 by default).  Additional arguments include: `select.snps` in which the user can subset the analysis via a vector of SNP IDs, and `nSplits` which specifies the number of splits that are made to the genotype data, thereby running the GWA on smaller sets of SNPs, piece by piece (set to 100 by default).
+methods for performing parallel processing using the **doParallel** package.  This will be carried out differently depending on whether or not the analysis is run on a UNIX based system, though the arguments are the same.  The user can specify the number of proccesses using the `worker` argument (set to 2 by default).  Additional arguments include `select.snps` and `nSplits`. The former allows the user to subset the analysis via a vector of SNP IDs. The latter specifies a number of SNP-wise splits that are made to the genotype data.  The function runs the GWA analysis on these smaller subsets of the genotype data one at a time. After each subset has finished running the function will print a progress update onto the R console. By default this is set to 100. 
 
 ### GWAA function
 
-```{r "GWAA.R"/gwaa, eval=FALSE}
+```{r "GWAA.R"/gwaa}
 ```
 
 ### Phenotype data preparation
@@ -210,66 +185,27 @@ methods for performing parallel processing using the **doParallel** package.  Th
 First we create a data frame of phenotype features that is the
 concatenation of clinical features and the first ten principal
 components.  The HDL feature is normalized using a rank-based inverse
-<<<<<<< HEAD
 normal transform. We then remove variables that we are not including in the analysis, i.e. HDL(non-normalized), LDL, TG, and CAD. Finally, we remove samples with missing normalized HDL data. 
-=======
-normal transform.
->>>>>>> origin/master
 
 ```{r "code6.r"/code6-a}
 ```
 
 ### Parallel model fitting
 
-<<<<<<< HEAD
 Using this phenotype data, we perform model fitting on each of the typed
-SNPs (`genotype` object) in the study and write the results to a *.txt* file.
-=======
-Using this phenotype data, we perform model fitting on each of the
-SNPs genotyped in the study and write the results to a CSV file.
+SNPs in the`genotype` object and write the results to a *.txt* file.
 
 ```{r "code6.r"/code6-b}
 ```
 
-### Model fitting of non-typed SNPs using rules
+### Model fitting of non-typed SNPs
 
-We also perform association testing on the additional SNPs from the
-1000 Genomes project.  Instead of using a single imputed genotype
-value, we use the "rules" derived from the haplotype analysis, above.
-The resulting SNPs are combined with the chromosome position
-information to create a table of SNPs, location and score.
-
-```{r "code7.r"/code7-a}
-```
-
-### Mapping associated SNPs to genes
-
-Using a separate data file containing the chromosome and coordinate
-locations of each protein coding gene, we can locate coincident genes
-and SNPs with significant association p-values.
->>>>>>> origin/master
-
-We use the following function to extract the subset of SNPs that are
-near our gene of interest:
-
-```{r "map2gene.R"/map2gene}
-```
-
-And then we call the map2gene function for "CETP" and then filter the
-imputed genotypes to extract only those SNPs that are near CETP.
-
-```{r "code7.r"/code7-b}
-```
-
-### Model fitting of non-typed SNPs using rules
-
-We also perform association testing on additional SNPs from genotype imputation.  Instead of using a single imputed genotype
-value, we use the filtered set of "rules" derived from `snp.imputation`, using the `snp.rhs.tests` function from **snpStats**. Here, we need to specify the variables from the `phenoSub` data frame that we are including in the model with the rownames corresponding to the sample ID.
+We also perform association testing on additional SNPs from genotype imputation.  Here we use the`snp.rhs.tests` function from **snpStats** to perform the analysis based on the imputation "rules"" we calculated previousle. Here, we need to specify the variables from the `phenoSub` data frame that we are including in the model with row names corresponding to the sample IDs.
 
 The resulting SNPs are combined with the chromosome position
 information to create a table of SNPs, location and p-value. Finally, we take $-log_{10}$ of the p-value for plotting.
 
-```{r "code7.r"/code7-a, eval=FALSE}
+```{r "code7.r"/code7-a}
 ```
 
 ### Mapping associated SNPs to genes
@@ -281,29 +217,23 @@ and SNPs.
 We use the following function to extract the subset of SNPs that are
 near a gene of interest.
 
-```{r "map2gene.R"/map2gene, eval=FALSE}
+```{r "map2gene.R"/map2gene}
 ```
-The SNP with the lowest p-value in both the typed and imputed SNP analysis lies within the boundaries of the *cholesteryl ester transfer protein* gene, CETP. We can call the `map2gene` function for "CETP" and then filter the imputed genotypes to extract only those SNPs that are near CETP. This will come in handy for post-analytic interrogation to follow.
+The SNP with the lowest p-value in both the typed and imputed SNP analysis lies within the boundaries of the *cholesteryl ester transfer protein* gene, CETP. We can call the `map2gene` function for "CETP" to filter the imputed genotypes  and extract only those SNPs that are near CETP. This will be used for post-analytic interrogation to follow.
 
-```{r "code7.r"/code7-b, eval=FALSE}
+```{r "code7.r"/code7-b}
 ```
 
 ## Post-analytic visualization and genomic integration
 
 We now have generated and fit both typed and imputed genotypes.  The
 next step is to combine the results, and isolate just those SNPs in
-our region of interest.  Following similar steps as above for imputed
+our region of interest.  Following similar steps as for imputed
 steps, the typed SNPs are loaded from a file generated by the `GWAA`
-function and then we follow similar steps to attach chromosome and
-<<<<<<< HEAD
+function. We follow similar steps to attach chromosome and
 position to each SNP, order by significance, and take $-log_{10}$ of the p-value.
 
-```{r "code8.r"/code8-a, eval=FALSE}
-=======
-position to each SNP, order by significance.
-
 ```{r "code8.r"/code8-a}
->>>>>>> origin/master
 ```
 
 ### Isolate CETP-specific SNPs
@@ -312,47 +242,26 @@ The two tables of typed and imputed genotypes are combined into a
 single table.  In addition, we also concatenate just the SNPs near
 CETP and display them all here.
 
-<<<<<<< HEAD
-```{r "code8.r"/code8-b, eval=FALSE}
-=======
 ```{r "code8.r"/code8-b}
->>>>>>> origin/master
 ```
 
 ## Visualization and QC ##
 
 Several plots allow us both to visualize the GWA analysis findings
-while performing quality control checks.  Specifically, we are
-<<<<<<< HEAD
-interested in identifying data inconsistencies and potential systemic
+while performing quality control checks.  Specifically, we are interested in identifying data inconsistencies and potential systemic
 biases.
-=======
-interested in identifying data inconsistencies, potential systemic
-biases and redundancies of our findings with previously reported
-results.
->>>>>>> origin/master
 
 ### Manhattan plot ###
 
 Manhattan plots are used to visual GWA significant results by
-<<<<<<< HEAD
-chromosome location.  We will call the `GWAS_Manhattan` function to plot $-log_{10}$ of the p-value against SNP position, accross the entire set of typed and imputed SNPs.  The plot will show two horizontal lines.  The higher of the two is the commonly used "Bonferroni" adjusted significance cutoff of $-log_{10}(5 \times 10^{-8})$, while the lower is "less stringent" cutoff of $-log_{10}(5 \times 10^{-6})$
-```{r "GWAS_ManhattanFunction.R"/manhattan, eval=FALSE}
-```
-
-```{r "code9.r"/code9-a, eval=FALSE}
-```
-
-=======
-chromosome location.  We will use this function to plot a set of
-SNPs across the genome.
+chromosome location.  We will call the `GWAS_Manhattan` function to plot $-log_{10}$ of the p-value against SNP position accross the entire set of typed and imputed SNPs.  The plot will show two horizontal lines.  The higher of the two is the commonly used "Bonferroni" adjusted significance cut-off of $-log_{10}(5 \times 10^{-8})$, while the lower is "less stringent" cut-off of $-log_{10}(5 \times 10^{-6})$.  Typed and imputed SNPs will be represented by black and red, respectively. We highlight typed SNPs that have surpassed the "less stringent" cut-off in blue and label.
 
 ```{r "GWAS_ManhattanFunction.R"/manhattan}
 ```
 
 ```{r "code9.r"/code9-a}
 ```
->>>>>>> origin/master
+
 
 ### Quantile-quantile plots and the $\lambda$-statistic ### 
 
@@ -360,23 +269,13 @@ Q-Q plots are used to visualize the relationship between the expected
 and observed distributions of SNP level test statistics.  Here we
 compare these statistics for the unadjusted model (left) compared with
 the model adjusted for confounders by incorporating the first ten
-<<<<<<< HEAD
 principal components along with clinical covariates.
 
 A new set of models is generated with only the phenotype (HDL) and no
 additional factors.  The results are plotted using the **GenABEL**
 package's `estlambda` function.
 
-```{r "code9.r"/code9-b, eval=FALSE}
-=======
-principal compoents along with sex, age and CAD.
-
-A new set of models is generated with only the phenotype (HDL) and no
-additional factors.  The results are plotted using the `GenABEL`
-package's `estlambda` function.
-
 ```{r "code9.r"/code9-b}
->>>>>>> origin/master
 ```
 
 We see here that the tail of the distribution is brough closer to the
@@ -401,10 +300,6 @@ SNP from our analysis and other SNPs near CETP.  The darker shading
 indicates higher LD.  The plot also includes $-log_{10}(p)$ values to
 illustrate their connection with physical location.
 
-<<<<<<< HEAD
-```{r "code9.r"/code9-c, eval=FALSE}
-=======
 ```{r "code9.r"/code9-c}
->>>>>>> origin/master
 ```
 
