@@ -5,7 +5,7 @@
 
 GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
                  append=FALSE, workers=getOption("mc.cores",2L), flip=TRUE,
-                 select.snps=NULL, hosts=NULL, nSplits=100)
+                 select.snps=NULL, hosts=NULL, nSplits=10)
 {
     if (!require(doParallel)) { stop("Missing doParallel package") }
     
