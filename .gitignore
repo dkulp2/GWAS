@@ -22,3 +22,5 @@ cache
 *.Rout
 
 R/Rplots.pdf
+
+*.md
