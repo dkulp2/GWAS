@@ -18,7 +18,7 @@ In the steps to follow we begin by demonstrating a method for downloading necess
 
 This tutorial utlizes several packages available from [Bioconductor](http://www.bioconductor.org/), an open-soure bioinformatic software repository. Of these, we make the most use of [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html), which includes functions to read in various formats of genotype data, carry out quality control, imputation and association analysis. [**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html) is also well utilized and includes functions for sample level quality control, and computationally efficient principal component calculation. Other packages include funtionality for data visualization ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html), [**ggplot2**](http://ggplot2.org/), [**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html)), data manipulation and analysis ([**plyr**](http://plyr.had.co.nz/)), and parallel processing ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
 
-```{r "code0.r"/code0}
+```{r "code0.r"/code0, eval=FALSE}
 ```
 
 ## Configuring global parameters
