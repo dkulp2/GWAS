@@ -85,11 +85,16 @@ SNPs in the`genotype` object and write the results to a *.txt* file.
 ```{r "code7.r"/code7, echo=FALSE}
 ```
 
-We also perform association testing on the additional SNPs from the
-1000 Genomes project.  Instead of using a single imputed genotype
-value, we use the "rules" derived from the haplotype analysis, above.
+We also perform association testing on additional SNPs from genotype
+imputation.  Here we use the`snp.rhs.tests` function from **snpStats**
+to perform the analysis based on the imputation "rules" we calculated
+previously. We need to specify the variables from the `phenoSub`
+data frame that we are including in the model with row names
+corresponding to the sample IDs.
+
 The resulting SNPs are combined with the chromosome position
-information to create a table of SNPs, location and score.
+information to create a table of SNPs, location and p-value. Finally,
+we take $-log_{10}$ of the p-value for plotting.
 
 ```{r "code7.r"/code7-a}
 ```
@@ -98,7 +103,7 @@ information to create a table of SNPs, location and score.
 
 Using a separate data file containing the chromosome and coordinate
 locations of each protein coding gene, we can locate coincident genes
-and SNPs with significant association p-values.
+and SNPs.
 
 We use the following function to extract the subset of SNPs that are
 near a gene of interest.
