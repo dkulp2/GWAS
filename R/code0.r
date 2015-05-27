@@ -4,7 +4,6 @@
 source("http://bioconductor.org/biocLite.R")
 biocLite("snpStats")
 biocLite("SNPRelate")
-biocLite("chopsticks")
 biocLite("rtracklayer")
 install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel', 'ggplot2'))
 

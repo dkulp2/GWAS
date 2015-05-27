@@ -21,4 +21,3 @@ impute.out.fname <- sprintf("%s/GWAStutorial_imputationOut.csv", out.dir)
 protein.coding.coords.fname <- sprintf("%s/ProCodgene_coords.csv", out.dir)
 CETP.fname <- sprintf("%s/CETP_GWASout.csv", out.dir)
 
-hapmap.url <- "ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2009-01_phaseIII/hapmap_format/polymorphic/genotypes_chr%s_CEU_phase3.2_nr.b36_fwd.txt.gz"
