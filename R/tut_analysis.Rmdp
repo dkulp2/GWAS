@@ -15,19 +15,42 @@ knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 # Genome-wide association analysis
 
 Now that our data is loaded, filtered, and additional SNP genotypes
-imputed, we are ready to perform genome-wide association analysis.
+imputed we are ready to perform genome-wide association analysis.
 This involves regressing each SNP separately on a given trait,
-adjusted for patient level clinical, demographic and environmental
+adjusted for sample level clinical, environmental, and demographic
 factors.  Due to the large number of SNPs and the generally
 uncharacterized relationships to the outcome, a simple single additive
-model will be employed.  A Bonferonni corrected significant threshold
-of $5 x 10^-8$ is used to control for family-wide error rate.
+model will be employed.
+
+The `GWAA` function requires two arguments.  The `genodata` argument
+should specify the entire genotype data object in `SnpMatrix` format.
+The `phenodata` argument should be a data frame with a column of
+sample IDs, corresponding to the row names of `genodata`, and a
+columns for the continous outcome variable.  These columns must be
+named "id" and "phenotype" respectively.  In order to fit the model,
+genotype data is converted to `numeric` format using the `as` function
+from **snpStats**. The genotypes of each SNP are then coded as
+continuous, thereby taking on the value of 0, 1, and 2. For this
+example, we wish for the value of the genotype to reflect the number
+of minor alleles. However, following conversion our values will
+reflect the opposite. To fix this a `flip.matrix` procedure is
+included in our `GWAA` function, which can be turned on or off using
+the `flip` argument,.
 
 Due to the large number of models that require fitting, the GWA
 analysis can be deployed in parallel across multiple processors or
 machines to reduce the running time.  Here we demonstrate two basic
-methods for performing parallel processing using the *doParallel*.
-These approaches are demonstrated in the function GWAA:
+methods for performing parallel processing using the **doParallel**
+package.  This will be carried out differently depending on whether or
+not the analysis is run on a UNIX based system, though the arguments
+are the same.  The user can specify the number of proccesses using the
+`worker` argument (set to 2 by default).  Additional arguments include
+`select.snps` and `nSplits`. The former allows the user to subset the
+analysis via a vector of SNP IDs. The latter specifies a number of
+SNP-wise splits that are made to the genotype data.  The function runs
+the GWA analysis on these smaller subsets of the genotype data one at
+a time. After each subset has finished running the function will print
+a progress update onto the R console. By default this is set to 10.
 
 ## GWAA function
 
@@ -36,18 +59,20 @@ These approaches are demonstrated in the function GWAA:
 
 ## Phenotype data preparation
 
-First we create a data.frame of phenotype features that is the
+First we create a data frame of phenotype features that is the
 concatenation of clinical features and the first ten principal
 components.  The HDL feature is normalized using a rank-based inverse
-normal transform.
+normal transform. We then remove variables that we are not including
+in the analysis, i.e. HDL(non-normalized), LDL, TG, and CAD. Finally,
+we remove samples with missing normalized HDL data.
 
 ```{r "code6.r"/code6-a}
 ```
 
 ## Parallel model fitting
 
-Using this phenotype data, we perform model fitting on each of the
-SNPs genotyped in the study and write the results to a CSV file.
+Using this phenotype data, we perform model fitting on each of the typed
+SNPs in the`genotype` object and write the results to a *.txt* file.
 
 ```{r "code6.r"/code6-b}
 ```
@@ -55,7 +80,7 @@ SNPs genotyped in the study and write the results to a CSV file.
 ```{r "code6.r"/code6-end, echo=FALSE}
 ```
 
-## Model fitting of non-typed SNPs using rules
+## Model fitting of non-typed SNPs
 
 ```{r "code7.r"/code7, echo=FALSE}
 ```
@@ -76,13 +101,16 @@ locations of each protein coding gene, we can locate coincident genes
 and SNPs with significant association p-values.
 
 We use the following function to extract the subset of SNPs that are
-near our gene of interest:
+near a gene of interest.
 
 ```{r "map2gene.R"/map2gene}
 ```
 
-And then we call the map2gene function for "CETP" and then filter the
-imputed genotypes to extract only those SNPs that are near CETP.
+The SNP with the lowest p-value in both the typed and imputed SNP
+analysis lies within the boundaries of the *cholesteryl ester transfer
+protein* gene, CETP. We can call the `map2gene` function for "CETP" to
+filter the imputed genotypes and extract only those SNPs that are near
+CETP. This will be used for post-analytic interrogation to follow.
 
 ```{r "code7.r"/code7-b}
 ```

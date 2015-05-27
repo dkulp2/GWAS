@@ -44,18 +44,17 @@ This tutorial utlizes several packages available from
 bioinformatic software repository. Of these, we make the most use of
 [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html),
 which includes functions to read in various formats of genotype data,
-and carry out quality control, imputation and association analysis, as
-well as
-[**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html),
-which include functions for sample level quality control, and
-computationally efficient principal component calculation. Other
-packages include funtionality for data visualization
+carry out quality control, imputation and association
+analysis. [**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html)
+is also well utilized and includes functions for sample level quality
+control, and computationally efficient principal component
+calculation. Other packages include funtionality for data
+visualization
 ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html),
-[**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html),
-[**ggplot2**](http://ggplot2.org/)), data manipulation
-([**plyr**](http://plyr.had.co.nz/),
-[**GenABEL**](http://www.genabel.org/packages/GenABEL)), and parallel
-processing
+[**ggplot2**](http://ggplot2.org/),
+[**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html)),
+data manipulation and analysis ([**plyr**](http://plyr.had.co.nz/)),
+and parallel processing
 ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
 
 
