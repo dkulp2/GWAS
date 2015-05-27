@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load data created in previous snippets
-load(working.data.fname)
+load(working.data.fname(3))
 
 library(SNPRelate)                      # for LD, PCA
 
@@ -39,4 +39,4 @@ print(head(pcs))
 closefn.gds(genofile)
 
 # Store pcs for future reference with the rest of the derived data
-save(genotype, genoBim, clinical, pcs, file=working.data.fname)
+save(genotype, genoBim, clinical, pcs, file=working.data.fname(4))

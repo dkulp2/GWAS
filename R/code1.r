@@ -38,4 +38,4 @@ print(genotype)  # Tutorial: All 1401 subjects contain both clinical and genotyp
 # ---- code1-end ----
 
 # Write genotype, genoBim, clinical for future use
-save(genotype, genoBim, clinical, file = working.data.fname)
+save(genotype, genoBim, clinical, file = working.data.fname(1))

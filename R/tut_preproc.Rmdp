@@ -1,0 +1,187 @@
+---
+title: "Data Pre-processing: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
+author: "Eric Reed, et al"
+date: "May 12, 2015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
+```
+
+# Data pre-processing
+
+```{r "code1.r"/code1, echo=FALSE}
+```
+
+For this tutorial we use genotype data files formatted for use with
+[PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/) software.  We
+utilize the function, `read.plink`, from **snpStats**, which allows
+the reading in of data formatted as *.bed*, *.bim*, and *.fam* files.
+The *.bed* file contains the genotype information, coded in binary.
+The *.bim* file contains information for each SNP with a respective
+column for each of the following information: chromosome number, SNP
+name (typically an rs #), genetic distance (not necessary for this
+tutorial), chromosomal position, identity of allele 1, and identity of
+allele 2. The assignment of allele 1 and allele 2, pertains to the
+effect allele, or which allele is being counted when we assign a
+numeric value to a genotype. This is typically assigned based on
+allele frequency, though not always. In this tutorial allele 1
+pertains to the minor, or less common, allele. Lastly, the *.fam* file
+contains information for each sample with a respective column for each
+of the following information: family ID (this will be used to identify
+each subject when read into R), individual ID, paternal ID, maternal
+ID, sex (coded as 1 = male and 2 = female), and phenotype (note: in
+this tutorial we utilize a supplemental clinical file for outcome
+variables and additional covariates).
+
+Alternatively, similar genotype information can also be formatted for
+PLINK software as *.ped* and *map* files.  The information of the
+*.ped* file can be thought of as a combination of the *.bed* and
+*.fam* files. It is a large table with the first six columns,
+identical to a *.fam* file, followed a column with the genotype data
+for each SNP. The *.map* file contains the first the first four
+columns of the *.bim* file, without the allele assignments.  These
+files can be read in using the function, `read.pedfile`, from
+**snpStats**.
+
+
+```{r "code1.r"/code1-a}
+```
+
+The `geno` object contains a `genotype` member of type `snpMatrix`
+where each column is a SNP and each row is a sample.  For convenience,
+we assign that to the object, `genotype`. Within this object
+individual genotypes are assigned in the `snpMatrix` specific `RAW`
+format. `geno` also contains the information from the *.bim* file
+within the `map` member that we assign to `genoBim`.
+
+```{r "code1.r"/code1-b}
+```
+
+Supplemental clinical data is found in a corresponding CSV file for
+each sample. It contains a column for the subject ID (Family ID in the
+*.fam* file) and a respective column for each of the following
+variables: coronary artery disease status (coded as 0 = control and 1
+= affected), sex (coded as 1 = male, 2 = female), age (years),
+triglyceride level (mg/dL), high-density lipoprotein level (mg/dL),
+low-density lipoprotein level (mg/dL).
+
+```{r "code1.r"/code1-c}
+```
+
+We filter the genotype data to only include samples with corresponding
+clinical data by indexing the `SnpMatrix` using the sample IDs, which
+match the row names.
+
+```{r "code1.r"/code1-d}
+```
+
+```{r "code1.r"/code1-end}
+```
+
+## SNP level filtering
+
+```{r "code2.r"/code2}
+```
+
+Once the data is loaded, we are ready to remove SNPs that fail to meet
+minimum criteria due to missing data, low variability or genotyping
+errors.  **snpStats** provides `col.summary` and `row.summary` functions
+that return statistics on SNPs and samples, respectively.
+
+```{r "code2.r"/code2-a}
+```
+Using these summary statistics, we keep the subset of SNPs that our
+criteria for minimum call rate and minor allele frequency.
+
+```{r "code2.r"/code2-b}
+```
+
+```{r "code2.r"/code2-end, echo=FALSE}
+```
+
+## Sample level filtering
+
+```{r "code3.r"/code3, echo=FALSE}
+```
+
+The second stage of data pre-processing involves filtering samples,
+i.e. removing individuals due to missing data, sample contamination,
+correlation (for population-based investigations) and racial/ethnic or
+gender ambiguity or discordance.  In our study, we address these
+issues by filtering on call rate, heterozygosity, cryptic relatednes
+and duplicates using identity-by-descent, and we visually assess
+ancestry.
+
+### Basic sample filtering
+
+Sample level quality control for missing data and heterozygosity is
+achieved using the `row.summary` function from **snpStats**.  An
+additional heterozygosity F statistic calculation is carried out with
+the form, $|F|=(1-O/E)$, where $O$ is observed proportion of
+heterozygous genotypes for a given sample and $E$ is the expected
+proportion of heterozygous genotypes for a given sample based on the
+minor allele frequency accross all non-missing SNPs for a given
+sample.
+
+```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row'}
+```
+
+We apply filtering on call rate and heterozygosity, selecting only 
+those samples that meet our criteria.
+
+```{r "code3.r"/code3-b}
+```
+
+### IBD analysis
+
+In addition to these summary statistics, we also want to filter on
+relateness criteria.  We use the **SNPRelate** package to perform
+identity-by-descent (IBD) analysis.  This package requires that the
+data be transformed into a *GDS* format file.  IBD analysis is
+performed on only a subset of SNPs that are in linkage equilibrium by
+iteratively removing adjacent SNPs that exceed an LD threshold in a
+sliding window (function `snpgdsLDpruning`).
+
+```{r "code3.r"/code3-c}
+```
+
+The `snpgdsIBDMoM` function computes the IBD coefficients using method
+of moments.  The result is a table indicating kinship among pairs of
+samples.
+
+```{r "code3.r"/code3-d}
+```
+
+Using the IBD pairwise sample relatedness measure, we iteratively
+remove samples that are too similar using a greedy strategy in which
+the sample with the largest number of related samples is removed.  The
+process is repeated until there are no more pairs of samples with
+kinship coefficients above our cut-off.
+
+```{r "code3.r"/code3-e}
+```
+
+### Ancestry
+
+To better understand ancestry, we plot the first two principal
+components of the genotype data.  It is important to note that this
+example we are reasonably confident that our samples are homogeneous,
+coming from european ancestry. Therefore, given that there are no
+clear outliers we fail to remove any samples.
+
+```{r "code3.r"/code3-f, fig.align='center'}
+```
+
+## SNP Filtering - HWE filtering on control samples
+
+Finally, once samples are filtered, we return to SNP level filtering
+and apply a check of Hardy-Weinberg equilibrium for just the study
+controlsand remove those that exceed our cut-off.
+
+```{r "code3.r"/code3-g}
+```
+
+```{r "code3.r"/code3-end, echo=FALSE}
+```

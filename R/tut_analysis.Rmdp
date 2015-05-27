@@ -1,0 +1,92 @@
+---
+title: "Analysis: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
+author: "Eric Reed, et al"
+date: "May 12, 2015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
+```
+
+```{r "code6.r"/code6, echo=FALSE}
+```
+
+# Genome-wide association analysis
+
+Now that our data is loaded, filtered, and additional SNP genotypes
+imputed, we are ready to perform genome-wide association analysis.
+This involves regressing each SNP separately on a given trait,
+adjusted for patient level clinical, demographic and environmental
+factors.  Due to the large number of SNPs and the generally
+uncharacterized relationships to the outcome, a simple single additive
+model will be employed.  A Bonferonni corrected significant threshold
+of $5 x 10^-8$ is used to control for family-wide error rate.
+
+Due to the large number of models that require fitting, the GWA
+analysis can be deployed in parallel across multiple processors or
+machines to reduce the running time.  Here we demonstrate two basic
+methods for performing parallel processing using the *doParallel*.
+These approaches are demonstrated in the function GWAA:
+
+## GWAA function
+
+```{r "GWAA.R"/gwaa}
+```
+
+## Phenotype data preparation
+
+First we create a data.frame of phenotype features that is the
+concatenation of clinical features and the first ten principal
+components.  The HDL feature is normalized using a rank-based inverse
+normal transform.
+
+```{r "code6.r"/code6-a}
+```
+
+## Parallel model fitting
+
+Using this phenotype data, we perform model fitting on each of the
+SNPs genotyped in the study and write the results to a CSV file.
+
+```{r "code6.r"/code6-b}
+```
+
+```{r "code6.r"/code6-end, echo=FALSE}
+```
+
+## Model fitting of non-typed SNPs using rules
+
+```{r "code7.r"/code7, echo=FALSE}
+```
+
+We also perform association testing on the additional SNPs from the
+1000 Genomes project.  Instead of using a single imputed genotype
+value, we use the "rules" derived from the haplotype analysis, above.
+The resulting SNPs are combined with the chromosome position
+information to create a table of SNPs, location and score.
+
+```{r "code7.r"/code7-a}
+```
+
+## Mapping associated SNPs to genes
+
+Using a separate data file containing the chromosome and coordinate
+locations of each protein coding gene, we can locate coincident genes
+and SNPs with significant association p-values.
+
+We use the following function to extract the subset of SNPs that are
+near our gene of interest:
+
+```{r "map2gene.R"/map2gene}
+```
+
+And then we call the map2gene function for "CETP" and then filter the
+imputed genotypes to extract only those SNPs that are near CETP.
+
+```{r "code7.r"/code7-b}
+```
+
+```{r "code7.r"/code7-end, echo=FALSE}
+```
+

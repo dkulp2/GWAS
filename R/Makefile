@@ -11,16 +11,18 @@ RSCRIPT = rscript
 R = R
 RBATCH = $(R) CMD BATCH
 
-SRC=tutorial.Rmdp
+SRC=tut_intro.Rmdp tut_preproc.Rmdp tut_generation.Rmdp tut_analysis.Rmdp tut_post.Rmdp
 RMD=$(SRC:.Rmdp=.Rmd)
 HTML=$(SRC:.Rmdp=.html)
 
 RCODE=code0.r code1.r code2.r code3.r code4.r code5.r code6.r code7.r code8.r code9.r
 RTEST=$(RCODE:.r=.r.Rout)
 
-.PHONY: all
+.PHONY: all tutorial
 all:	$(RMD)
 	@echo "Now process $(RMD) in Rstudio or run 'make tutorial.html' to approximate Rstudio's output"
+
+tutorial:	$(HTML)
 
 %.Rmd : %.Rmdp
 	$(PERL) rmd-inline.pl $< > $@

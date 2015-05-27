@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load data derived in previous snippets
-load(working.data.fname)
+load(working.data.fname(7))
 
 library(plyr)
 source("map2gene.R")
@@ -44,4 +44,4 @@ print(CETP)
 write.csv(CETP, CETP.fname, row.names=FALSE) # save for future use
 
 save(genotype, clinical, pcs, imputed, target, rules, phenoSub, support, genes,
-     impCETP, impCETPgeno, imputeOut, GWASout, GWAScomb, CETP, file=working.data.fname)
+     impCETP, impCETPgeno, imputeOut, GWASout, GWAScomb, CETP, file=working.data.fname(8))

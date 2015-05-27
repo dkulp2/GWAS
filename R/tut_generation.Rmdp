@@ -1,0 +1,47 @@
+---
+title: "Generation: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
+author: "Eric Reed, et al"
+date: "May 12, 2015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
+```
+
+```{r "code4.r"/code4, echo=FALSE}
+```
+
+# Generation
+
+## Re-compute PCA
+
+With our final set of filtered SNPs and samples, we recompute the
+principal components again to be used in later model fitting.
+
+```{r "code4.r"/code4-a}
+```
+
+```{r "code4.r"/code4-end, echo=FALSE}
+```
+
+## Imputation of SNPs
+
+```{r "code5.r"/code5, echo=FALSE}
+```
+
+In addition to the genotyped SNPs from our study, it is useful to
+extend the analysis to other known SNPs in our region of interest
+(chromsome 16).  We retrieve additional SNPs by reading a PED file
+from the 1000 Genomes project.  Then we derive imputation "rules" for
+the additional SNPs that were not typed in our study using
+`snp.imputation` based on the haplotypes from the 1000 Genomes data.
+Each rule is a model for the distribution of the genotypes for each
+SNP based on the typed SNPs.  Using these rules, we impute the
+genotypes of the additional SNPs for the samples in our study.
+
+```{r "code5.r"/code5-a}
+```
+
+```{r "code5.r"/code5-end, echo=FALSE}
+```

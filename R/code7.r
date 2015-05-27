@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load derived data from previous snippets
-load(working.data.fname)
+load(working.data.fname(6))
 
 library(snpStats)
 library(plyr)
@@ -49,5 +49,5 @@ impCETPgeno <- imputed[, impCETP$SNP ]
 
 # ---- code7-end ----
 save(genotype, genoBim, clinical, pcs, imputed, target, rules,
-     phenoSub, support, genes, impCETP, impCETPgeno, imputeOut, file = working.data.fname)
+     phenoSub, support, genes, impCETP, impCETPgeno, imputeOut, file = working.data.fname(7))
 

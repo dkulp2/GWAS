@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load data created in previous snippets
-load(working.data.fname)     # loads genotype, genoBim and clinical
+load(working.data.fname(4))     # loads genotype, genoBim and clinical
 
 library(snpStats)
 
@@ -74,5 +74,4 @@ rm(missing)
 rm(present)
 
 # Add new imputed, target and rules data to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=working.data.fname)
-
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=working.data.fname(5))

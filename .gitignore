@@ -24,3 +24,5 @@ cache
 R/Rplots.pdf
 
 *.md
+
+*.Rmd
