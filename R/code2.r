@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load data created in previous snippet
-load(working.data.fname)
+load(working.data.fname(1))
 
 library(snpStats)
 
@@ -33,4 +33,4 @@ print(genotype)                           # 658186 SNPs remain
 # ---- code2-end ----
 
 # Write subsetted genotype data and derived results for future use
-save(genotype, snpsum.col, genoBim, clinical, file=working.data.fname)
+save(genotype, snpsum.col, genoBim, clinical, file=working.data.fname(2))

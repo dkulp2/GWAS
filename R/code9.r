@@ -10,7 +10,7 @@ library(plyr)
 source("GWAS_ManhattanFunction.R")
 
 # load derived data from previous snippets
-load(working.data.fname)
+load(working.data.fname(8))
 
 par(mfrow=c(1,1))
 

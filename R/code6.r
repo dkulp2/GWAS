@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load derived data from previous snippets
-load(working.data.fname)
+load(working.data.fname(5))
 
 library(snpStats)
 library(plyr)
@@ -51,4 +51,4 @@ print(end-start)
 # ---- code6-end ----
 
 # Add phenosub to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=working.data.fname)
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=working.data.fname(6))

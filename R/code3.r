@@ -4,7 +4,7 @@
 source("globals.R")
 
 # load data created in previous snippets
-load(working.data.fname)
+load(working.data.fname(2))
 
 library(snpStats)
 
@@ -139,4 +139,4 @@ print(genotype)                           # 656890 SNPs remain
 closefn.gds(genofile)
 
 # Overwrite old genotype with new filtered version
-save(genotype, genoBim, clinical, file=working.data.fname)
+save(genotype, genoBim, clinical, file=working.data.fname(3))

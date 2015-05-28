@@ -13,11 +13,15 @@ clinical.fn <- sprintf("%s/GWAStutorial_clinical.csv", data.dir)
 onethou.fn = lapply(c(info='info',ped='ped'), function(n) sprintf("%s/chr16_1000g_CEU.%s", data.dir, n))
 
 # Output files
-working.data.fname <- sprintf("%s/subsetted_genotype.RData",out.dir)
 
 gwaa.fname <- sprintf("%s/GWAStutorialout.txt", out.dir)
 gwaa.unadj.fname <- sprintf("%s/GWAStutorialoutUnadj.txt", out.dir)
 impute.out.fname <- sprintf("%s/GWAStutorial_imputationOut.csv", out.dir)
 protein.coding.coords.fname <- sprintf("%s/ProCodgene_coords.csv", out.dir)
 CETP.fname <- sprintf("%s/CETP_GWASout.csv", out.dir)
+
+# Working data saved between each code snippet so each can run independently.
+# Use save(data, file=working.data.fname(num))
+working.data.fname <- function(num) { sprintf("%s/working.%s.Rdata", out.dir, num) }
+
 
