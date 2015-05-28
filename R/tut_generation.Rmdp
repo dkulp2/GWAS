@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code4.r"/code4, echo=FALSE}
+```{r "code4.r"/code4, echo=FALSE, message=FALSE}
 ```
 
 # Generation
@@ -22,8 +22,8 @@ as covariates in the GWA models. These serve to adjust for any
 remaining substructure that may confound SNP level assocation.  As
 with Ancestry filtering we will calculate PCs using the `snpgdsPCA`
 function from **SNPRelate**, after performing LD pruning once again on
-the filtered genotype data set. In this example we will include the
-first 10 principal components in our models.
+the filtered genotype data set. In this example, we will include the
+first 10 principal components in GWA models.
 
 ```{r "code4.r"/code4-a}
 ```
@@ -38,7 +38,7 @@ first 10 principal components in our models.
 
 In addition to the genotyped SNPs from our study, it is useful to
 extend the analysis to other known SNPs, that were not typed or were
-removed by SNP level filtering. In this example we impute SNPs on
+removed by SNP level filtering. In this example, we impute SNPs on
 chromosome 16.
 
 Performance of genotype imputation requires reference data, which has

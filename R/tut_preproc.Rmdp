@@ -36,11 +36,11 @@ this tutorial we utilize a supplemental clinical file for outcome
 variables and additional covariates.
 
 Alternatively, similar genotype information can also be formatted for
-PLINK software as *.ped* and *map* files.  The information of the
+PLINK software as *.ped* and *.map* files.  The information of the
 *.ped* file can be thought of as a combination of the *.bed* and
 *.fam* files. It is a large table with the first six columns identical
 to a *.fam* file, followed by a columns containing the genotype data
-for each SNP. The *.map* file contains the first the first four
+for each SNP. The *.map* file contains the first four
 columns of the *.bim* file, without the allele assignments.  These
 files can be read in using the function, `read.pedfile`, from
 **snpStats**.  More information about the formatting of these files
@@ -53,8 +53,7 @@ The `geno` object contains a `genotype` member of type `SnpMatrix`
 where each column is a SNP and each row is a sample.  For convenience,
 we assign that to the object, `genotype`. Within this object
 individual genotypes are assigned in the `SnpMatrix` specific `RAW`
-format. `geno` also contains the SNP information from the *.bim* file
-within the `map` member that we assign to `genoBim`.
+format. As a result, many functions dependent on the **snpStats** package specifically require `SnpMatrix` objects, while more basic functions will require conversion to other formats. `geno` also contains the SNP information from the *.bim* file within the `map` member that we assign to `genoBim`.
 
 ```{r "code1.r"/code1-b}
 ```
@@ -110,7 +109,7 @@ our criteria for minimum call rate and minor allele frequency.
 
 The second stage of data pre-processing involves filtering samples,
 i.e. removing individuals due to missing data, sample contamination,
-correlation (for population-based investigations) and racial/ethnic or
+correlation (for population-based investigations), and racial/ethnic or
 gender ambiguity or discordance.  In our study, we address these
 issues by filtering on call rate, heterozygosity, cryptic relatednes
 and duplicates using identity-by-descent, and we visually assess
@@ -172,7 +171,7 @@ components of the genotype data.  Principal component calculation is
 achieved via the `snpgdsPCA` function from **SNPRelate**.  It is
 important to note that in this example we are reasonably confident
 that our samples are homogeneous, coming from european
-ancestry. Therefore, given that there are no clear outliers we fail to
+ancestry. Therefore, given that there are no clear outliers, we fail to
 remove any samples.
 
 ```{r "code3.r"/code3-f, fig.align='center'}
