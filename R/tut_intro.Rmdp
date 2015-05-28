@@ -53,7 +53,7 @@ visualization
 ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html),
 [**ggplot2**](http://ggplot2.org/),
 [**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html)),
-data manipulation and analysis ([**plyr**](http://plyr.had.co.nz/)),
+data manipulation ([**plyr**](http://plyr.had.co.nz/)),
 and parallel processing
 ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
 
@@ -67,6 +67,8 @@ We first attempt to isolate most of the variable parameters used in
 the data processing and analysis.  Of particular note, users should
 set the location of the GWA data set.  Other variables here specify
 input and output.
+
+We enter `save(..., file = working.data.fname(X))`, specifying R objects we wish to save and a number in place of X. This will create the file, *working.X.Rdata*. To save the whole workspace we can enter `save(file = working.data.fname(X))`.
 
 ```{r "globals.R"/globals}
 ```

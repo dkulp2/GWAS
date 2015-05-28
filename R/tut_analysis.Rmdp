@@ -27,7 +27,7 @@ should specify the entire genotype data object in `SnpMatrix` format.
 The `phenodata` argument should be a data frame with a column of
 sample IDs, corresponding to the row names of `genodata`, and a
 columns for the continous outcome variable.  These columns must be
-named "id" and "phenotype" respectively.  In order to fit the model,
+named "id" and "phenotype", respectively.  In order to fit the model,
 genotype data is converted to `numeric` format using the `as` function
 from **snpStats**. The genotypes of each SNP are then coded as
 continuous, thereby taking on the value of 0, 1, and 2. For this
@@ -35,7 +35,7 @@ example, we wish for the value of the genotype to reflect the number
 of minor alleles. However, following conversion our values will
 reflect the opposite. To fix this a `flip.matrix` procedure is
 included in our `GWAA` function, which can be turned on or off using
-the `flip` argument,.
+the `flip` argument.
 
 Due to the large number of models that require fitting, the GWA
 analysis can be deployed in parallel across multiple processors or
