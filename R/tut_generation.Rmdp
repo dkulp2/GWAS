@@ -1,8 +1,8 @@
 ---
-title: "Tutorial on genome-wide association analysis and post-analytic interrogation"
-
+title: "GWA analysis and post-analytic interrogation with R"
 output: html_document
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
@@ -11,9 +11,9 @@ knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```{r "code4.r"/code4, echo=FALSE, message=FALSE}
 ```
 
-# New data generation
+## New data generation
 
-## Re-compute PCA
+### Re-compute PCA
 
 Now that we have performed SNP and sample level quality control on our
 genotype data, we will calculate principal components to be included
@@ -30,7 +30,7 @@ first 10 principal components in GWA models.
 ```{r "code4.r"/code4-end, echo=FALSE}
 ```
 
-## Imputation of SNPs
+### Imputation of SNPs
 
 ```{r "code5.r"/code5, echo=FALSE}
 ```
