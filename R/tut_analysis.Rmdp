@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code6.r"/code6, echo=FALSE}
+```{r "code6.r"/code6, echo=FALSE, include=FALSE}
 ```
 
 ## Genome-wide association analysis
