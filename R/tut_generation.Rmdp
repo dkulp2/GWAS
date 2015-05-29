@@ -1,7 +1,6 @@
 ---
-title: "Generation: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
-author: "Eric Reed, et al"
-date: "May 12, 2015"
+title: "Tutorial on genome-wide association analysis and post-analytic interrogation"
+
 output: html_document
 ---
 
@@ -12,7 +11,7 @@ knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```{r "code4.r"/code4, echo=FALSE, message=FALSE}
 ```
 
-# Generation
+# New data generation
 
 ## Re-compute PCA
 
