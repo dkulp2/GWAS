@@ -66,7 +66,7 @@ normal transform. We then remove variables that we are not including
 in the analysis, i.e. HDL(non-normalized), LDL, TG, and CAD. Finally,
 we remove samples with missing normalized HDL data.
 
-```{r "code6.r"/code6-a}
+```{r "code6.r"/code6-a, fig.align='center'}
 ```
 
 ## Parallel model fitting

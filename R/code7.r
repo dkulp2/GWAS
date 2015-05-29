@@ -39,10 +39,11 @@ print(head(imputeOut))
 
 # ---- code7-b ----
 # Read in file containing protein coding genes coords
-genes <- read.csv(protein.coding.coords.fname)
+genes <- read.csv(protein.coding.coords.fname, stringsAsFactors = FALSE)
 
 # Subset for CETP SNPs
 impCETP <- map2gene("CETP", coords = genes, SNPs = imputeOut)
+impCETP$SNP <- as.character(impCETP$SNP)
 
 # Filter only the imputed CETP SNP genotypes 
 impCETPgeno <- imputed[, impCETP$SNP ]
