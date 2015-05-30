@@ -1,7 +1,5 @@
 ---
-title: "Analysis: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
-author: "Eric Reed, et al"
-date: "May 12, 2015"
+title: "GWA analysis and post-analytic interrogation with R"
 output: html_document
 ---
 
@@ -9,10 +7,10 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code6.r"/code6, echo=FALSE}
+```{r "code6.r"/code6, echo=FALSE, include=FALSE}
 ```
 
-# Genome-wide association analysis
+## Genome-wide association analysis
 
 Now that our data is loaded, filtered, and additional SNP genotypes
 imputed we are ready to perform genome-wide association analysis.
@@ -52,12 +50,12 @@ the GWA analysis on these smaller subsets of the genotype data one at
 a time. After each subset has finished running the function will print
 a progress update onto the R console. By default this is set to 10.
 
-## GWAA function
+### GWAA function
 
 ```{r "GWAA.R"/gwaa}
 ```
 
-## Phenotype data preparation
+### Phenotype data preparation
 
 First we create a data frame of phenotype features that is the
 concatenation of clinical features and the first ten principal
@@ -69,7 +67,7 @@ we remove samples with missing normalized HDL data.
 ```{r "code6.r"/code6-a, fig.align='center'}
 ```
 
-## Parallel model fitting
+### Parallel model fitting
 
 Using this phenotype data, we perform model fitting on each of the typed
 SNPs in the`genotype` object and write the results to a *.txt* file.
@@ -80,7 +78,7 @@ SNPs in the`genotype` object and write the results to a *.txt* file.
 ```{r "code6.r"/code6-end, echo=FALSE}
 ```
 
-## Model fitting of non-typed SNPs
+### Model fitting of non-typed SNPs
 
 ```{r "code7.r"/code7, echo=FALSE}
 ```
@@ -99,7 +97,7 @@ we take $-log_{10}$ of the p-value for plotting.
 ```{r "code7.r"/code7-a}
 ```
 
-## Mapping associated SNPs to genes
+### Mapping associated SNPs to genes
 
 Using a separate data file containing the chromosome and coordinate
 locations of each protein coding gene, we can locate coincident genes

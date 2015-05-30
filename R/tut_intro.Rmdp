@@ -1,11 +1,10 @@
 ---
-title: "Introduction: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
-author: "Eric Reed, et al"
-date: "May 12, 2015"
+title: "GWA analysis and post-analytic interrogation with R"
 output: html_document
 ---
 
-# Supplementary web-based tutorial on genome-wide association analysis and post-analytic interrogation
+
+## Introduction
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
@@ -37,7 +36,7 @@ interrogation, including methods for evaluating the performance of
 statistical models, as well as visualization of the global and
 subsetted GWAS output.
 
-## Installing necessary packages
+### Installing necessary packages
 
 This tutorial utlizes several packages available from
 [Bioconductor](http://www.bioconductor.org/), an open-soure
@@ -61,7 +60,7 @@ and parallel processing
 ```{r "code0.r"/code0, eval=FALSE}
 ```
 
-## Configuring global parameters
+### Configuring global parameters
 
 We first attempt to isolate most of the variable parameters used in
 the data processing and analysis.  Of particular note, users should
