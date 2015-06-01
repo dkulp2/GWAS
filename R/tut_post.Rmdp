@@ -51,9 +51,9 @@ plot $-log_{10}$ of the p-value against SNP position accross the
 entire set of typed and imputed SNPs.  The plot will show two
 horizontal lines.  The higher of the two is the commonly used
 "Bonferroni" adjusted significance cut-off of $-log_{10}(5 \times
-10^{-8})$, while the lower is "less stringent" cut-off of $-log_{10}(5
+10^{-8})$, while the lower is less stringent ("Candidate") cut-off of $-log_{10}(5
 \times 10^{-6})$.  Typed and imputed SNPs will be represented by black
-and red, respectively. We highlight typed SNPs with signals that have surpassed the "less stringent" cut-off in blue and label.
+and blue, respectively. We label the typed SNPs with signals that have surpassed the less stringent cutoff.
 
 
 ```{r "GWAS_ManhattanFunction.R"/manhattan}
