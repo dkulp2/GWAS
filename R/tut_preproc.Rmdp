@@ -79,7 +79,7 @@ that match the sample IDs.
 
 ### SNP level filtering
 
-```{r "code2.r"/code2}
+```{r "code2.r"/code2, echo = FALSE}
 ```
 
 Once the data is loaded, we are ready to remove SNPs that fail to meet
@@ -97,19 +97,19 @@ our criteria for minimum call rate and minor allele frequency.
 ```{r "code2.r"/code2-b}
 ```
 
-```{r "code2.r"/code2-end, echo=FALSE}
+```{r "code2.r"/code2-end}
 ```
 
 ### Sample level filtering
 
-```{r "code3.r"/code3, echo=FALSE}
+```{r "code3.r"/code3}
 ```
 
 The second stage of data pre-processing involves filtering samples,
 i.e. removing individuals due to missing data, sample contamination,
 correlation (for population-based investigations), and racial/ethnic or
 gender ambiguity or discordance.  In our study, we address these
-issues by filtering on call rate, heterozygosity, cryptic relatednes
+issues by filtering on call rate, heterozygosity, cryptic relatedness
 and duplicates using identity-by-descent, and we visually assess
 ancestry.
 
@@ -121,7 +121,7 @@ additional heterozygosity F statistic calculation is carried out with
 the form, $|F|=(1-O/E)$, where $O$ is observed proportion of
 heterozygous genotypes for a given sample and $E$ is the expected
 proportion of heterozygous genotypes for a given sample based on the
-minor allele frequency accross all non-missing SNPs for a given
+minor allele frequency across all non-missing SNPs for a given
 sample.
 
 ```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row'}
@@ -136,7 +136,7 @@ those samples that meet our criteria.
 ### IBD analysis
 
 In addition to these summary statistics, we also want to filter on
-relateness criteria.  We use the **SNPRelate** package to perform
+relatedness criteria.  We use the **SNPRelate** package to perform
 identity-by-descent (IBD) analysis.  This package requires that the
 data be transformed into a *GDS* format file.  IBD analysis is
 performed on only a subset of SNPs that are in linkage equilibrium by
@@ -179,7 +179,7 @@ remove any samples.
 
 Finally, once samples are filtered, we return to SNP level filtering
 and apply a check of Hardy-Weinberg equilibrium. Rejection of
-Hardy-Weiberg equilibrium can be an indication of population
+Hardy-Weinberg equilibrium can be an indication of population
 substructure or genotyping errors. Given that we are performing a
 statistical test at every SNP, it is common to use a relatively
 lenient cut-off. In this example we only remove SNPs with p-values,
@@ -189,5 +189,5 @@ $1 \times 10^{-6}$. We only test HWE on CAD controls due to possible violation o
 ```{r "code3.r"/code3-g}
 ```
 
-```{r "code3.r"/code3-end, echo=FALSE}
+```{r "code3.r"/code3-end}
 ```

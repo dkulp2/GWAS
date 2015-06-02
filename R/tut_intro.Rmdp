@@ -24,11 +24,11 @@ downloading necessary R packages and setting global parameters as a
 means for saving progress while working through a GWA analysis.  Next,
 we include quality control steps for both SNP and sample level
 filtering. The third section is split into principal component
-calculation for population stratification in statistical modelling, as
+calculation for population stratification in statistical modeling, as
 well as imputation of non-typed SNPs using [1000
 Genomes](http://www.1000genomes.org/) reference genotype data.  We
 then demonstrate strategies to carry out the GWA analysis on the typed
-data using basic linear modelling functionality in R, as well as
+data using basic linear modeling functionality in R, as well as
 imputed data using functionality contained within the
 [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html)
 package. Finally, we demonstrate means for post-analytic
@@ -38,7 +38,7 @@ subsetted GWAS output.
 
 ### Installing necessary packages
 
-This tutorial utlizes several packages available from
+This tutorial utilizes several packages available from
 [Bioconductor](http://www.bioconductor.org/), an open-soure
 bioinformatic software repository. Of these, we make the most use of
 [**snpStats**](http://www.bioconductor.org/packages/release/bioc/html/snpStats.html),
@@ -47,7 +47,7 @@ carry out quality control, imputation and association
 analysis. [**SNPRelate**](http://master.bioconductor.org/packages/release/bioc/html/SNPRelate.html)
 is also well utilized and includes functions for sample level quality
 control, and computationally efficient principal component
-calculation. Other packages include funtionality for data
+calculation. Other packages include functionality for data
 visualization
 ([**rtracklayer**](http://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html),
 [**ggplot2**](http://ggplot2.org/),
