@@ -30,7 +30,7 @@ CETP and display them all here.
 ```{r "code8.r"/code8-b}
 ```
 
-```{r "code8.r"/code8-end, echo=FALSE}
+```{r "code8.r"/code8-end}
 ```
 
 ### Visualization and QC 
@@ -47,7 +47,7 @@ biases.
 
 Manhattan plots are used to visual GWA significant results by
 chromosome location.  We will call the `GWAS_Manhattan` function to
-plot $-log_{10}$ of the p-value against SNP position accross the
+plot $-log_{10}$ of the p-value against SNP position across the
 entire set of typed and imputed SNPs.  The plot will show two
 horizontal lines.  The higher of the two is the commonly used
 "Bonferroni" adjusted significance cut-off of $-log_{10}(5 \times
