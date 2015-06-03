@@ -29,7 +29,12 @@ GWASoutUnadj <- read.table(gwaa.unadj.fname, header=TRUE, colClasses=c("characte
 par(mfrow=c(1,2))
 lambdaAdj <- estlambda(GWASout$t.value^2,plot=TRUE,method="median")
 lambdaUnadj <- estlambda(GWASoutUnadj$t.value^2,plot=TRUE,method="median")
-cat(sprintf("Unadjusted lambda: %s\nAdjusted lambda: %s\n", lambdaAdj$estimate, lambdaUnadj$estimate))
+cat(sprintf("Unadjusted lambda: %s\nAdjusted lambda: %s\n", lambdaUnadj$estimate, lambdaAdj$estimate))
+
+# Calculate standardized lambda
+lambdaAdj_1000<-1+(lambdaAdj$estimate-1)/nrow(phenoSub)*1000
+lambdaUnadj_1000<-1+(lambdaUnadj$estimate-1)/nrow(phenoSub)*1000
+cat(sprintf("Standardized unadjusted lambda: %s\nStandardized adjusted lambda: %s\n", lambdaUnadj_1000, lambdaAdj_1000))
 
 # ---- code9-c ----
 library(LDheatmap)
