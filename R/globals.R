@@ -1,4 +1,4 @@
-# ---- globals ---- #
+# ---- globals ---- 
 # Customize as needed for file locations
 
 # Modify data.dir to indicate the location of the GWAStutorial files
