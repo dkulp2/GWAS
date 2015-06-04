@@ -28,3 +28,5 @@ R/Rplots.pdf
 *.Rmd
 
 *.html
+
+*.erb
