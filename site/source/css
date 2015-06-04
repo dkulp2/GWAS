@@ -1,0 +1,7 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.progress { height: 35px; }
+.progress .bar { height: 35px; }
