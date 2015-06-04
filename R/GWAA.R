@@ -3,7 +3,7 @@
 # Genome-wide Association Analysis
 # Parallel implementation of linear model fitting on each SNP
 
-GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
+GWAA <- function(genodata=genotypes,  phenodata=phenotypes, family = gaussian, filename=NULL,
                  append=FALSE, workers=getOption("mc.cores",2L), flip=TRUE,
                  select.snps=NULL, hosts=NULL, nSplits=10)
 {
@@ -86,7 +86,7 @@ GWAA <- function(genodata=genotypes,  phenodata=phenotypes, filename=NULL,
         # phenodata and fit a generalized linear model
         rsVec <- colnames(genoNum)
         res <- foreach(snp.name=rsVec, .combine='rbind') %dopar% {
-            a <- summary(glm(phenotype~ . - id, family=gaussian, data=cbind(phenodata, snp=genoNum[,snp.name])))
+            a <- summary(glm(phenotype~ . - id, family=family, data=cbind(phenodata, snp=genoNum[,snp.name])))
             a$coefficients['snp',]
         }
 

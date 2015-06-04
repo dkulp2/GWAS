@@ -6,21 +6,21 @@ source("globals.R")
 # ---- code1-a ----
 library(snpStats)
 
-# Read in PLINK filesto create snpMatrix objects
+# Read in PLINK files
 geno <- read.plink(gwas.fn$bed, gwas.fn$bim, gwas.fn$fam, na.strings = ("-9"))
 
 # ---- code1-b ----
-# Obtain the genotypes table from snpMatrix objects
+# Obtain the SnpMatrix object (genotypes) table from geno list
 # Note: Phenotypes and covariates will be read from the clinical data file, below
 genotype <- geno$genotype
 print(genotype)                  # 861473 SNPs read in for 1401 subjects
 
-#Obtain the SNP information table from snpMatrix objects
+#Obtain the SNP information from geno list
 genoBim <- geno$map
 colnames(genoBim) <- c("chr", "SNP", "gen.dist", "position", "A1", "A2")
 print(head(genoBim))
 
-# Remove raw file to open up memory
+# Remove raw file to free up memory
 rm(geno)
 
 # ---- code1-c ----

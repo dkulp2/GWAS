@@ -6,6 +6,7 @@ source("GWAA.R")
 
 library(GenABEL)
 library(plyr)
+library(postgwas)
 
 source("GWAS_ManhattanFunction.R")
 
@@ -80,3 +81,36 @@ grid.draw(ggplotGrob({
     scale_color_manual(values = c("red", "black"))
 }))
 
+# Create regional association plot
+# Create data.frame of most significant SNP only
+snps<-data.frame(SNP=c("rs1532625"))
+
+# Change column names necessary to run regionalplot function
+GWAScomb <- rename(GWAScomb, replace=c(p.value="P", chr="CHR", position="BP"))
+
+
+# Edit biomartConfigs so regionalplot function
+# pulls from human genome build 37/hg19
+
+myconfig <- biomartConfigs$hsapiens
+myconfig$hsapiens$gene$host <- "grch37.ensembl.org"
+myconfig$hsapiens$gene$mart <- "ENSEMBL_MART_ENSEMBL"
+myconfig$hsapiens$snp$host <- "grch37.ensembl.org"
+myconfig$hsapiens$snp$mart <- "ENSEMBL_MART_SNP"
+
+
+# Run regionalplot using HAPMAP data (pop = CEU)
+regionalplot(snps, GWAScomb, biomart.config = myconfig, window.size = 400000, draw.snpname = data.frame(
+  snps = c("rs1532625", "rs247617"), 
+  text = c("rs1532625", "rs247617"),
+  angle = c(20, 160),
+  length = c(1, 1), 
+  cex = c(0.8)
+),
+ld.options = list(
+  gts.source = 2, 
+  max.snps.per.window = 2000, 
+  rsquare.min = 0.8, 
+  show.rsquare.text = FALSE
+),
+out.format = list(file = "png", panels.per.page = 4))

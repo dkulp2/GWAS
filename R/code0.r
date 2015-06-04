@@ -5,5 +5,9 @@ source("http://bioconductor.org/biocLite.R")
 biocLite("snpStats")
 biocLite("SNPRelate")
 biocLite("rtracklayer")
-install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel', 'ggplot2'))
+biocLite("biomaRt")
+install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel', 'ggplot2', 'coin', 'igraph', 'devtools'))
+
+library(devtools)
+install_url("http://cran.r-project.org/src/contrib/Archive/postgwas/postgwas_1.11.tar.gz")
 
