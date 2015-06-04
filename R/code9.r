@@ -62,15 +62,16 @@ llplusgenes <- LDheatmap.addGenes(ll, chr = "chr16", genome = "hg19", genesLocat
 library(ggplot2)
 
 plot.new()
-llQplot2<-LDheatmap.addGrob(llplusgenes, rectGrob(gp = gpar(col = "white")),height = .2)
-pushViewport(viewport(x = 0.485, y= 0.76, width = 1,height = .4))
+llQplot2<-LDheatmap.addGrob(llplusgenes, rectGrob(gp = gpar(col = "white")),height = .34)
+pushViewport(viewport(x = 0.483, y= 0.76, width = .91 ,height = .4))
 
 grid.draw(ggplotGrob({
-    qplot(position, Neg_logP, data = CETP, xlab="", ylab = "Negative Log P-value", xlim = range(CETP$position),
-          asp = 1/10, color = factor(type), colour=c("#000000", "#D55E00")) + 
+  qplot(position, Neg_logP, data = CETP, xlab="", ylab = "Negative Log P-value", xlim = range(CETP$position),
+        asp = 1/10, color = factor(type), colour=c("#000000", "#D55E00")) + 
     theme(axis.text.x = element_blank(),
           axis.title.y = element_text(size = rel(0.75)), legend.position = "none", 
           panel.background = element_blank(), 
           axis.line = element_line(colour = "black")) +
-        scale_color_manual(values = c("red", "black"))
+    scale_color_manual(values = c("red", "black"))
 }))
+

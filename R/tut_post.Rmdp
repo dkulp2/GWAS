@@ -1,10 +1,7 @@
 ---
-title: "Post-analytic interrogation: Supplementary web-based tutorial to 'A guide to genome-wide association analysis and post-analytic interrogation, Statistics in Medicine, in review.'"
-author: "Eric Reed, et al"
-date: "May 12, 2015"
+title: "GWA analysis and post-analytic interrogation with R"
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
@@ -12,7 +9,7 @@ knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```{r "code8.r"/code8, echo=FALSE}
 ```
 
-# Post-analytic visualization and genomic integration
+## Post-analytic visualization and genomic interrogation
 
 We now have generated and fit both typed and imputed genotypes.  The
 next step is to combine the results, and isolate just those SNPs in
@@ -24,7 +21,7 @@ each SNP, order by significance, and take $-log_{10}$ of the p-value.
 ```{r "code8.r"/code8-a}
 ```
 
-## Isolate CETP-specific SNPs
+#### Isolate CETP-specific SNPs
 
 The two tables of typed and imputed genotypes are combined into a
 single table.  In addition, we also concatenate just the SNPs near
@@ -33,10 +30,10 @@ CETP and display them all here.
 ```{r "code8.r"/code8-b}
 ```
 
-```{r "code8.r"/code8-end, echo=FALSE}
+```{r "code8.r"/code8-end}
 ```
 
-# Visualization and QC #
+### Visualization and QC 
 
 ```{r "code9.r"/code9, echo=FALSE}
 ```
@@ -46,26 +43,26 @@ while performing quality control checks.  Specifically, we are
 interested in identifying data inconsistencies and potential systemic
 biases.
 
-## Manhattan plot ##
+### Manhattan plot
 
 Manhattan plots are used to visual GWA significant results by
 chromosome location.  We will call the `GWAS_Manhattan` function to
-plot $-log_{10}$ of the p-value against SNP position accross the
+plot $-log_{10}$ of the p-value against SNP position across the
 entire set of typed and imputed SNPs.  The plot will show two
 horizontal lines.  The higher of the two is the commonly used
 "Bonferroni" adjusted significance cut-off of $-log_{10}(5 \times
-10^{-8})$, while the lower is "less stringent" cut-off of $-log_{10}(5
+10^{-8})$, while the lower is less stringent ("Candidate") cut-off of $-log_{10}(5
 \times 10^{-6})$.  Typed and imputed SNPs will be represented by black
-and red, respectively. We highlight typed SNPs with signals that have surpassed the "less stringent" cut-off in blue and label.
+and blue, respectively. We label the typed SNPs with signals that have surpassed the less stringent cutoff.
 
 
 ```{r "GWAS_ManhattanFunction.R"/manhattan}
 ```
 
-```{r "code9.r"/code9-a}
+```{r "code9.r"/code9-a, fig.align='center', fig.width=10, fig.height=7}
 ```
 
-## Quantile-quantile plots and the $\lambda$-statistic ##
+### Quantile-quantile plots and the $\lambda$-statistic ##
 
 Q-Q plots are used to visualize the relationship between the expected
 and observed distributions of SNP level test statistics.  Here we
@@ -77,7 +74,7 @@ A new set of models is generated with only the phenotype (HDL) and no
 additional factors.  The results are plotted using the **GenABEL**
 package's `estlambda` function.
 
-```{r "code9.r"/code9-b}
+```{r "code9.r"/code9-b, fig.align='center'}
 ```
 
 We see here that the tail of the distribution is brought closer to the
@@ -93,7 +90,7 @@ slight improvement in $\lambda$ between the unadjusted model and the
 model with PCs indicating that the population is relatively
 homogenous.
 
-## Heatmap ##
+### Heatmap
 
 Heatmaps are typically used in the context of GWA analysis to
 visualize the linkage disequilibrium pattern between significant SNPs
@@ -102,6 +99,6 @@ SNP from our analysis and other SNPs near CETP.  The darker shading
 indicates higher LD.  The plot also includes $-log_{10}(p)$ values to
 illustrate their connection with physical location and LD.
 
-```{r "code9.r"/code9-c}
+```{r "code9.r"/code9-c, fig.align='center', fig.height=8, fig.width=8, fig.keep='last'}
 ```
 

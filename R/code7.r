@@ -18,7 +18,7 @@ imp <- snp.rhs.tests(phenotype ~ sex + age + pc1 + pc2 + pc3 + pc4 + pc5 + pc6 +
                      family = "Gaussian", data = phenoSub, snp.data = target, rules = rules)
 
 # Obtain p values for imputed SNPs by calling methods on the returned GlmTests object.
-results <- data.frame(SNP = imp@snp.names, p.value = p.value(imp))
+results <- data.frame(SNP = imp@snp.names, p.value = p.value(imp), stringsAsFactors = FALSE)
 results <- results[!is.na(results$p.value),]
 
 #Write a file containing the results
@@ -39,7 +39,7 @@ print(head(imputeOut))
 
 # ---- code7-b ----
 # Read in file containing protein coding genes coords
-genes <- read.csv(protein.coding.coords.fname)
+genes <- read.csv(protein.coding.coords.fname, stringsAsFactors = FALSE)
 
 # Subset for CETP SNPs
 impCETP <- map2gene("CETP", coords = genes, SNPs = imputeOut)
