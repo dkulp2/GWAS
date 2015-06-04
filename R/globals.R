@@ -9,7 +9,7 @@ out.dir <- data.dir                     # may want to write to a separate dir to
 
 # Input files
 gwas.fn <- lapply(c(bed='bed',bim='bim',fam='fam',gds='gds'), function(n) sprintf("%s/GWAStutorial.%s", data.dir, n))
-clinical.fn <- sprintf("%s/GWAStutorial_clinical.csv", data.dir)
+clinical.fn <- sprintf("%s/GWAStutorial_clinical.csv", data.dir) 
 onethou.fn <- lapply(c(info='info',ped='ped'), function(n) sprintf("%s/chr16_1000g_CEU.%s", data.dir, n))
 protein.coding.coords.fname <- sprintf("%s/ProCodgene_coords.csv", out.dir)
 
