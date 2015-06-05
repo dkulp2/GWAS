@@ -84,9 +84,9 @@ end
 activate :deploy do |deploy|
   deploy.method = :rsync
   deploy.host   = 'stat-gen.org'
-  deploy.path   = '/home/dizzorg/public_html/statgen'
+  deploy.path   = '/home/statgen/public_html'
   # Optional Settings
-  # deploy.user  = 'tvaughan' # no default
+  deploy.user  = 'statgen' # no default
   # deploy.port  = 5309 # ssh port, default: 22
   # deploy.clean = true # remove orphaned files on remote host, default: false
   # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
