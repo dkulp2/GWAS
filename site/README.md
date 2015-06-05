@@ -19,7 +19,7 @@ The only note of interest is that this site uses the
 there are certain classes that can be assigned to HTML elements for
 consistent look, for example the class `.page-header` might be applied
 to the top section of a page and a thin horizontal line is drawn below
-it.  You can add class attributes in kramdown with {: .page-header} on
+it.  You can add class attributes in kramdown with {:.page-header} on
 the line immediately below the element.
 
 # Build information
@@ -32,7 +32,7 @@ installing a local ruby.  But the easiest is just to add the line
 Also, because we're not deploying the gems, let's just keep copies in
 our local home dir.  Run `bundle config path ~/.vendor/bundle` once.
 
-This uses [middleman|http://middlemanapp.com] to create a static
+This uses [middleman](http://middlemanapp.com) to create a static
 website from pieces.  To install middleman run `gem install
 middleman`.
 
