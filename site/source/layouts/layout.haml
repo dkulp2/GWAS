@@ -6,42 +6,70 @@
 
     %title= current_page.data.title
 
-    = stylesheet_link_tag "normalize", "bootstrap.min", "bootstrap-theme.min", "theme"
+    = stylesheet_link_tag "normalize", "bootstrap.min", "bootstrap-theme.min", "theme", "sidebar", "rouge"
 
   %body(class=page_classes role="document")
 
     %nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar')
+          %a.navbar-brand(href="/") 
+            Stat-Gen
+          %button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar')
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand StatGen
         .navbar-collapse.collapse#navbar
           %ul.nav.navbar-nav
             %li
-              = link_to 'Home', '/index.html'
-            %li
-              = link_to 'About', '/about.html'
+              = nav_link 'About', '/about.html'
             %li.dropdown
               %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
                 Tutorial
                 %span.caret
               %ul.dropdown-menu(role='menu')
+                = partial "_tut_menu"
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                statsTeachR
+                %span.caret
+              %ul.dropdown-menu(role='menu')
+                %li
+                  = link_to 'About', '/str/about.html'
+                %li.dropdown-submenu
+                  %a(tabindex='-1' href='#')Module 1: Data pre-processing
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Lab 1', '/str/lab1.html'
+                    %li
+                      = link_to 'Lab 2', '/str/lab2.html'
+                    %li
+                      = link_to 'Lab 3', '/str/lab3.html'
+                    %li
+                      = link_to 'Lab 4', '/str/lab4.html'
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                Software
+                %span.caret
+              %ul.dropdown-menu(role='menu')
                 %li 
-                  = link_to "Introduction", "/tut/tut_intro.html"
-                %li 
-                  = link_to "Data pre-processing", '/tut/tut_preproc.html'
-                %li 
-                  = link_to 'Data generation', '/tut/tut_generation.html'
-                %li 
-                  = link_to 'Genome-wide association analysis', '/tut/tut_analysis.html'
-                %li 
-                  = link_to 'Post-analytic visualizatin and genomic integration', '/tut/tut_post.html'
-                
-    .container(role='main')
-      ~ yield
+                  = link_to "GenCAT", "/sw/gencat.html"
 
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js"
+                
+    .container-fluid(role='main')
+      .row
+
+        - if current_page.url =~ /^\/tut\// then
+          = partial "tut_sidebar"
+          .main.col-sm-10.col-sm-offset-2
+            ~ yield
+        - else
+          .main.col-sm-12
+            ~ yield
+
+
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js", "sidebar.js"
+
+
+
