@@ -40,18 +40,28 @@ configure :development do
   activate :livereload
 end
 
-# Methods defined in the helpers block are available in templates
-# helpers do
+helpers do
+  # hack to set the active menu item for each page.  inspired by https://forum.middlemanapp.com/t/active-navigation/584/9
+    def nav_link(link_text, url, options = {})
+      options[:class] ||= ""
+      active = (url == current_page.url ? ' active' : '')
+      options[:class] << active
+      "<li class='#{active}'>#{link_to(link_text, url, options)}</li>"
+    end
 #   def some_helper
 #     "Helping"
 #   end
-# end
+end
+
+set :markdown_engine, :kramdown
 
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
+
+activate :syntax
 
 # Build-specific configuration
 configure :build do
@@ -65,8 +75,19 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
-  set :http_prefix, "/~dkulp"
+  #set :http_prefix, "/~dkulp"
+end
+
+activate :deploy do |deploy|
+  deploy.method = :rsync
+  deploy.host   = 'stat-gen.org'
+  deploy.path   = '/home/dizzorg/public_html/statgen'
+  # Optional Settings
+  # deploy.user  = 'tvaughan' # no default
+  # deploy.port  = 5309 # ssh port, default: 22
+  # deploy.clean = true # remove orphaned files on remote host, default: false
+  # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
 end
