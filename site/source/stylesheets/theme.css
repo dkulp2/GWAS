@@ -4,6 +4,16 @@ body {
   padding-bottom: 30px;
 }
 
+.bio-photo {
+    float: left;
+    margin: 5px
+}
+
+.bio-header {
+    clear: left;
+    padding-top: 10px;
+}
+
 .container-fluid {
   padding-left: 30px;
   padding-right: 30px;
