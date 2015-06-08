@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code7.r"/code7, include=FALSE, echo=FALSE}
+```{r "code7.r"/code7, include=FALSE, echo=FALSE, message=FALSE}
 ```
 
 ## Genome-wide association analysis
@@ -64,7 +64,7 @@ normal transform. We then remove variables that we are not including
 in the analysis, i.e. HDL(non-normalized), LDL, TG, and CAD. Finally,
 we remove samples with missing normalized HDL data.
 
-```{r "code7.r"/code7-a, fig.align='center'}
+```{r "code7.r"/code7-a, fig.align='center', message=FALSE}
 ```
 
 ### Parallel model fitting
@@ -80,7 +80,7 @@ SNPs in the`genotype` object and write the results to a *.txt* file.
 
 ### Model fitting of non-typed SNPs
 
-```{r "code8.r"/code8, echo=FALSE}
+```{r "code8.r"/code8, echo=FALSE, message=FALSE}
 ```
 
 We also perform association testing on additional SNPs from genotype

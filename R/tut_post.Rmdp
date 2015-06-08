@@ -6,7 +6,7 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code9.r"/code9, echo=FALSE}
+```{r "code9.r"/code9, echo=FALSE, message=FALSE}
 ```
 
 ## Post-analytic visualization and genomic interrogation
@@ -35,7 +35,7 @@ CETP and display them all here.
 
 ### Visualization and QC 
 
-```{r "code10.r"/code10, echo=FALSE}
+```{r "code10.r"/code10, echo=FALSE, message=FALSE}
 ```
 
 Several plots allow us both to visualize the GWA analysis findings
@@ -99,13 +99,13 @@ SNP from our analysis and other SNPs near CETP.  The darker shading
 indicates higher LD.  The plot also includes $-log_{10}(p)$ values to
 illustrate their connection with physical location and LD.
 
-```{r "code10.r"/code10-c, fig.align='center', fig.height=8, fig.width=8, fig.keep='last'}
+```{r "code10.r"/code10-c, fig.align='center', fig.height=8, fig.width=8, fig.keep='last', message=FALSE}
 ```
 
 ### Regional Association
 
 Similar to the LD heatmap above, a regional association plot allows for visualization of SNP-wise signal accross a segment of a particular chromsome with the pairwise correlation between SNPs. However regional assoication plots typically show a  larger window of the genome. Therefore, for plot legibility, LD calculations to be displayed can be selected based on pairwise SNP proximity and minimum LD. In this example we demonstrate a regional plot create by the `regionplot` function from **postgwas**.  This function can use HapMap data downloaded from [Ensembl](http://www.ensembl.org/index.html), for LD calculations.  By default it will use the most recent [Genome Reference Consortium](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/) human genome build. Therefore, if we wish to use build GRCh37 (hg19) we will have to  create a custom `biomartConfigs` object to retrieve the appropriate data.
 
-```{r "code10.r"/code10-d, fig.align='center'}
+```{r "code10.r"/code10-d, fig.align='center', message=FALSE}
 ```
 

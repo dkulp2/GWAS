@@ -32,7 +32,7 @@ first 10 principal components in GWA models.
 
 ### Imputation of SNPs
 
-```{r "code6.r"/code6, echo=FALSE}
+```{r "code6.r"/code6, echo=FALSE, message=FALSE}
 ```
 
 In addition to the genotyped SNPs from our study, it is useful to
