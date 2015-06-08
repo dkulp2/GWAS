@@ -17,7 +17,7 @@ software tools for implementing a complete genome wide association
 (GWA) analysis, as well as post-analytic visualization and
 interrogation of potentially novel findings.  In this tutorial we use
 complete GWA data on 1401 individuals from the [PennCATH study of
-coronary artery disease (CAD)](http://link-here/).
+coronary artery disease (CAD)](http://www.ncbi.nlm.nih.gov/pubmed/21239051).
 
 In the steps to follow we begin by demonstrating a method for
 downloading necessary R packages and setting global parameters as a

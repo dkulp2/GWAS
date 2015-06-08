@@ -8,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
 ```
 
-```{r "code4.r"/code4, message=FALSE, echo=FALSE}
+```{r "code5.r"/code5, message=FALSE, echo=FALSE}
 ```
 
 ## New data generation
@@ -24,15 +24,15 @@ function from **SNPRelate**, after performing LD pruning once again on
 the filtered genotype data set. In this example, we will include the
 first 10 principal components in GWA models.
 
-```{r "code4.r"/code4-a}
+```{r "code5.r"/code5-a}
 ```
 
-```{r "code4.r"/code4-end}
+```{r "code5.r"/code5-end}
 ```
 
 ### Imputation of SNPs
 
-```{r "code5.r"/code5, echo=FALSE}
+```{r "code6.r"/code6, echo=FALSE}
 ```
 
 In addition to the genotyped SNPs from our study, it is useful to
@@ -64,8 +64,8 @@ minor allele frequency, and low imputation accuracy.  The latter is
 based on the $R^2$ value of the model estimated by the
 `snp.imputation` function.
 
-```{r "code5.r"/code5-a}
+```{r "code6.r"/code6-a}
 ```
 
-```{r "code5.r"/code5-end}
+```{r "code6.r"/code6-end}
 ```
