@@ -1,42 +1,32 @@
 # ---- code4 ----
-# Generating principal components for modeling
+# SNP level filtering (Part 2: HWE)
 
 source("globals.R")
 
 # load data created in previous snippets
 load(working.data.fname(3))
 
-library(SNPRelate)                      # for LD, PCA
-
-# Read in gds file for SNPRelate functions
-genofile <- snpgdsOpen(gwas.fn$gds, readonly = TRUE)
+library(snpStats)
 
 # ---- code4-a ----
-# Set LD threshold to 0.2
-ld.thresh <- 0.2
+# Hardy-Weinberg SNP filtering on CAD controls
 
-set.seed(1000)
-geno.sample.ids <- rownames(genotype)
-snpSUB <- snpgdsLDpruning(genofile, ld.threshold = ld.thresh,
-                          sample.id = geno.sample.ids, # Only analyze the filtered samples
-                          snp.id = colnames(genotype)) # Only analyze the filtered SNPs
-snpset.pca <- unlist(snpSUB, use.names=FALSE)
-cat(length(snpset.pca),"\n")  #72578 SNPs will be used in PCA analysis
+hardy <- 10^-6      # HWE cut-off
 
-pca <- snpgdsPCA(genofile, sample.id = geno.sample.ids,  snp.id = snpset.pca, num.thread=1)
+CADcontrols <- clinical[ clinical$CAD==0, 'FamID' ]
+snpsum.colCont <- col.summary( genotype[CADcontrols,] )
+HWEuse <- with(snpsum.colCont, !is.na(z.HWE) & ( abs(z.HWE) < abs( qnorm(hardy/2) ) ) )
+rm(snpsum.colCont)
 
-# Find and record first 10 principal components
-# pcs will be a N:10 matrix.  Each column is a principal component.
-pcs <- data.frame(FamID = pca$sample.id, pca$eigenvect[,1 : 10],
-                  stringsAsFactors = FALSE)
-colnames(pcs)[2:11]<-paste("pc", 1:10, sep = "")
+HWEuse[is.na(HWEuse)] <- FALSE          # Remove NA's as well
+cat(ncol(genotype)-sum(HWEuse),"SNPs will be removed due to high HWE.\n")  # 1296 SNPs removed
 
-print(head(pcs))
+# Subset genotype and SNP summary data for SNPs that pass HWE criteria
+genotype <- genotype[,HWEuse]
+
+print(genotype)                           # 656890 SNPs remain
 
 # ---- code4-end ----
 
-# Close GDS file
-closefn.gds(genofile)
-
-# Store pcs for future reference with the rest of the derived data
-save(genotype, genoBim, clinical, pcs, file=working.data.fname(4))
+# Overwrite old genotype with new filtered version
+save(genotype, genoBim, clinical, file=working.data.fname(4))

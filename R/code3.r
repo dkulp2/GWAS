@@ -9,7 +9,7 @@ load(working.data.fname(2))
 library(snpStats)
 
 # ---- code3-a ----
-library(SNPRelate)                      # Estimating LD, relatedness, PCA
+library(SNPRelate)                      # LD pruning, relatedness, PCA
 library(plyr)
 
 # Create sample statistics (Call rate, Heterozygosity)
@@ -112,26 +112,6 @@ pctab <- data.frame(sample.id = pca$sample.id,
 
 # Plot the first two principal comonents
 plot(pctab$PC2, pctab$PC1, xlab="Principal Component 2", ylab="Principal Component 1", main = "Ancestry Plot")
-
-# ---- code3-g ----
-# Hardy-Weinberg SNP filtering on CAD controls
-
-hardy <- 10^-6      # HWE cut-off
-
-CADcontrols <- clinical[ clinical$CAD==0, 'FamID' ]
-snpsum.colCont <- col.summary( genotype[CADcontrols,] )
-HWEuse <- with(snpsum.colCont, !is.na(z.HWE) & ( abs(z.HWE) < abs( qnorm(hardy/2) ) ) )
-rm(snpsum.colCont)
-
-HWEuse[is.na(HWEuse)] <- FALSE          # Remove NA's as well
-cat(ncol(genotype)-sum(HWEuse),"SNPs will be removed due to high HWE.\n")  # 1296 SNPs removed
-
-# Subset genotype and SNP summary data for SNPs that pass HWE criteria
-genotype <- genotype[,HWEuse]
-
-print(genotype)                           # 656890 SNPs remain
-
-
 
 # ---- code3-end ----
 
