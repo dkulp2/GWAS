@@ -1,2 +1,12 @@
 GWAS_Tutorial_Manhattan.png
 CETP_LDHeatmap.png
+Rplots.pdf
+*.md
+*.Rmd
+*.html
+*.erb
+*.Rout
+cache
+tutorial_cache/*
+tutorial_files/*
+figure/*
