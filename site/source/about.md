@@ -26,7 +26,7 @@ Dr. Qian received his B.S. from Renmin University of China in 2002 and his Ph.D.
 
 ### Sara M. Nuñez
 {:class='bio-header'}
-![Sarah Nuñez](https://media.licdn.com/media/p/3/005/081/38b/0a3af0a.jpg){:class="bio-photo" width="140" height="200"}
+![Sara Nuñez](https://media.licdn.com/media/p/3/005/081/38b/0a3af0a.jpg){:class="bio-photo" width="140" height="200"}
 Sara has been a Research Scientist under Dr. Foulkes since January 2014. As a recent graduate from the Biostatistics Master's program at the University of Massachusetts, Amherst, she is interested in developing her statistical genetic understanding and mentoring undergraduates who are interested in the same field before she returns to school for her Ph.D. Her work has included developing teaching modules for statistical learning in R as well as conducting genetic association analyses utilizing both existing and novel methods. While she is intrigued by any health related resarch, she is most interested in the genetics of chronic disease. 
 
 Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and received her M.S. in Biostatistics from the University of Massachusetts, Amherst School of Public Health in 2015.
@@ -36,6 +36,10 @@ Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and
 
 ### Siying Chen
 {:class='bio-header'}
+![Siying Chen](ADD SIYINGS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site. 
+
+Siying is a rising Senior at Mount Holyoke College, majoring in Statistics. 
 
 ### Tu Dao
 {:class='bio-header'}
