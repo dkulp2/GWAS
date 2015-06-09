@@ -68,6 +68,14 @@
           .main.col-sm-12
             ~ yield
 
+    %footer.footer
+      .container
+        %p 
+          Created and maintained by the
+          = link_to 'Foulkes Lab', 'about.html'
+          at Mount Holyoke College in South Hadley, MA. 
+          Funding provided by NIH/NHLBI R01 HL107196.
+
 
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js", "sidebar.js"
 
