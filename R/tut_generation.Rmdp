@@ -24,7 +24,7 @@ function from **SNPRelate**, after performing LD pruning once again on
 the filtered genotype data set. In this example, we will include the
 first 10 principal components in GWA models.
 
-```{r "code5.r"/code5-a}
+```{r "code5.r"/code5-a, message=FALSE}
 ```
 
 ```{r "code5.r"/code5-end}
