@@ -1,11 +1,4 @@
 /* local customizations */
-<<<<<<< HEAD
-body {
-  padding-top: 70px; /* drop main body below menu */
-  padding-bottom: 30px;
-}
-
-=======
 html {
     position: relative;
     min-height: 100%;
@@ -29,8 +22,6 @@ body {
   padding-left: 15px;
 }
 
-
->>>>>>> 3031dfad50083c37f1f1d73a8bd3c16514adbfe6
 .bio-photo {
     float: left;
     margin: 5px
