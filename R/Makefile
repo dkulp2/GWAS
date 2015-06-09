@@ -51,7 +51,11 @@ install:	$(ERB)
 # Strip out the header tags from the HTML and remove the padding from the body.
 # This 1-liner is dependent on the way that knit2html generates the HTML file.
 %.html.erb : %.html
+<<<<<<< HEAD
 	$(PERL) -ne 'print unless /DOCTYPE|<html|html>|head>|<meta|title>|body>|padding: 1em/' $< | sed -e 's/^<pre><code/<pre class="boot-clear"><code/' > $@
+=======
+	$(PERL) -ne 'print unless /DOCTYPE|<html|html>|head>|<meta|title>|body>|padding: 1em|data:text\/css/' $< | sed -e 's/^<pre><code/<pre class="boot-clear"><code/' > $@
+>>>>>>> 3031dfad50083c37f1f1d73a8bd3c16514adbfe6
 
 %.r.Rout : %.r
 	$(RBATCH) $<
