@@ -1,53 +1,54 @@
-#Code Snippet 7: Association analysis of imputed SNPs
+# ---- code7 ----
+# Association analysis of typed SNPs (using parallel processing)
 
 source("globals.R")
 
 # load derived data from previous snippets
-load(working.data.fname)
-
-##################
+load(working.data.fname(6))
 
 library(snpStats)
 library(plyr)
 
-# Carry out association testing for imputed SNPs using snp.rhs.tests()
-rownames(phenoSub) <- phenoSub$id
+# ---- code7-a ----
+library(GenABEL)
+source("GWAA.R")
 
-imp <- snp.rhs.tests(phenotype ~ sex + age + pc1 + pc2 + pc3 + pc4 + pc5 + pc6 + pc7 + pc8 + pc9 + pc10, family = "Gaussian", data = phenoSub, snp.data = target, rules = rules)
+# Merge clincal data and principal components to create phenotype table
+phenoSub <- merge(clinical,pcs)      # data.frame => [ FamID CAD sex age hdl pc1 pc2 ... pc10 ]
 
-# Obtain p values for imputed SNPs
-pVals <- p.value(imp)
-results <- data.frame(SNP = imp@snp.names, p.value = pVals)
-results <- results[!is.na(results$p.value),]
+# We will do a rank-based inverse normal transformation of hdl
+phenoSub$phenotype <- rntransform(phenoSub$hdl, family="gaussian")
 
+# Show that the assumptions of normality met after transformation
+par(mfrow=c(1,2))
+hist(phenoSub$hdl, main="Histogram of HDL", xlab="HDL")
+hist(phenoSub$phenotype, main="Histogram of Tranformed HDL", xlab="Transformed HDL")
 
-#Write a file containing the results
-write.csv(results, impute.out.fname, row.names=FALSE)
+# Remove unnecessary columns from table
+phenoSub$hdl <- NULL
+phenoSub$ldl <- NULL
+phenoSub$tg <- NULL
+phenoSub$CAD <- NULL
 
-# Merge imputation testing results with support to obtain coordinates
-imputeOut<-merge(results, support[, c("SNP", "position")])
-imputeOut$chr <- 16
+# Rename columns to match names necessary for GWAS() function
+phenoSub <- rename(phenoSub, replace=c(FamID="id"))
 
-imputeOut$type <- "imputed"
+# Include only subjects with hdl data
+phenoSub<-phenoSub[!is.na(phenoSub$phenotype),]
+# 1309 subjects included with phenotype data
 
-# Find the -log_10 of the p-values
-imputeOut$Neg_logP <- -log10(imputeOut$p.value)
+print(head(phenoSub))
 
-# Order by p-value
-imputeOut <- arrange(imputeOut, p.value)
-print(head(imputeOut))
+# ---- code7-b ----
 
-# Read in file containing protein coding genes coords
-genes <- read.csv(protein.coding.coords.fname)
+# Run GWAS analysis
+# Note: This function writes a file, but does not produce an R object
+start <- Sys.time()
+GWAA(genodata=genotype, phenodata=phenoSub, filename=gwaa.fname)
+end <- Sys.time()
+print(end-start)
 
-# Subset for CETP SNPs
-source("map2gene.R")
-impCETP <- map2gene("CETP", coords = genes, SNPs = imputeOut)
+# ---- code7-end ----
 
-impCETPgeno <- imputed[, colnames(imputed) %in% impCETP$SNP ]
-
-##################
-
-save(genotype, genoBim, clinical, pcs, imputed, target, rules,
-     phenoSub, genes, impCETP, impCETPgeno, imputeOut, file = working.data.fname)
-
+# Add phenosub to saved results
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=working.data.fname(7))

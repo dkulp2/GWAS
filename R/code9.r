@@ -1,75 +1,47 @@
-#Code Snippet 9: Visualizing and QC of GWA findings
+# ---- code9 ----
+# Data Integration
 
 source("globals.R")
 
-# load derived data from previous snippets
-load(working.data.fname)
+# load data derived in previous snippets
+load(working.data.fname(8))
 
-##################
-
-library(GenABEL)
-library(LDheatmap)
-library(rtracklayer)
 library(plyr)
-library(doParallel)
-library(ggplot2)
+source("map2gene.R")
 
-# Create Manhattan Plot
-source("GWAS_ManhattanFunction.R")
-par(mfrow=c(1,1))
-GWAS_Manhattan(GWAScomb)
+# ---- code9-a ----
+# Read in GWAS output that was produced by GWAA function
+GWASout <- read.table(gwaa.fname, header=TRUE, colClasses=c("character", rep("numeric",4)))
 
-# Rerun the GWAS using unadjusted model
-phenoSub2 <- phenoSub[,c("id","phenotype")]
+# Find the -log_10 of the p-values
+GWASout$Neg_logP <- -log10(GWASout$p.value)
 
-source("GWAA.R")
-GWAA(genodata=genotype, phenodata=phenoSub2, filename=gwaa.unadj.fname)
-GWASoutUnadj <- read.table(gwaa.unadj.fname, header=TRUE, colClasses=c("character", rep("numeric",4)))
+# Merge output with genoBim by SNP name to add position and chromosome number
+GWASout <- merge(GWASout, genoBim[,c("SNP", "chr", "position")])
+rm(genoBim)
 
-# Create QQ plots for adjusted and unadjusted model outputs
-estlambda(GWASout$t.value^2,plot=TRUE,method="median")
-estlambda(GWASoutUnadj$t.value^2,plot=TRUE,method="median")
+# Order SNPs by significance
+GWASout <- arrange(GWASout, -Neg_logP)
+print(head(GWASout))
 
-# Add "rs247617" to CETP
-CETP <- rbind.fill(GWASout[GWASout$SNP == "rs247617",], CETP)
+# ---- code9-b ----
+# Combine typed and imputed
+GWASout$type <- "typed"
 
-# Combine genotypes and imputed genotypes for CETP region
-subgen <- genotype[, colnames(genotype) %in% CETP$SNP ]   # CETP subset of snpMatrix from typed SNPs
-subgen <- cbind(subgen, impCETPgeno)                      # CETP subset of snpMatrix from imputed SNPs
+GWAScomb<-rbind.fill(GWASout, imputeOut)
+head(GWAScomb)
+tail(GWAScomb)
 
-# Subset SNPs for only certain genotypes
-certain <- NULL
-for(i in 1:ncol(subgen)){
-  certain[i] <- sum(!unique(as(subgen[,i], "numeric")) %in% c(NA, 0, 1, 2)) == 0}
-subgen <- subgen[,certain]
+# Subset for CETP SNPs
+typCETP <- map2gene("CETP", coords = genes, SNPs = GWASout)
 
-# Subset and order CETP SNPs by position
-CETP <- CETP[CETP$SNP %in% colnames(subgen),]
-CETP <- arrange(CETP, position)
-subgen <- subgen[, order(match(colnames(subgen),CETP$SNP)) ]
+# Combine CETP SNPs from imputed and typed analysis
+CETP <- rbind.fill(typCETP, impCETP)[,c("SNP","p.value","Neg_logP","chr","position","type","gene")]
+print(CETP)
+# ---- code9-end ----
 
-# Create LDheatmap
-ld <- ld(subgen, subgen, stats="R.squared") # Find LD map of CETP SNPs
 
-ll <- LDheatmap(ld, CETP$position, flip=TRUE, name="myLDgrob", title=NULL)
+write.csv(CETP, CETP.fname, row.names=FALSE) # save for future use
 
-# Add genes, recombination
-llplusgenes <- LDheatmap.addGenes(ll, chr = "chr16", genome = "hg19", genesLocation = 0.01)
-
-# Add scatterplot
-
-scatter2<-ggplotGrob(
-  {
-    qplot(position, Neg_logP, data = CETP, xlab="", ylab = "Negative Log P-value", xlim = range(CETP$position), asp = 1/10, color = factor(type), colour=c("#000000", "#D55E00")) + 
-      theme(axis.text.x = element_blank(),
-            axis.title.y = element_text(size = rel(0.75)), legend.position = "none", 
-            panel.background = element_blank(), 
-            axis.line = element_line(colour = "black")) +
-      scale_color_manual(values = c("red", "black"))
-  }
-)
-
-plot.new()
-llQplot2<-LDheatmap.addGrob(llplusgenes, rectGrob(gp = gpar(col = "white")),height = .2)
-pushViewport(viewport(x = 0.485, y= 0.76, width = 1,height = .4))
-grid.draw(scatter2)
+save(genotype, clinical, pcs, imputed, target, rules, phenoSub, support, genes,
+     impCETP, impCETPgeno, imputeOut, GWASout, GWAScomb, CETP, file=working.data.fname(9))

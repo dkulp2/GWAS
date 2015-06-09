@@ -2,23 +2,17 @@
 .Rhistory
 .Rapp.history
 # Example code in package build process
-*-Ex.R
+
 # RStudio files
 .Rproj.user/
-# produced vignettes
 vignettes/*.html
 vignettes/*.pdf
 # Emacs backup files
 *~
 .Rproj.user
-<<<<<<< HEAD
-<<<<<<< HEAD
-GWAS_Ereed.Rproj
-=======
->>>>>>> ff7d9d87912b06438c7ff2a833185224eed942cb
-=======
 *.Rproj
 R/tutorial_cache/*
 R/tutorial_files/*
 R/tutorial.html
->>>>>>> 14b86acaa5369142300e88b322db98e3d006e309
+
+.RData

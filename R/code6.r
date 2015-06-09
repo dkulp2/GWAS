@@ -1,55 +1,77 @@
 # ---- code6 ----
-# Association analysis of typed SNPs (using parallel processing)
+# Genotype imputation
 
 source("globals.R")
 
-# load derived data from previous snippets
-load(working.data.fname)
+# load data created in previous snippets
+load(working.data.fname(5))     # loads genotype, genoBim and clinical
 
 library(snpStats)
-library(plyr)
 
 # ---- code6-a ----
-library(GenABEL)
-library(parallel)
-source("GWAA.R")
+# Read in 1000g data for given chromosome 16
+thougeno <- read.pedfile(onethou.fn$ped, snps = onethou.fn$info, which=1)
 
-# Merge clincal data and principal components to create phenotype table
-phenoSub <- merge(clinical,pcs)      # data.frame => [ FamID CAD sex age hdl pc1 pc2 ... pc10 ]
+# Obtain genotype data for given chromosome
+genoMatrix <- thougeno$genotypes
 
-# We will do a rank-based inverse normal transformation of hdl
-phenoSub$phenotype <- rntransform(phenoSub$hdl, family="gaussian")
+# Obtain the chromosome position for each SNP
+support <- thougeno$map
+colnames(support)<-c("SNP", "position", "A1", "A2")
+head(support)
 
-# Show that the assumptions of normality met after transformation
-par(mfrow=c(1,2))
-hist(phenoSub$hdl, main="Histogram of HDL", xlab="HDL")
-hist(phenoSub$phenotype, main="Histogram of Tranformed HDL", xlab="Transformed HDL")
+# Imputation of non-typed 1000g SNPs
+presSnps <- colnames(genotype)
 
-# Remove unnecessary columns from table
-phenoSub$hdl <- NULL
-phenoSub$ldl <- NULL
-phenoSub$tg <- NULL
-phenoSub$CAD <- NULL
+# Subset for SNPs on given chromosome
+presSnps <- colnames(genotype)
+presDatChr <- genoBim[genoBim$SNP %in% presSnps & genoBim$chr==16, ]
+targetSnps <- presDatChr$SNP
 
-# Rename columns to match names necessary for GWAS() function
-phenoSub <- rename(phenoSub, replace=c(FamID="id"))
+# Subset 1000g data for our SNPs
+# "missing" and "present" are snpMatrix objects needed for imputation rules
+is.present <- colnames(genoMatrix) %in% targetSnps
 
-# Include only subjects with hdl data
-phenoSub<-phenoSub[!is.na(phenoSub$phenotype),]
-# 1309 subjects included with phenotype data
+missing <- genoMatrix[,!is.present]
+print(missing)                          # Almost 400,000 SNPs
 
-print(head(phenoSub))
+present <- genoMatrix[,is.present]
+print(present)                          # Our typed SNPs
 
-# ---- code6-b ----
+# Obtain positions of SNPs to be used for imputation rules
+pos.pres <- support$position[is.present]
+pos.miss <- support$position[!is.present]
 
-# Run GWAS analysis
-# Note: This function writes a file, but does not produce an R object
-start <- Sys.time()
-GWAA(genodata=genotype, phenodata=phenoSub, filename=gwaa.fname)
-end <- Sys.time()
-print(end-start)
+# Calculate and store imputation rules using snp.imputation()
+rules <- snp.imputation(present, missing, pos.pres, pos.miss)
+
+# Remove failed imputations
+rules <- rules[can.impute(rules)]
+cat("Imputation rules for", length(rules), "SNPs were estimated\n")  # Imputation rules for 197888 SNPs were estimated
+
+# Quality control for imputation certainty and MAF
+# Set thresholds
+r2threshold <- 0.7
+minor <- 0.01
+
+# Filter on imputation certainty and MAF
+rules <- rules[imputation.r2(rules) >= r2threshold]
+
+cat(length(rules),"imputation rules remain after imputations with low certainty were removed\n")  # 162565 imputation rules remain after imputations with low certainty were removed
+
+rules <- rules[imputation.maf(rules) >= minor]
+cat(length(rules),"imputation rules remain after MAF filtering\n")  # 162565 imputation rules remain after MAF filtering
+
+
+# Obtain posterior expectation of genotypes of imputed snps
+target <- genotype[,targetSnps]
+imputed <- impute.snps(rules, target, as.numeric=FALSE)
+print(imputed)  # 162565 SNPs were imputed
 
 # ---- code6-end ----
+rm(genoMatrix)
+rm(missing)
+rm(present)
 
-# Add phenosub to saved results
-save(genotype, genoBim, clinical, pcs, imputed, target, rules, phenoSub, support, file=working.data.fname)
+# Add new imputed, target and rules data to saved results
+save(genotype, genoBim, clinical, pcs, imputed, target, rules, support, file=working.data.fname(6))

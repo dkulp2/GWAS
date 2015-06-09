@@ -11,16 +11,25 @@ RSCRIPT = rscript
 R = R
 RBATCH = $(R) CMD BATCH
 
-SRC=tutorial.Rmdp
+SRC=tut_intro.Rmdp tut_preproc.Rmdp tut_generation.Rmdp tut_analysis.Rmdp tut_post.Rmdp
 RMD=$(SRC:.Rmdp=.Rmd)
 HTML=$(SRC:.Rmdp=.html)
+ERB=$(SRC:.Rmdp=.html.erb)
 
 RCODE=code0.r code1.r code2.r code3.r code4.r code5.r code6.r code7.r code8.r code9.r
 RTEST=$(RCODE:.r=.r.Rout)
 
-.PHONY: all
+DEST=../site/source/tut
+
+.PHONY: all tutorial install
 all:	$(RMD)
-	@echo "Now process $(RMD) in Rstudio or run 'make html' to approximate Rstudio's output"
+	@echo "Now process $(RMD) in Rstudio or run 'make tutorial.html' to approximate Rstudio's output"
+
+tutorial:	$(HTML)
+
+install:	$(ERB)
+	mkdir -p $(DEST)
+	cp $(ERB) $(DEST)
 
 %.Rmd : %.Rmdp
 	$(PERL) rmd-inline.pl $< > $@
@@ -36,12 +45,22 @@ all:	$(RMD)
 	--variable 'theme:bootstrap' --mathjax --variable 'mathjax-url:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' \
 	--no-highlight --variable highlightjs=/usr/local/Cellar/r/3.1.2_1/R.framework/Versions/3.1/Resources/library/rmarkdown/rmd/h/highlight 
 
+%.html : %.Rmd
+	$(RSCRIPT) --vanilla -e 'library(knitr); knitr::knit2html(commandArgs(TRUE)[1])' $<
+
+# Strip out the header tags from the HTML and remove the padding from the body.
+# This 1-liner is dependent on the way that knit2html generates the HTML file.
+%.html.erb : %.html
+	$(PERL) -ne 'print unless /DOCTYPE|<html|html>|head>|<meta|title>|body>|padding: 1em|data:text\/css/' $< | sed -e 's/^<pre><code/<pre class="boot-clear"><code/' > $@
+
 %.r.Rout : %.r
 	$(RBATCH) $<
 
 clean:
-	rm $(RMD) $(HTML)
+	rm -f $(RMD) $(HTML) $(RTEST) $(ERB)
 
+realclean:	clean
+	rm -rf cache
 
 test: $(RTEST)
 

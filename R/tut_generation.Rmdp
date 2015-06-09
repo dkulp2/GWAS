@@ -1,0 +1,71 @@
+---
+title: "GWA analysis and post-analytic interrogation with R"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, warning=FALSE)
+```
+
+```{r "code5.r"/code5, message=FALSE, echo=FALSE}
+```
+
+## New data generation
+
+### Re-compute PCA
+
+Now that we have performed SNP and sample level quality control on our
+genotype data, we will calculate principal components to be included
+as covariates in the GWA models. These serve to adjust for any
+remaining substructure that may confound SNP level association.  As
+with Ancestry filtering we will calculate PCs using the `snpgdsPCA`
+function from **SNPRelate**, after performing LD pruning once again on
+the filtered genotype data set. In this example, we will include the
+first 10 principal components in GWA models.
+
+```{r "code5.r"/code5-a}
+```
+
+```{r "code5.r"/code5-end}
+```
+
+### Imputation of SNPs
+
+```{r "code6.r"/code6, echo=FALSE}
+```
+
+In addition to the genotyped SNPs from our study, it is useful to
+extend the analysis to other known SNPs, that were not typed or were
+removed by SNP level filtering. In this example, we impute SNPs on
+chromosome 16.
+
+Performance of genotype imputation requires reference data, which has
+typed genotypes at the SNPs of interest from similar homogeneous
+sample. Sources for this data include
+[HapMap](http://hapmap.ncbi.nlm.nih.gov/) and [1000
+Genomes](http://www.1000genomes.org/data).
+
+For this example, we will use 1000 Genomes data, read in from *.ped*
+and*.info* using the `read.pedfile` in from **snpStats**. Note, that
+the *.info* file is similar to the *.map* file. To specify the column
+in the *.info* file with the SNP IDs, we use the `which` argument.
+
+We derive imputation "rules" for the additional SNPs that were not
+typed in our study using `snp.imputation` based on the genotypes from
+the 1000 Genomes data. Each rule represents a predictive model for
+genotypes of untyped SNPs associated with near-by typed SNPs.  Using
+these rules, we can calculate the expected posterior value of the
+non-typed SNPs using the `impute` function from **SNPRelate**.
+
+In the last step we remove un-typed SNPs in which we fail to derive
+imputation "rules".  We also filter out SNPs that have low estimated
+minor allele frequency, and low imputation accuracy.  The latter is
+based on the $R^2$ value of the model estimated by the
+`snp.imputation` function.
+
+```{r "code6.r"/code6-a}
+```
+
+```{r "code6.r"/code6-end}
+```

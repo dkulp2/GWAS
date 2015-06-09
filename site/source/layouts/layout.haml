@@ -1,0 +1,83 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(content="IE=edge,chrome=1" http-equiv="X-UA-Compatible")
+
+    %title= current_page.data.title
+
+    = stylesheet_link_tag "normalize", "bootstrap.min", "bootstrap-theme.min", "theme", "sidebar", "rouge"
+
+  %body(class=page_classes role="document")
+
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand(href="/") 
+            The ORSG Project
+          %button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar')
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        .navbar-collapse.collapse#navbar
+          %ul.nav.navbar-nav
+            %li
+              = nav_link 'About', '/about.html'
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                Tutorial
+                %span.caret
+              %ul.dropdown-menu(role='menu')
+                = partial "_tut_menu"
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                statsTeachR
+                %span.caret
+              %ul.dropdown-menu(role='menu')
+                %li
+                  = link_to 'About', '/str/about.html'
+                %li.dropdown-submenu
+                  %a(tabindex='-1' href='#')Module 1: Data pre-processing
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Lab 1', '/str/lab1.html'
+                    %li
+                      = link_to 'Lab 2', '/str/lab2.html'
+                    %li
+                      = link_to 'Lab 3', '/str/lab3.html'
+                    %li
+                      = link_to 'Lab 4', '/str/lab4.html'
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                Software
+                %span.caret
+              %ul.dropdown-menu(role='menu')
+                %li 
+                  = link_to "GenCAT", "/sw/gencat.html"
+
+                
+    .container-fluid(role='main')
+      .row
+
+        - if current_page.url =~ /^\/tut\// then
+          = partial "tut_sidebar"
+          .main.col-sm-10.col-sm-offset-2
+            ~ yield
+        - else
+          .main.col-sm-12
+            ~ yield
+
+    %footer.footer
+      .container
+        %p 
+          Created and maintained by the
+          = link_to 'Foulkes Lab', 'about.html'
+          at Mount Holyoke College in South Hadley, MA. 
+          Funding provided by NIH/NHLBI R01 HL107196.
+
+
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js", "sidebar.js"
+
+
+
