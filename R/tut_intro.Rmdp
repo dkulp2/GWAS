@@ -49,8 +49,8 @@ is also well utilized and includes functions for sample level quality
 control, and computationally efficient principal component
 calculation. Other packages include functionality for data
 visualization
-([**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html), ([**postgwas**](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0071775)),
-data manipulation ([**plyr**](http://plyr.had.co.nz/)),
+([**LDheatmap**](http://cran.r-project.org/web/packages/LDheatmap/index.html), [**postgwas**](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0071775)),
+data manipulation ([**plyr**](http://plyr.had.co.nz/), [**GenABEL**](http://www.genabel.org/)),
 and parallel processing
 ([**doParallel**](http://cran.r-project.org/web/packages/doParallel/index.html)).
 
