@@ -36,6 +36,10 @@ Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and
 
 ### Eric R. Reed
 {:class='bio-header'}
+![Eric Reed](ADD ERICS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+Eric has been a research scientist in the Foulkes lab since September 2013.  Coming from a biology background, his pursuits encompass understanding and developing analytical methods and computational tools for drawing inference from life science data. His current work involves the development and implementation of statistical tests for high-dimensional genetic association data, specifically the inference of class level (gene, gene set, enhancer element, etc.) significance from SNP level statistical signal.
+
+Eric received a B.S. in Biology from the University of Massachusetts Boston in 2010, and an M.S. in Biostatistics from the University of Massachusetts Amherst in 2015.  As of September 2015 he will be pursuing a Ph.D. in Bioinformatics from Boston University. 
 
 ### Siying Chen
 {:class='bio-header'}
