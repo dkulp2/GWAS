@@ -9,7 +9,7 @@ biocLite("snpStats")
 biocLite("SNPRelate")
 biocLite("rtracklayer")
 biocLite("biomaRt")
-install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel', 'ggplot2', 'coin', 'igraph', 'devtools'))
+install.packages(c('plyr', 'GenABEL', 'LDheatmap','doParallel', 'ggplot2', 'coin', 'igraph', 'devtools', 'downloader'))
 
 library(devtools)
 install_url("http://cran.r-project.org/src/contrib/Archive/postgwas/postgwas_1.11.tar.gz")
@@ -17,7 +17,8 @@ install_url("http://cran.r-project.org/src/contrib/Archive/postgwas/postgwas_1.1
 
 # ---- code0-b ----
 # Download and unzip data needed for this tutorial
+library(downloader)
 
-download.file(urlSupport, zipSupport.fn, method = "curl")
+download(urlSupport, zipSupport.fn)
 unzip(zipSupport.fn, exdir = data.dir)
 
