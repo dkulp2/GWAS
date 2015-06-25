@@ -8,6 +8,9 @@ title: Foulkes Lab at Mt Holyoke College
 ![Kendade Clapp Hall](KendadeClappHalls.jpg){:width="600px" height="400px"}
 
 
+##### The ORSG project was created and is maintained by the members of the Foulkes Lab. 
+
+
 ### The Lab
 Located at Mount Holyoke College in South Hadley, MA, we are dedicated to the understanding and development of statistical methods in the realm of genomic data. Collaborating with investigators across multiple disciplines ranging from oncology to immunology, we investigate techniques for analyzing single nucleotide polymorphisms (SNPs) and disease outcomes, while considering the complex correlation structure of the human genome. Notably, we are interested in determining the association of biomarkers and given regions of the genome such as genes, lincRNAs, enhancer elements and other biologically relevant topologies. With the ever-changing knowledge of the functionaility of DNA, we believe it is essential to find appropriate and reproducible analytic methods for determining true causes of disease, and are committed to improving this process.
 
@@ -41,6 +44,10 @@ Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and
 
 ### Eric R. Reed
 {:class='bio-header'}
+![Eric Reed](ADD ERICS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+Eric has been a research scientist in the Foulkes lab since September 2013.  Coming from a biology background, his pursuits encompass understanding and developing analytical methods and computational tools for drawing inference from life science data. His current work involves the development and implementation of statistical tests for high-dimensional genetic association data, specifically the inference of class level (gene, gene set, enhancer element, etc.) significance from SNP level statistical signal.
+
+Eric received a B.S. in Biology from the University of Massachusetts Boston in 2010, and an M.S. in Biostatistics from the University of Massachusetts Amherst in 2015.  As of September 2015 he will be pursuing a Ph.D. in Bioinformatics from Boston University. 
 
 ### Siying Chen
 {:class='bio-header'}
@@ -53,5 +60,8 @@ Siying is a rising Senior at Mount Holyoke College, majoring in Statistics.
 
 ### Tu Dao
 {:class='bio-header'}
+![Tu Dao](ADD SIYINGS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+Tu is a third-year student at Mount Holyoke College interning at the Foulkes Lab as a research assistant. She is interested in gaining a greater understanding of statistical applications in various fields of biology through her experiences at the lab. She is the primary developer of the StatsteachR modules corresponding to the statistical genetics tutorials provided on this site. 
 
+Tu is currently pursuing a B.A in Statistics with a minor in Chemistry at Mount Holyoke College. 
 
