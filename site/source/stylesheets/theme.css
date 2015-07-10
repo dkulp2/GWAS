@@ -8,6 +8,10 @@ body {
   margin-bottom: 60px;
 }
 
+.jumbotron {
+  background: url("/images/helix-banner.jpg") no-repeat center center;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
