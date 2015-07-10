@@ -33,15 +33,19 @@ Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and
 
 ### Eric R. Reed
 {:class='bio-header'}
+![Eric Reed](Eric200.jpg){:class="bio-photo" height="200"}
+ERIC REED HERE
 
 ### Siying Chen
 {:class='bio-header'}
-![Siying Chen](ADD SIYINGS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+![Siying Chen](Siying_head.jpg){:class="bio-photo" height="200"}
 Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site. 
 
 Siying is a rising Senior at Mount Holyoke College, majoring in Statistics. 
 
 ### Tu Dao
 {:class='bio-header'}
+![Tu Dao](Tu200.jpg){:class="bio-photo" height="200"}
+TU INFO HERE
 
 
