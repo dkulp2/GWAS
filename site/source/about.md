@@ -36,21 +36,21 @@ Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and
 
 ### Eric R. Reed
 {:class='bio-header'}
-![Eric Reed](ADD ERICS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+![Eric Reed](Eric200.jpg){:class="bio-photo" height="200"}
 Eric has been a research scientist in the Foulkes lab since September 2013.  Coming from a biology background, his pursuits encompass understanding and developing analytical methods and computational tools for drawing inference from life science data. His current work involves the development and implementation of statistical tests for high-dimensional genetic association data, specifically the inference of class level (gene, gene set, enhancer element, etc.) significance from SNP level statistical signal.
 
 Eric received a B.S. in Biology from the University of Massachusetts Boston in 2010, and an M.S. in Biostatistics from the University of Massachusetts Amherst in 2015.  As of September 2015 he will be pursuing a Ph.D. in Bioinformatics from Boston University. 
 
 ### Siying Chen
 {:class='bio-header'}
-![Siying Chen](ADD SIYINGS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+![Siying Chen](Siying_head.jpg){:class="bio-photo" height="200"}
 Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site. 
 
 Siying is a rising Senior at Mount Holyoke College, majoring in Statistics. 
 
 ### Tu Dao
 {:class='bio-header'}
-![Tu Dao](ADD SIYINGS PHOTO HERE){:class="bio-photo" width="140" height="200"}
+![Tu Dao](Tu200.jpg){:class="bio-photo" height="200"}
 Tu is a third-year student at Mount Holyoke College interning at the Foulkes Lab as a research assistant. She is interested in gaining a greater understanding of statistical applications in various fields of biology through her experiences at the lab. She is the primary developer of the StatsteachR modules corresponding to the statistical genetics tutorials provided on this site. 
 
 Tu is currently pursuing a B.A in Statistics with a minor in Chemistry at Mount Holyoke College. 

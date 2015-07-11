@@ -45,5 +45,8 @@ you edit the templates, parts, etc.
 To create the static website to deploy, run `middleman build`, which
 will create files under *build* that can be copied to a website.
 
-
-
+To push the built website to the remote server on stat-gen.org, I use
+the rsync deploy method (see config.rb for settings).  `middleman
+deploy` will syncronize the remote server with the *build* directory.
+In order for this to work, you must have your public key stored on the
+remote server.
