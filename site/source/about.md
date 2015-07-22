@@ -25,7 +25,7 @@ Foulkes received a B.A. in Mathematics from Brown University in 1994 and an Sc.D
 ![Jing Qian](Jing_Qian.jpg){:class="bio-photo" width="150" height="200"}
 Dr. Qian is an Associate Professor of Statistics at the University of Massachusetts, Amherst. His main research interests are in the area of survival analysis, which deals with time-to-event data in general. Specifically, he studies semiparametric methods for correlated time-to-event outcomes, arising from medical cost and cost-effectiveness analysis and multistate clinical trials. By developing a quantile regression approach for censored survival data, Dr. Qian introduces flexible modeling methods to deal with non-constant covariate effects in regression. Currently, he is also active in developing statistical methods for survival data subject to complex sampling. In addition, he is interested in statistical inference with high dimensional data. His other research interests include statistical issues in clinical trials and epidemiological studies, and statistical analysis in neurologic diseases.
 
-Qian received a B.S. from Renmin University of China in 2002 and a Ph.D. from Emory University in 2009.
+Qian received a B.S. in Statistics from Renmin University of China in 2002 and a Ph.D. in Biostatistics from Emory University in 2009.
 
 ### Sara M. Nuñez
 {:class='bio-header'}
