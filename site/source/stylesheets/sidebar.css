@@ -26,7 +26,6 @@
     display: block;
     top: 51px;
     bottom: 0;
-    z-index: 1000;
     min-height: 100%;
     max-height: none;
     overflow: auto;

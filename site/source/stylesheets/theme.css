@@ -26,7 +26,6 @@ body {
   padding-left: 15px;
 }
 
-
 .bio-photo {
     float: left;
     margin: 5px
@@ -40,6 +39,7 @@ body {
 .container-fluid {
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 60px;
 }
 
 /* reset the key style elements set on the pre block by bootstrap */

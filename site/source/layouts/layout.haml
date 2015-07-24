@@ -14,7 +14,9 @@
       .container
         .navbar-header
           %a.navbar-brand(href="/") 
+
             The ORSG Project
+
           %button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar')
             %span.sr-only Toggle navigation
             %span.icon-bar
@@ -67,6 +69,7 @@
         - else
           .main.col-sm-12
             ~ yield
+
 
     %footer.footer
       .container

@@ -44,7 +44,7 @@ files can be read in using the function, `read.pedfile`, from
 **snpStats**.  More information about the formatting of these files
 can be found on the PLINK website.
 
-```{r "code1.r"/code1-a}
+```{r "code1.r"/code1-a, message=FALSE}
 ```
 
 The `geno` object contains a `genotype` member of type `SnpMatrix`
@@ -102,7 +102,7 @@ our criteria for minimum call rate and minor allele frequency.
 
 ### Sample level filtering
 
-```{r "code3.r"/code3}
+```{r "code3.r"/code3, message=FALSE}
 ```
 
 The second stage of data pre-processing involves filtering samples,
@@ -124,7 +124,7 @@ proportion of heterozygous genotypes for a given sample based on the
 minor allele frequency across all non-missing SNPs for a given
 sample.
 
-```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row'}
+```{r "code3.r"/code3-a, cache.lazy=FALSE, cache.vars='snpsum.row', message=FALSE}
 ```
 
 We apply filtering on call rate and heterozygosity, selecting only 
@@ -197,4 +197,5 @@ $1 \times 10^{-6}$. We only test HWE on CAD controls due to possible violation o
 ```
 
 ```{r "code4.r"/code4-end}
+
 ```

@@ -6,7 +6,6 @@ source("GWAA.R")
 
 library(GenABEL)
 library(plyr)
-library(postgwas)
 
 source("GWAS_ManhattanFunction.R")
 
@@ -84,6 +83,8 @@ grid.draw(ggplotGrob({
 # ---- code10-d ----
 # Create regional association plot
 # Create data.frame of most significant SNP only
+library(postgwas)
+
 snps<-data.frame(SNP=c("rs1532625"))
 
 # Change column names necessary to run regionalplot function

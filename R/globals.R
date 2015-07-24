@@ -4,8 +4,12 @@
 # Modify data.dir to indicate the location of the GWAStutorial files
 # Intermediate data files will also be stored in this same location unless you set out.dir
 data.dir <- '/Users/ericreed/Desktop/FoulkesLab/SIMFiles'
-#data.dir <- '/Volumes/genome/Research/GWAS'
+
 out.dir <- data.dir                     # may want to write to a separate dir to avoid clutter
+
+# Download files
+urlSupport <- "https://www.mtholyoke.edu/courses/afoulkes/Data/GWAStutorial/GWASTutorial_Files.zip"
+zipSupport.fn <- sprintf("%s/GWAStutorial_Files.zip", data.dir) 
 
 # Input files
 gwas.fn <- lapply(c(bed='bed',bim='bim',fam='fam',gds='gds'), function(n) sprintf("%s/GWAStutorial.%s", data.dir, n))
