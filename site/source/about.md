@@ -25,33 +25,33 @@ Foulkes received a B.A. in Mathematics from Brown University in 1994 and an Sc.D
 ![Jing Qian](Jing_Qian.jpg){:class="bio-photo" width="150" height="200"}
 Dr. Qian is an Associate Professor of Statistics at the University of Massachusetts, Amherst. His main research interests are in the area of survival analysis, which deals with time-to-event data in general. Specifically, he studies semiparametric methods for correlated time-to-event outcomes, arising from medical cost and cost-effectiveness analysis and multistate clinical trials. By developing a quantile regression approach for censored survival data, Dr. Qian introduces flexible modeling methods to deal with non-constant covariate effects in regression. Currently, he is also active in developing statistical methods for survival data subject to complex sampling. In addition, he is interested in statistical inference with high dimensional data. His other research interests include statistical issues in clinical trials and epidemiological studies, and statistical analysis in neurologic diseases.
 
-Dr. Qian received his B.S. from Renmin University of China in 2002 and his Ph.D. from Emory University in 2009.
+Qian received a B.S. in Statistics from Renmin University of China in 2002 and a Ph.D. in Biostatistics from Emory University in 2009.
 
 ### Sara M. Nuñez
 {:class='bio-header'}
 ![Sara Nuñez](sara.jpg){:class="bio-photo" width="140" height="200"}
 Sara has been a Research Scientist under Dr. Foulkes since January 2014. As a recent graduate from the Biostatistics Master's program at the University of Massachusetts, Amherst, she is interested in developing her statistical genetic understanding and mentoring undergraduates who are interested in the same field before she returns to school for her Ph.D. Her work has included developing teaching modules for statistical learning in R as well as conducting genetic association analyses utilizing both existing and novel methods. While she is intrigued by any health related resarch, she is most interested in the genetics of chronic disease. 
 
-Ms. Nuñez graduated from Boston College with a B.A. in Mathematics in 2013, and received her M.S. in Biostatistics from the University of Massachusetts, Amherst School of Public Health in 2015.
+Nuñez received a B.A. in Mathematics from Boston College in 2013 and an M.S. in Biostatistics from the University of Massachusetts, Amherst School of Public Health in 2015.
 
 ### Eric R. Reed
 {:class='bio-header'}
 ![Eric Reed](Eric200.jpg){:class="bio-photo" height="200"}
 Eric has been a research scientist in the Foulkes lab since September 2013.  Coming from a biology background, his pursuits encompass understanding and developing analytical methods and computational tools for drawing inference from life science data. His current work involves the development and implementation of statistical tests for high-dimensional genetic association data, specifically the inference of class level (gene, gene set, enhancer element, etc.) significance from SNP level statistical signal.
 
-Eric received a B.S. in Biology from the University of Massachusetts Boston in 2010, and an M.S. in Biostatistics from the University of Massachusetts Amherst in 2015.  As of September 2015 he will be pursuing a Ph.D. in Bioinformatics from Boston University. 
+Reed received a B.S. in Biology from the University of Massachusetts, Boston in 2010, an M.S. in Biostatistics from the University of Massachusetts Amherst in 2015, and is currently pursuing a Ph.D. in Bioinformatics from Boston University. 
 
 ### Siying Chen
 {:class='bio-header'}
-![Siying Chen](Siying_head.jpg){:class="bio-photo" height="200"}
-Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site. 
+![Siying Chen](Siying_head.jpg){:class="bio-photo" height="100"}
+Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site.
 
-Siying is a rising Senior at Mount Holyoke College, majoring in Statistics. 
+Chen is currently pursuing a B.S. in Statistics from Mount Holyoke College. 
 
 ### Tu Dao
 {:class='bio-header'}
-![Tu Dao](Tu200.jpg){:class="bio-photo" height="200"}
+![Tu Dao](Tu200.jpg){:class="bio-photo" height="100"}
 Tu is a third-year student at Mount Holyoke College interning at the Foulkes Lab as a research assistant. She is interested in gaining a greater understanding of statistical applications in various fields of biology through her experiences at the lab. She is the primary developer of the StatsteachR modules corresponding to the statistical genetics tutorials provided on this site. 
 
-Tu is currently pursuing a B.A in Statistics with a minor in Chemistry at Mount Holyoke College. 
+Tu is currently pursuing a B.A in Statistics from Mount Holyoke College. 
 
