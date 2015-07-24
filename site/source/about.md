@@ -54,6 +54,7 @@ Reed received a B.S. in Biology from the University of Massachusetts, Boston in 
 ![Siying Chen](Siying_head.jpg){:class="bio-photo" height="100"}
 Siying is interning at the Foulkes Lab as a research assistant. Her academic interests include gene-based tests of associations, stochastic processes and Bayesian statistics. She is currently working on applying Bayesian Variable Selection algorithms to high-dimensional genetics data and exploiting Bayesian hierarchical modeling for genetic pathway analysis. She also contributes to building the statsTeachR modules for the statistical genetics tutorials provided on this site.
 
+
 Chen is currently pursuing a B.S. in Statistics from Mount Holyoke College. 
 
 
