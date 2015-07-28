@@ -6,11 +6,11 @@
 
     %title= current_page.data.title
 
-    = stylesheet_link_tag "normalize", "bootstrap.min", "bootstrap-theme.min", "theme", "sidebar", "rouge"
+    = stylesheet_link_tag "normalize", "bootstrap.min", "bootstrap-theme.min", "theme", "sidebar", "rouge", "simplex"
 
   %body(class=page_classes role="document")
 
-    %nav.navbar.navbar-inverse.navbar-fixed-top
+    %nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
           %a.navbar-brand(href="/") 
@@ -43,13 +43,9 @@
                   %a(tabindex='-1' href='#')Module 1: Data pre-processing
                   %ul.dropdown-menu
                     %li
-                      = link_to 'Lab 1', '/str/lab1.html'
+                      = link_to 'Lab 1', '/str/Lab1_PCs_Computation.html'
                     %li
-                      = link_to 'Lab 2', '/str/lab2.html'
-                    %li
-                      = link_to 'Lab 3', '/str/lab3.html'
-                    %li
-                      = link_to 'Lab 4', '/str/lab4.html'
+                      = link_to 'Lab 2', '/str/Lab2_Imputing_nontypedSNPs.html'
             %li.dropdown
               %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
                 Software
@@ -80,7 +76,7 @@
           Funding provided by NIH/NHLBI R01 HL107196.
 
 
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js", "sidebar.js"
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "bootstrap.min.js", "sidebar.js", "simplex.js"
 
 
 

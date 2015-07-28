@@ -5,7 +5,7 @@ html {
 }
 body {
   padding-top: 70px; /* drop main body below menu */
-  margin-bottom: 60px;
+
 }
 
 .jumbotron {
@@ -24,6 +24,12 @@ body {
   padding-top: 15px;
   padding-right: 15px;
   padding-left: 15px;
+  margin: 0 0;
+}
+
+.bio-photo-right {
+    float: right;
+    margin: 10px;
 }
 
 .bio-photo {
