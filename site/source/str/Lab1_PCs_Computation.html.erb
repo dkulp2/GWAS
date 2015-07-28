@@ -1,0 +1,163 @@
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+
+
+<div id="new-data-generation---computing-principal-components" class="section level2">
+<h2>New data generation - Computing principal components</h2>
+<p>(This lab was adapted for statsTeachR by Tu Dao, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<div id="getting-started" class="section level3">
+<h3>Getting started</h3>
+<p>To prepare for computing principal components (PCs), we need to load the data saved from last module and read in the gds file for SNPRelate functions.</p>
+<pre class="r"><code>load(&quot;lab4_save.RData&quot;)
+library(SNPRelate)                    
+genofile &lt;- snpgdsOpen(&quot;data.gds&quot;, readonly = TRUE)</code></pre>
+</div>
+<div id="creating-principal-components-for-capturing-population-substructure" class="section level3">
+<h3>Creating principal components for capturing population-substructure</h3>
+<p>Now that we have performed SNP and sample level quality control on our genotype data, we need to generate two new types of data to perform our statistical analysis. The first type is generated in this lab and is comprised of principal components (PCs), which are intended to capture information on latent population substructure that is typically not available in self-reported race and ethnicity variables. Substucture refers to the presence of genetic diversity (e.g. different allele frequencies) within an apparently homogeneous population that is due to population genetic history (e.g. migration, selection, and/or ethnic integration).</p>
+<p>First, we ahve to prune the SNPs based on their linkage disequilibrium (LD) (as we have done before). Here, we set the LD threshold to 0.2. Here, 8307 SNPs remain for PC calculation.</p>
+<pre class="r"><code>ld.thresh &lt;- 0.2
+set.seed(1000)
+geno.sample.ids &lt;- rownames(genotype)
+snpSUB &lt;- snpgdsLDpruning(genofile, ld.threshold = ld.thresh, sample.id = geno.sample.ids, 
+    snp.id = colnames(genotype))</code></pre>
+<pre><code>## SNP pruning based on LD:
+## Removing 2357 SNP(s) on non-autosomes
+## Removing 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
+## Working space: 1396 samples, 7643 SNPs
+##  Using 1 (CPU) core
+##  Sliding window: 500000 basepairs, Inf SNPs
+##  |LD| threshold: 0.2
+## Chromosome 5: 75.92%, 514/677
+## Chromosome 13: 73.40%, 298/406
+## Chromosome 2: 77.36%, 656/848
+## Chromosome 11: 74.42%, 387/520
+## Chromosome 8: 77.92%, 413/530
+## Chromosome 1: 75.78%, 629/830
+## Chromosome 12: 76.06%, 359/472
+## Chromosome 9: 73.38%, 350/477
+## Chromosome 3: 78.87%, 556/705
+## Chromosome 4: 76.82%, 507/660
+## Chromosome 16: 72.44%, 255/352
+## Chromosome 10: 75.82%, 417/550
+## Chromosome 14: 75.00%, 237/316
+## Chromosome 7: 79.28%, 440/555
+## Chromosome 15: 74.13%, 235/317
+## Chromosome 20: 76.63%, 200/261
+## Chromosome 22: 73.15%, 79/108
+## Chromosome 17: 80.00%, 184/230
+## Chromosome 6: 78.21%, 488/624
+## Chromosome 18: 74.07%, 200/270
+## Chromosome 19: 78.62%, 114/145
+## Chromosome 21: 78.91%, 116/147
+## 7634 SNPs are selected in total.</code></pre>
+<pre class="r"><code>snpset.pca &lt;- unlist(snpSUB, use.names = FALSE)
+cat(length(snpset.pca), &quot;\n&quot;)</code></pre>
+<pre><code>## 7634</code></pre>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>Why do we have to prune the SNPs based on LD before computing PCs?</p>
+<p>As with Ancestry filtering, we will next calculate PCs using the snpgdsPCA function from SNPRelate and the pruned data. In this example, we will calculate the first 10 principal components to be included in GWA models (next module).</p>
+<pre class="r"><code>pca &lt;- snpgdsPCA(genofile, sample.id = geno.sample.ids,  snp.id = snpset.pca, num.thread=1)</code></pre>
+<pre><code>## Principal Component Analysis (PCA) on SNP genotypes:
+## Removing 2366 SNP(s) on non-autosomes
+## Removing 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
+## Working space: 1396 samples, 7634 SNPs
+##  Using 1 (CPU) core
+## PCA: the sum of all working genotypes (0, 1 and 2) = 5016727
+## PCA: Mon Jul 13 13:02:12 2015    0%
+## PCA: Mon Jul 13 13:02:15 2015    100%
+## PCA: Mon Jul 13 13:02:15 2015    Begin (eigenvalues and eigenvectors)
+## PCA: Mon Jul 13 13:02:22 2015    End (eigenvalues and eigenvectors)</code></pre>
+<pre class="r"><code>pcs &lt;- data.frame(FamID = pca$sample.id, pca$eigenvect[,1 : 10],
+                  stringsAsFactors = FALSE)
+colnames(pcs)[2:11]&lt;-paste(&quot;pc&quot;, 1:10, sep = &quot;&quot;)
+print(head(pcs))</code></pre>
+<pre><code>##   FamID          pc1           pc2           pc3          pc4          pc5
+## 1 10002  0.012861484  0.0149563851 -0.0177310562 -0.009650310  0.005528826
+## 2 10004 -0.010531600  0.0022735678  0.0092708832 -0.033804319  0.009330284
+## 3 10005 -0.022826436  0.0033852447 -0.0135781740 -0.009070224 -0.031476353
+## 4 10007 -0.016450249  0.0002328178  0.0008678573 -0.014714243 -0.035522351
+## 5 10008 -0.009313263  0.0163041819  0.0072575504 -0.025766634 -0.005235535
+## 6 10009 -0.008666839 -0.0004784226  0.0223631591 -0.019787053 -0.016564473
+##            pc6         pc7          pc8           pc9         pc10
+## 1 -0.017679873 -0.01822292  0.006787699  0.0172321544  0.008376957
+## 2 -0.028695201  0.03323865  0.056698929 -0.0823782016 -0.029261997
+## 3  0.004663793 -0.01413596  0.016450099 -0.0005562771 -0.019292089
+## 4 -0.035749372 -0.02912202 -0.030163506  0.0033556637  0.002824611
+## 5  0.016357295  0.03022691 -0.041684700 -0.0120205169  0.038326344
+## 6  0.041485397  0.02624241  0.022475617 -0.0655563447  0.029825874</code></pre>
+</div>
+<div id="exercise-1" class="section level4">
+<h4>Exercise</h4>
+<p>What do the columns and rows of pcs represent?</p>
+</div>
+</div>
+<div id="saving-work-for-following-labs" class="section level3">
+<h3>Saving work for following labs…</h3>
+<p>Before saving the data, we have to close the GDS file using closefn.gds() function. You can save the necessary data from this lab by using the save() function:</p>
+<pre class="r"><code>closefn.gds(genofile)
+save(genotype, genoBim, clinical, pcs, file=&quot;m2_lab1_save.RData&quot;)</code></pre>
+</div>
+<div id="on-your-own" class="section level3">
+<h3>On your own</h3>
+<ol style="list-style-type: decimal">
+<li>Using the exercise data, compute the first 5 PCs. State the number of SNPs selected after LD pruning.</li>
+<li></li>
+</ol>
+<pre class="r"><code>print(pcs[1:5,])</code></pre>
+<pre><code>##   FamID          pc1          pc2           pc3          pc4          pc5
+## 1 10002  0.012861484 0.0149563851 -0.0177310562 -0.009650310  0.005528826
+## 2 10004 -0.010531600 0.0022735678  0.0092708832 -0.033804319  0.009330284
+## 3 10005 -0.022826436 0.0033852447 -0.0135781740 -0.009070224 -0.031476353
+## 4 10007 -0.016450249 0.0002328178  0.0008678573 -0.014714243 -0.035522351
+## 5 10008 -0.009313263 0.0163041819  0.0072575504 -0.025766634 -0.005235535
+##            pc6         pc7          pc8           pc9         pc10
+## 1 -0.017679873 -0.01822292  0.006787699  0.0172321544  0.008376957
+## 2 -0.028695201  0.03323865  0.056698929 -0.0823782016 -0.029261997
+## 3  0.004663793 -0.01413596  0.016450099 -0.0005562771 -0.019292089
+## 4 -0.035749372 -0.02912202 -0.030163506  0.0033556637  0.002824611
+## 5  0.016357295  0.03022691 -0.041684700 -0.0120205169  0.038326344</code></pre>
+<p>Looking at the first 5 participants’ PCs, find the highest loading component for each participant. What do you think it means?</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
