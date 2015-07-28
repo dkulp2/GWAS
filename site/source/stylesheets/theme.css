@@ -10,6 +10,7 @@ body {
 
 .jumbotron {
   background: url("/images/helix-banner.jpg") no-repeat center center;
+  color: black;
 }
 
 .footer {
