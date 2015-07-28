@@ -5,7 +5,7 @@ title: Foulkes Lab at Mt Holyoke College
 # About the Foulkes Lab
 
 
-![Kendade Clapp Hall](KendadeClappHalls.jpg){:width="600px" height="400px"}
+![Kendade Clapp Hall](tower.JPG){:class="bio-photo-right"}
 
 
 ##### The ORSG project was created and is maintained by the members of the Foulkes Lab. 
@@ -27,7 +27,7 @@ Foulkes received a B.A. in Mathematics from Brown University in 1994 and an Sc.D
 ### Jing Qian Ph.D
 {:class='bio-header'}
 
-![Jing Qian](Jing_Qian.jpg){:class="bio-photo" width="150" height="200"}
+![Jing Qian](Jing_Qian.jpg){:class="bio-photo" width="140" height="200"}
 
 Dr. Qian is an Associate Professor of Statistics at the University of Massachusetts, Amherst. His main research interests are in the area of survival analysis, which deals with time-to-event data in general. Specifically, he studies semiparametric methods for correlated time-to-event outcomes, arising from medical cost and cost-effectiveness analysis and multistate clinical trials. By developing a quantile regression approach for censored survival data, Dr. Qian introduces flexible modeling methods to deal with non-constant covariate effects in regression. Currently, he is also active in developing statistical methods for survival data subject to complex sampling. In addition, he is interested in statistical inference with high dimensional data. His other research interests include statistical issues in clinical trials and epidemiological studies, and statistical analysis in neurologic diseases.
 
