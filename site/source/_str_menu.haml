@@ -1,0 +1,18 @@
+%li
+  = link_to 'About', '/str/about.html'
+%li.dropdown-submenu
+  %a(tabindex='-1' href='#')Module 1: Data Preprocessing
+  %ul.dropdown-menu
+    = partial "str_mod1"
+%li.dropdown-submenu
+  %a(tabindex='-1' href='#')Module 2: New Data Generation
+  %ul.dropdown-menu
+    = partial "str_mod2"
+%li.dropdown-submenu
+  %a(tabindex='-1' href='#')Module 3: GWAA
+  %ul.dropdown-menu
+    = partial "str_mod3"
+%li.dropdown-submenu
+  %a(tabindex='-1' href='#')Module 4: Post Analytics
+  %ul.dropdown-menu
+    = partial "str_mod4"
