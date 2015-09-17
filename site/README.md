@@ -50,3 +50,21 @@ the rsync deploy method (see config.rb for settings).  `middleman
 deploy` will syncronize the remote server with the *build* directory.
 In order for this to work, you must have your public key stored on the
 remote server.
+
+# Random Notes
+
+The str tutorials are derived from a separate process of knitr files
+that generate HTML and then thrown over the wall.  I first rename them
+using something like this in the mod4_post_analytics folder:
+
+for i in *.html; do mv $i Mod4_$i.erb; done
+
+Then I strip everything before and after the body tags, inclusive.
+
+perl -i.bak -ne 'BEGIN { $b=0 }; if (/<\/body>/) { $b=!$b }; print if $b; if (/<body>/) { $b=!$b }' ./*.erb
+
+Then I copied them.
+
+cp *.erb ~/src/GWAS/site/source/str
+
+But then I had to manually update the layout.haml file with the custom menu.

@@ -26,7 +26,7 @@ img {
 <div id="getting-started" class="section level3">
 <h3>Getting started</h3>
 <p>In addition to the genotyped SNPs from our study, it is useful to extend the analysis to other known SNPs, that were not typed or were removed by SNP level filtering. In this example, we impute SNPs on chromosome 16. Performance of genotype imputation requires reference data, which has typed genotypes at the SNPs of interest from a similar homogeneous sample. Sources for this data include HapMap and 1000 Genomes.</p>
-<p>To prepare for imputing non-typed SNPs, we need to load the data saved from last module and read in 1000G data for chromosome 16. To do this, we will read in the genotype data from the .ped and .info files using the read.pedfile() function in snpStats. Note, that the .info file is similar to the .map file we’ve discussed previously, and the .ped file is very large (150 Mb) and thus will take longer to download. In addition, notice that we are using a different method for obtaining the files from the web. Please install package downloader to be able to download the 1000G files to your workspace.</p>
+<p>To prepare for imputing non-typed SNPs, we need to load the data saved from last module and read in 1000G data for chromosome 16. To do this, we will read in the genotype data from the .ped and .info files using the read.pedfile() function in snpStats. Note, that the .info file is similar to the .map file we’ve discussed previously, and the .ped file is very large (150 Mb) and thus will take longer to download. Please install package downloader to be able to download the 1000G files to your workspace.</p>
 <p>Once we have the data read in, we use the which argument to specify the column in the .info file with the SNP IDs. Then we proceed to obtain genotype data for the given chromosome and each SNPs position.</p>
 <pre class="r"><code>load(&quot;m2_lab1_save.RData&quot;)
 library(snpStats)
@@ -59,23 +59,23 @@ targetSnps &lt;- presDatChr$SNP
 is.present &lt;- colnames(genoMatrix) %in% targetSnps
 missing &lt;- genoMatrix[, !is.present]
 print(missing)</code></pre>
-<pre><code>## A SnpMatrix with  99 rows and  398196 columns
+<pre><code>## A SnpMatrix with  99 rows and  386404 columns
 ## Row names:  CEU_1 ... CEU_99 
 ## Col names:  rs140769322 ... rs111706106</code></pre>
 <pre class="r"><code>present &lt;- genoMatrix[, is.present]
 print(present)</code></pre>
-<pre><code>## A SnpMatrix with  99 rows and  255 columns
+<pre><code>## A SnpMatrix with  99 rows and  12047 columns
 ## Row names:  CEU_1 ... CEU_99 
-## Col names:  rs2074365 ... rs11117303</code></pre>
+## Col names:  rs41340949 ... rs7196459</code></pre>
 <p>After subsetting our typed SNPs for the given chromosome, we need to acquire their positions to be used for imputation rules. We derive these “rules” for the additional SNPs that were not typed in our study using the snp.imputation function. In other words, we are using the genotypes from the 1000G data to fill in the gaps in our data. Each rule represents a predictive model for genotypes of un-typed SNPs associated with near-by typed SNPs.</p>
 <pre class="r"><code>pos.pres &lt;- support$position[is.present]
 pos.miss &lt;- support$position[!is.present]
 rules &lt;- snp.imputation(present, missing, pos.pres, pos.miss)</code></pre>
-<pre><code>## SNPs tagged by a single SNP: 58412
-## SNPs tagged by multiple tag haplotypes (saturated model): 158818</code></pre>
+<pre><code>## SNPs tagged by a single SNP: 68562
+## SNPs tagged by multiple tag haplotypes (saturated model): 137495</code></pre>
 <pre class="r"><code>rules &lt;- rules[can.impute(rules)]
 cat(&quot;Imputation rules for&quot;, length(rules), &quot;SNPs were estimated\n&quot;) </code></pre>
-<pre><code>## Imputation rules for 217230 SNPs were estimated</code></pre>
+<pre><code>## Imputation rules for 206057 SNPs were estimated</code></pre>
 <div id="exercise" class="section level4">
 <h4>Exercise</h4>
 <p>Why would we want to impute non-typed SNPs?</p>
@@ -85,17 +85,17 @@ r2threshold &lt;- 0.7
 minor &lt;- 0.01
 rules &lt;- rules[imputation.r2(rules) &gt;= r2threshold]
 cat(length(rules),&quot;imputation rules remain after uncertain imputations were removed\n&quot;)  </code></pre>
-<pre><code>## 10718 imputation rules remain after uncertain imputations were removed</code></pre>
+<pre><code>## 159085 imputation rules remain after uncertain imputations were removed</code></pre>
 <pre class="r"><code>rules &lt;- rules[imputation.maf(rules) &gt;= minor]
 cat(length(rules),&quot;imputation rules remain after MAF filtering\n&quot;) </code></pre>
-<pre><code>## 10718 imputation rules remain after MAF filtering</code></pre>
+<pre><code>## 159085 imputation rules remain after MAF filtering</code></pre>
 <pre class="r"><code># Obtain posterior expectation of genotypes of imputed snps
 target &lt;- genotype[,targetSnps]
 imputed &lt;- impute.snps(rules, target, as.numeric=FALSE)
 print(imputed)  </code></pre>
-<pre><code>## A SnpMatrix with  1396 rows and  10718 columns
+<pre><code>## A SnpMatrix with  1400 rows and  159085 columns
 ## Row names:  10002 ... 11596 
-## Col names:  rs118004149 ... rs72817441</code></pre>
+## Col names:  rs28436661 ... rs62053708</code></pre>
 </div>
 <div id="exercise-1" class="section level4">
 <h4>Exercise</h4>

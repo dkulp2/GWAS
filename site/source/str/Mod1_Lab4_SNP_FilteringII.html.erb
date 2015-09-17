@@ -1,0 +1,94 @@
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+
+
+<div id="snp-level-filtering-part-ii---hardy-weinberg-equilibrium" class="section level2">
+<h2>SNP level filtering (Part II) - Hardy-Weinberg Equilibrium</h2>
+<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>After filtering the sample, we proceed to filter the SNPs with Hardy Weinberg Equilibrium (HWE). HWE states that probability of an allele occuring on one homolog does not depend on which allele is present on the other homolog in a large, randomly mating population that remain stable over generations. Violation of HWE can be an indication of the presence of population substructure or occurence of a genotyping error. While it is not always true, it is common to remove any SNPs that violated HWE to avoid genotyping error. Departures of HWE at a given SNPs are usually measured with a chi-square goodnness-of-fit test between the observed and expected genotypes.</p>
+<p>In this lab, we filter our SNPs based on HWE p &lt; 1*10^-6 in CAD controls. It results in 7643 SNPs remain for the association analysis.</p>
+<pre class="r"><code>load(&quot;lab3_save.RData&quot;)
+source(&quot;http://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;snpStats&quot;)</code></pre>
+<pre><code>## 
+## The downloaded binary packages are in
+##  /var/folders/_9/8f93yrbn70v__gsn6550wbqr0000gn/T//Rtmp2scphX/downloaded_packages</code></pre>
+<pre class="r"><code>biocLite(&quot;gdsfmt&quot;)</code></pre>
+<pre><code>## 
+## The downloaded binary packages are in
+##  /var/folders/_9/8f93yrbn70v__gsn6550wbqr0000gn/T//Rtmp2scphX/downloaded_packages</code></pre>
+<pre class="r"><code>library(snpStats)
+library(gdsfmt)
+hardy &lt;- 10^-6     
+CADcontrols &lt;- as.character(clinical[ clinical$CAD==0, 'FamID' ])
+snpsum.colCont &lt;- col.summary(genotype[CADcontrols,])
+HWEuse &lt;- with(snpsum.colCont, !is.na(z.HWE) &amp; ( abs(z.HWE) &lt; abs( qnorm(hardy/2) ) ) )
+rm(snpsum.colCont)
+HWEuse[is.na(HWEuse)] &lt;- FALSE          
+cat(ncol(genotype)-sum(HWEuse),&quot;SNPs will be removed due to high HWE.\n&quot;) </code></pre>
+<pre><code>## 765 SNPs will be removed due to high HWE.</code></pre>
+<pre class="r"><code>genotype &lt;- genotype[,HWEuse]
+print(genotype)                           </code></pre>
+<pre><code>## A SnpMatrix with  1400 rows and  381257 columns
+## Row names:  10002 ... 11596 
+## Col names:  rs4579145 ... rs946221</code></pre>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>Why do we have to filter the sample before filter the SNPs with HWE? How many SNPs have a HWE p-value of 10^-5 or less?</p>
+</div>
+<div id="saving-work-for-following-labs" class="section level3">
+<h3>Saving work for following labs…</h3>
+<p>You can save the necessary data from this lab by running the following commands:</p>
+<pre class="r"><code>save(genotype, genoBim, clinical, file= &quot;lab4_save.RData&quot;)</code></pre>
+</div>
+<div id="on-your-own" class="section level3">
+<h3>On your own</h3>
+<ol style="list-style-type: decimal">
+<li><p>In the example above, why do we only use CAD controls when filtering?</p></li>
+<li><p>In the example above,what are the 5 five SNPs with highest HWE?</p></li>
+<li><p>Write out the form of the chi-square goodness-of-fit test statistic. Be sure to define each term.</p></li>
+<li><p>Load the exercise data that was saved in the previous lab using the command load(“exercise_dat.RData”). Filter on HWE using the exercise data.</p></li>
+<li><p>Recall that this is the data before sample level filtering was performed. What does this imply about the results?</p></li>
+</ol>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+

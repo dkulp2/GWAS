@@ -1,0 +1,145 @@
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+
+
+<div id="snp-level-filtering-part-i" class="section level2">
+<h2>SNP level filtering (Part I)</h2>
+<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>Before analyzing any associations between biomarkers and traits, genotype data is usually filtered by a sequence of quality control criteria.The second step in GWA analysis is removing (also referred to as “filtering” single-nucleotide polymorphisms (SNPs) to be excluded from the analysis. The reasons for this exlcusion include large amounts of missing data, low variability and genotyping errors. We will look at two out of the three filtering criteria in this lab using the data saved from lab 1.</p>
+<div id="loading-data-and-creating-snp-summary-statistics" class="section level3">
+<h3>Loading data and creating SNP summary statistics</h3>
+<p>To continue our GWA analysis, we need to load the data saved from lab 1 using the load() command. After installing snpStats package, we use col.summary() function to create a dataframe with columns of SNPs’ summary statisitcs like MAF, call rate, etc.</p>
+<pre class="r"><code>load(&quot;lab1_save.RData&quot;)
+library(snpStats)</code></pre>
+<pre><code>## Loading required package: survival
+## Loading required package: Matrix
+## 
+## Attaching package: 'Matrix'
+## 
+## The following objects are masked from 'package:base':
+## 
+##     crossprod, tcrossprod</code></pre>
+<pre class="r"><code>snpsum.col &lt;- col.summary(genotype)
+head(snpsum.col)</code></pre>
+<pre><code>##            Calls Call.rate Certain.calls       RAF         MAF
+## rs4579145   1400 0.9992862             1 0.8235714 0.176428571
+## rs2768995   1074 0.7665953             1 0.9790503 0.020949721
+## rs10125738  1401 1.0000000             1 0.9768023 0.023197716
+## rs888263    1382 0.9864383             1 0.6649783 0.335021708
+## rs7639361   1396 0.9964311             1 0.6840974 0.315902579
+## rs2430512   1385 0.9885796             1 0.9989170 0.001083032
+##                    P.AA        P.AB      P.BB       z.HWE
+## rs4579145  0.0285714286 0.295714286 0.6757143  0.65809530
+## rs2768995  0.0037243948 0.034450652 0.9618250 -5.24953586
+## rs10125738 0.0007137759 0.044967880 0.9543183 -0.29013170
+## rs888263   0.1041968162 0.461649783 0.4341534  1.34207569
+## rs7639361  0.0988538682 0.434097421 0.4670487  0.16261598
+## rs2430512  0.0000000000 0.002166065 0.9978339  0.04034939</code></pre>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>What do the collumns of the SNP summary statistics represent? What do the row represent? How many SNPs are there?</p>
+</div>
+</div>
+<div id="call-rate" class="section level3">
+<h3>Call rate</h3>
+<p>For a given SNP, its call rate is defined as the proportion of inidividuals in our study for which the corresponding SNP information is not missing.For example, a call rate of 95% for a certain SNP means that 95% of the individuals have data for this SNP. Thus to filter by call rate, we look at the column of Call.rate in our dataframe and choose the SNPs that has percentage of missing observations below our chosen threshold. In this module we set a call rate threshold to be 0.95 and then select for SNPs that pass the call rate.</p>
+<pre class="r"><code>call &lt;- 0.95
+use &lt;- with(snpsum.col, (!is.na(Call.rate) &amp; Call.rate &gt;= call))
+use[is.na(use)] &lt;- FALSE              
+cat(ncol(genotype)-sum(use),&quot;SNPs will be removed due to low call rate.\n&quot;) </code></pre>
+<pre><code>## 54583 SNPs will be removed due to low call rate.</code></pre>
+<p>Now that we know what SNPs to keep, we proceed to subset genotype and SNP summary data so that they contains only rows of SNPs passing the call rate</p>
+<pre class="r"><code>genotype &lt;- genotype[,use]
+snpsum.col &lt;- snpsum.col[use,]
+print(genotype)         </code></pre>
+<pre><code>## A SnpMatrix with  1401 rows and  445417 columns
+## Row names:  10002 ... 11596 
+## Col names:  rs4579145 ... rs946221</code></pre>
+<div id="exercise-1" class="section level4">
+<h4>Exercise 1</h4>
+<p>How many different call rates are there in the dataframe snpsum.col before any SNP level filtering? What’s the three smallest call rates? Please round your final answer to 3 significant figures.</p>
+</div>
+</div>
+<div id="minor-allele-frequency" class="section level3">
+<h3>Minor allele frequency</h3>
+<p>Inadequate power to infer a statiscally significant relationship between the SNP and the trait under study is the result of a large degree of homogeneity at a given SNP across study participants. This occurs when we have a very small minor allele frequency (MAF), which means the majority of the individuals have two copies of the same major alleles. Minor allele frequency (also known as variant allele frequency) is defined as frequency of the less common allele at a variable site. In this module, we remove SNPs whose minor allele fequency is less than 1%. In other cases, particularly when sample size is small, we may apply a cut point of 5%.</p>
+<pre class="r"><code>minor &lt;- 0.01
+use1 &lt;- with(snpsum.col, (!is.na(MAF) &amp; MAF &gt; minor) )
+use1[is.na(use1)] &lt;- FALSE               
+cat(ncol(genotype)-sum(use1),&quot;SNPs will be removed due to low MAF .\n&quot;  ) </code></pre>
+<pre><code>## 63395 SNPs will be removed due to low MAF .</code></pre>
+<p>After knowing the SNPs needed to be removed, we subset the genotype and SNP summary data for the SNPs that pass MAF criteria.</p>
+<pre class="r"><code>genotype &lt;- genotype[,use1]
+snpsum.col &lt;- snpsum.col[use1,]
+print(genotype)</code></pre>
+<pre><code>## A SnpMatrix with  1401 rows and  382022 columns
+## Row names:  10002 ... 11596 
+## Col names:  rs4579145 ... rs946221</code></pre>
+<div id="exercise-2" class="section level4">
+<h4>Exercise 2</h4>
+<p>Please take the dataframe from the second module and filter it by minor allele frequency. Then report the number of SNPs remained and print the genotype object.</p>
+</div>
+</div>
+<div id="saving-work-for-following-labs" class="section level3">
+<h3>Saving work for following labs…</h3>
+<p>You can save the necessary data from this lab by running the following commands:</p>
+<pre class="r"><code>save(genotype, snpsum.col,genoBim, clinical, file= &quot;lab2_save.RData&quot;)</code></pre>
+</div>
+<div id="on-your-own" class="section level3">
+<h3>On Your Own</h3>
+<ol style="list-style-type: decimal">
+<li><p>Use the unfiltered dataframe.Please calculate the call rate for rs35329321 using ONLY the information from row names and the column “Calls” in the snpsum.col dataframe.(hint: you can find the row of rs7563461 by printing out the first six rows of the data and find the maximum number of calls)</p></li>
+<li><p>Now that we know how to filter the SNPs using MAF, let’s try to calculate MAF by hand.</p></li>
+</ol>
+<pre class="r"><code>geno &lt;- as(genotype[,1], &quot;numeric&quot;)  
+table(geno)</code></pre>
+<pre><code>## geno
+##   0   1   2 
+##  40 414 946</code></pre>
+<p>We have a table with genotype information with 0,1 and 2 value. 0 represents homozygous minor allele, 1 is heterozygous and 2 is homozygous major allele. Let’s say for exampple of a single variable site in which AA is present in 75% of population, Aa is present in 20% and aa is present in 5%. The frequency of A allele is equal to (75+75+20)%/2 = 85%, while frequency of a is (20+5+5)%/2 = 15%. Using all the information above, calculate the MAF using the data provided in the table.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>How many SNPs are removed if call rate is set to 90% and MAF is 5%? Is this more or less conservative than the threshold in the example above?</p></li>
+<li><p>Use the unfiltered dataframe. Please caculate MAF for rs1921315 using ONLY the genotype frequencies, i.e. information in the three columns P.AA ,P.AB and P.BB. (hint: first extract the row of rs1921315)</p></li>
+</ol>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+

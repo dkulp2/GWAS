@@ -27,7 +27,7 @@ img {
 <p>To prepare for computing principal components (PCs), we need to load the data saved from last module and read in the gds file for SNPRelate functions.</p>
 <pre class="r"><code>load(&quot;lab4_save.RData&quot;)
 library(SNPRelate)                    
-genofile &lt;- snpgdsOpen(&quot;data.gds&quot;, readonly = TRUE)</code></pre>
+genofile &lt;- snpgdsOpen(&quot;GWAS_data.gds&quot;, readonly = TRUE)</code></pre>
 </div>
 <div id="creating-principal-components-for-capturing-population-substructure" class="section level3">
 <h3>Creating principal components for capturing population-substructure</h3>
@@ -39,71 +39,77 @@ geno.sample.ids &lt;- rownames(genotype)
 snpSUB &lt;- snpgdsLDpruning(genofile, ld.threshold = ld.thresh, sample.id = geno.sample.ids, 
     snp.id = colnames(genotype))</code></pre>
 <pre><code>## SNP pruning based on LD:
-## Removing 2357 SNP(s) on non-autosomes
-## Removing 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
-## Working space: 1396 samples, 7643 SNPs
+## Excluding 118743 SNPs on non-autosomes
+## Excluding 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
+## Working space: 1400 samples, 381257 SNPs
 ##  Using 1 (CPU) core
 ##  Sliding window: 500000 basepairs, Inf SNPs
 ##  |LD| threshold: 0.2
-## Chromosome 5: 75.92%, 514/677
-## Chromosome 13: 73.40%, 298/406
-## Chromosome 2: 77.36%, 656/848
-## Chromosome 11: 74.42%, 387/520
-## Chromosome 8: 77.92%, 413/530
-## Chromosome 1: 75.78%, 629/830
-## Chromosome 12: 76.06%, 359/472
-## Chromosome 9: 73.38%, 350/477
-## Chromosome 3: 78.87%, 556/705
-## Chromosome 4: 76.82%, 507/660
-## Chromosome 16: 72.44%, 255/352
-## Chromosome 10: 75.82%, 417/550
-## Chromosome 14: 75.00%, 237/316
-## Chromosome 7: 79.28%, 440/555
-## Chromosome 15: 74.13%, 235/317
-## Chromosome 20: 76.63%, 200/261
-## Chromosome 22: 73.15%, 79/108
-## Chromosome 17: 80.00%, 184/230
-## Chromosome 6: 78.21%, 488/624
-## Chromosome 18: 74.07%, 200/270
-## Chromosome 19: 78.62%, 114/145
-## Chromosome 21: 78.91%, 116/147
-## 7634 SNPs are selected in total.</code></pre>
+## Chromosome 4: 75.51%, 24294/32174
+## Chromosome 6: 77.23%, 24214/31353
+## Chromosome 9: 76.84%, 18323/23846
+## Chromosome 18: 75.59%, 11456/15156
+## Chromosome 3: 76.15%, 26823/35222
+## Chromosome 17: 75.66%, 8764/11583
+## Chromosome 19: 75.86%, 5060/6670
+## Chromosome 11: 75.98%, 19438/25583
+## Chromosome 10: 76.33%, 21356/27978
+## Chromosome 1: 74.92%, 30937/41294
+## Chromosome 13: 75.85%, 15079/19880
+## Chromosome 8: 76.75%, 21583/28122
+## Chromosome 12: 76.26%, 18591/24377
+## Chromosome 22: 74.36%, 4867/6545
+## Chromosome 2: 75.80%, 32421/42770
+## Chromosome 16: 75.51%, 12146/16085
+## Chromosome 5: 77.04%, 25093/32572
+## Chromosome 7: 77.42%, 20949/27058
+## Chromosome 15: 75.90%, 11407/15028
+## Chromosome 14: 76.31%, 12424/16280
+## Chromosome 20: 75.99%, 10062/13241
+## Chromosome 21: 76.64%, 5505/7183
+## 380792 SNPs are selected in total.</code></pre>
 <pre class="r"><code>snpset.pca &lt;- unlist(snpSUB, use.names = FALSE)
 cat(length(snpset.pca), &quot;\n&quot;)</code></pre>
-<pre><code>## 7634</code></pre>
+<pre><code>## 380792</code></pre>
 <div id="exercise" class="section level4">
 <h4>Exercise</h4>
 <p>Why do we have to prune the SNPs based on LD before computing PCs?</p>
 <p>As with Ancestry filtering, we will next calculate PCs using the snpgdsPCA function from SNPRelate and the pruned data. In this example, we will calculate the first 10 principal components to be included in GWA models (next module).</p>
 <pre class="r"><code>pca &lt;- snpgdsPCA(genofile, sample.id = geno.sample.ids,  snp.id = snpset.pca, num.thread=1)</code></pre>
 <pre><code>## Principal Component Analysis (PCA) on SNP genotypes:
-## Removing 2366 SNP(s) on non-autosomes
-## Removing 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
-## Working space: 1396 samples, 7634 SNPs
+## Excluding 119208 SNPs on non-autosomes
+## Excluding 0 SNP (monomorphic: TRUE, &lt; MAF: NaN, or &gt; missing rate: NaN)
+## Working space: 1400 samples, 380792 SNPs
 ##  Using 1 (CPU) core
-## PCA: the sum of all working genotypes (0, 1 and 2) = 5016727
-## PCA: Mon Jul 13 13:02:12 2015    0%
-## PCA: Mon Jul 13 13:02:15 2015    100%
-## PCA: Mon Jul 13 13:02:15 2015    Begin (eigenvalues and eigenvectors)
-## PCA: Mon Jul 13 13:02:22 2015    End (eigenvalues and eigenvectors)</code></pre>
+## PCA: the sum of all working genotypes (0, 1 and 2) = 251238746
+## PCA: Thu Aug 27 12:59:58 2015    0%
+## PCA: Thu Aug 27 13:00:28 2015    14%
+## PCA: Thu Aug 27 13:00:58 2015    29%
+## PCA: Thu Aug 27 13:01:29 2015    44%
+## PCA: Thu Aug 27 13:01:59 2015    58%
+## PCA: Thu Aug 27 13:02:29 2015    73%
+## PCA: Thu Aug 27 13:02:59 2015    88%
+## PCA: Thu Aug 27 13:03:23 2015    100%
+## PCA: Thu Aug 27 13:03:23 2015    Begin (eigenvalues and eigenvectors)
+## PCA: Thu Aug 27 13:03:24 2015    End (eigenvalues and eigenvectors)</code></pre>
 <pre class="r"><code>pcs &lt;- data.frame(FamID = pca$sample.id, pca$eigenvect[,1 : 10],
                   stringsAsFactors = FALSE)
 colnames(pcs)[2:11]&lt;-paste(&quot;pc&quot;, 1:10, sep = &quot;&quot;)
 print(head(pcs))</code></pre>
-<pre><code>##   FamID          pc1           pc2           pc3          pc4          pc5
-## 1 10002  0.012861484  0.0149563851 -0.0177310562 -0.009650310  0.005528826
-## 2 10004 -0.010531600  0.0022735678  0.0092708832 -0.033804319  0.009330284
-## 3 10005 -0.022826436  0.0033852447 -0.0135781740 -0.009070224 -0.031476353
-## 4 10007 -0.016450249  0.0002328178  0.0008678573 -0.014714243 -0.035522351
-## 5 10008 -0.009313263  0.0163041819  0.0072575504 -0.025766634 -0.005235535
-## 6 10009 -0.008666839 -0.0004784226  0.0223631591 -0.019787053 -0.016564473
-##            pc6         pc7          pc8           pc9         pc10
-## 1 -0.017679873 -0.01822292  0.006787699  0.0172321544  0.008376957
-## 2 -0.028695201  0.03323865  0.056698929 -0.0823782016 -0.029261997
-## 3  0.004663793 -0.01413596  0.016450099 -0.0005562771 -0.019292089
-## 4 -0.035749372 -0.02912202 -0.030163506  0.0033556637  0.002824611
-## 5  0.016357295  0.03022691 -0.041684700 -0.0120205169  0.038326344
-## 6  0.041485397  0.02624241  0.022475617 -0.0655563447  0.029825874</code></pre>
+<pre><code>##   FamID         pc1          pc2          pc3          pc4          pc5
+## 1 10002 -0.01121786  0.015282391  0.012335017  0.017869885 -0.013561539
+## 2 10004  0.01263937  0.007136085 -0.009394939 -0.029605670  0.017640584
+## 3 10005  0.01656767 -0.007822581  0.034279450 -0.008364165  0.043822928
+## 4 10007  0.01179249 -0.001340544  0.014388948  0.002448683  0.008521085
+## 5 10008  0.01587414  0.003683702  0.013407115 -0.002069099  0.009863999
+## 6 10009  0.01342526  0.002620955  0.005132100 -0.044515366  0.043797908
+##            pc6          pc7          pc8          pc9         pc10
+## 1  0.015099899  0.005363108 -0.007476769 -0.003362287 -0.007697605
+## 2  0.062301372 -0.005341143  0.004102591  0.040899908  0.003655463
+## 3 -0.002068763  0.015205957 -0.011775232  0.005064646  0.003447803
+## 4  0.017414424  0.015268401  0.037495537  0.016946863  0.010266512
+## 5  0.049090388  0.007638991  0.010654394 -0.013350077  0.007254919
+## 6  0.012536302  0.045885623 -0.033450390 -0.045956099  0.009781019</code></pre>
 </div>
 <div id="exercise-1" class="section level4">
 <h4>Exercise</h4>
@@ -123,18 +129,18 @@ save(genotype, genoBim, clinical, pcs, file=&quot;m2_lab1_save.RData&quot;)</cod
 <li></li>
 </ol>
 <pre class="r"><code>print(pcs[1:5,])</code></pre>
-<pre><code>##   FamID          pc1          pc2           pc3          pc4          pc5
-## 1 10002  0.012861484 0.0149563851 -0.0177310562 -0.009650310  0.005528826
-## 2 10004 -0.010531600 0.0022735678  0.0092708832 -0.033804319  0.009330284
-## 3 10005 -0.022826436 0.0033852447 -0.0135781740 -0.009070224 -0.031476353
-## 4 10007 -0.016450249 0.0002328178  0.0008678573 -0.014714243 -0.035522351
-## 5 10008 -0.009313263 0.0163041819  0.0072575504 -0.025766634 -0.005235535
-##            pc6         pc7          pc8           pc9         pc10
-## 1 -0.017679873 -0.01822292  0.006787699  0.0172321544  0.008376957
-## 2 -0.028695201  0.03323865  0.056698929 -0.0823782016 -0.029261997
-## 3  0.004663793 -0.01413596  0.016450099 -0.0005562771 -0.019292089
-## 4 -0.035749372 -0.02912202 -0.030163506  0.0033556637  0.002824611
-## 5  0.016357295  0.03022691 -0.041684700 -0.0120205169  0.038326344</code></pre>
+<pre><code>##   FamID         pc1          pc2          pc3          pc4          pc5
+## 1 10002 -0.01121786  0.015282391  0.012335017  0.017869885 -0.013561539
+## 2 10004  0.01263937  0.007136085 -0.009394939 -0.029605670  0.017640584
+## 3 10005  0.01656767 -0.007822581  0.034279450 -0.008364165  0.043822928
+## 4 10007  0.01179249 -0.001340544  0.014388948  0.002448683  0.008521085
+## 5 10008  0.01587414  0.003683702  0.013407115 -0.002069099  0.009863999
+##            pc6          pc7          pc8          pc9         pc10
+## 1  0.015099899  0.005363108 -0.007476769 -0.003362287 -0.007697605
+## 2  0.062301372 -0.005341143  0.004102591  0.040899908  0.003655463
+## 3 -0.002068763  0.015205957 -0.011775232  0.005064646  0.003447803
+## 4  0.017414424  0.015268401  0.037495537  0.016946863  0.010266512
+## 5  0.049090388  0.007638991  0.010654394 -0.013350077  0.007254919</code></pre>
 <p>Looking at the first 5 participants’ PCs, find the highest loading component for each participant. What do you think it means?</p>
 </div>
 </div>

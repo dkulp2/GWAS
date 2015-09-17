@@ -1,0 +1,141 @@
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+
+
+<div id="genome-wide-association-analysis---association-analysis-of-non-typed-snps" class="section level2">
+<h2>Genome-wide association analysis - Association analysis of non-typed SNPs</h2>
+<p>(This lab was adapted for statsTeachR by Sara Nunez, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>Now that we have conducted the association analysis for typed SNPs, we now carry out analysis for the imputed data. Several stand-alone packages can be applied to conduct this analysis like MACH2qtl/dat and ProbABEL, which utilize the posterior probabilities calculated in the imputation step. However, in this lab, we use the R package snpStats to perform the analysis based on the imputation rules we calculated previously. Recall that in the GWAS2 module, we only imputed SNPs on chromosome 16.</p>
+<div id="getting-started" class="section level3">
+<h3>Getting started</h3>
+<p>To prepare, we first need to load the data saved from last lab and install necessary packages.</p>
+<pre class="r"><code>load(&quot;m3_lab1_save.RData&quot;)
+library(snpStats)
+library(plyr)</code></pre>
+</div>
+<div id="model-fitting-of-imputed-snps" class="section level3">
+<h3>Model fitting of imputed SNPs</h3>
+<p>Here we use the snp.rhs.tests function from snpStats to fit a generalized linear model similarly to how we did in the previous lab. The difference between this function and the glm function used for typed SNPs, however, is that snp.rhs.tests can handle imputed SNPs with the optional parameter ‘rules’. This allows the function to take into account the uncertainty that comes with imputed SNPs. In the following code, we fit this model by specifying the variables from phenodata that we want to include in the model. We then optain the SNP p values and write out a results file named ‘impute.csv’.</p>
+<pre class="r"><code>rownames(phenodata) &lt;- as.character(phenodata$id)
+
+imp &lt;- snp.rhs.tests(phenotype ~ sex + age + pc1 + pc2 + pc3 + pc4 + pc5 + pc6 + 
+    pc7 + pc8 + pc9 + pc10, family = &quot;Gaussian&quot;, data = phenodata, snp.data = target, 
+    rules = rules)
+
+results &lt;- data.frame(SNP = imp@snp.names, p.value = p.value(imp), stringsAsFactors = FALSE)
+results &lt;- results[!is.na(results$p.value), ]
+
+write.csv(results, &quot;impute.csv&quot;, row.names = FALSE)</code></pre>
+<p>The results for SNPs that were successfully fit are then combined with the chromosome and position information by merging the results table with the support information, and adding a column for chromosome. We also add a column indicating that these SNPs were imputed to help distinguish them in the post-analytic interrogation. We also want to take <span class="math">\(−log_{10}(\mbox{p values})\)</span> for plotting purposes in the next module. Run the following code and see what the first few observations in the final data frame look like.</p>
+<pre class="r"><code>imputeOut &lt;- merge(results, support[, c(&quot;SNP&quot;, &quot;position&quot;)])
+imputeOut$chr &lt;- 16
+
+imputeOut$type &lt;- &quot;imputed&quot;
+
+imputeOut$Neg_logP &lt;- -log10(imputeOut$p.value)
+
+imputeOut &lt;- arrange(imputeOut, p.value)
+print(head(imputeOut))</code></pre>
+<pre><code>##          SNP      p.value position chr    type Neg_logP
+## 1  rs1800775 3.970058e-08 56995236  16 imputed 7.401203
+## 2  rs3816117 3.970058e-08 56996158  16 imputed 7.401203
+## 3  rs1532624 4.763363e-08 57005479  16 imputed 7.322086
+## 4  rs7205804 4.763363e-08 57004889  16 imputed 7.322086
+## 5 rs12933833 2.112374e-05 56697684  16 imputed 4.675229
+## 6 rs11076159 2.400306e-05 56670827  16 imputed 4.619733</code></pre>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>What do you notice about SNPs that lie near each other on chromosome 16? Is there anything that makes you concerned? If so, why?</p>
+</div>
+</div>
+<div id="mapping-associated-snps-to-genes" class="section level3">
+<h3>Mapping associated SNPs to genes</h3>
+<p>Using a separate data file containing the chromosome and coordinate locations of each protein-coding gene, we can map all of the imputed SNPs to relative genes. This will be informative when trying to make sense of significant findings.</p>
+<p>We use the following function to extract the subset of SNPs that are in or near a gene of interest. <strong>Be sure to run the following code chunk to save the map2gene() function to your workspace.</strong></p>
+<pre class="r"><code>map2gene &lt;- function(gene, coords, SNPs, extend.boundary = 5000) {
+  coordsSub &lt;- coords[coords$gene == gene,] 
+
+  coordsSub$start &lt;- coordsSub$start - extend.boundary 
+  coordsSub$stop &lt;- coordsSub$stop + extend.boundary
+
+  SNPsub &lt;- SNPs[SNPs$position &gt;= coordsSub$start &amp; SNPs$position &lt;= coordsSub$stop &amp;
+                 SNPs$chr == coordsSub$chr,] 
+
+  return(data.frame(SNPsub, gene = gene, stringsAsFactors = FALSE))
+}</code></pre>
+<p>The SNP with the lowest p value in both the typed and imputed SNP analysis lies within the boundaries of the cholesteryl ester transfer protein gene, CETP. We can call the map2gene() function for CETP to filter the imputed data for SNPs that lie within or <span class="math">\(\pm 5kb\)</span> of it. Once we know which SNPs are in or near CETP, we then subset the genotype data stored in impute for the same list of SNPs. This data will be used for post-analytic interrogation to follow.</p>
+<pre class="r"><code># Read in file containing protein coding genes coords
+library(downloader)
+ProdCod &lt;- download(&quot;https://www.mtholyoke.edu/courses/afoulkes/Data/statsTeachR/ProCodgene_coords.csv&quot;, 
+    destfile = &quot;ProCodgene_coords.csv&quot;)
+genes &lt;- read.csv(&quot;ProCodgene_coords.csv&quot;, stringsAsFactors = FALSE)
+
+# Subset for CETP SNPs
+impCETP &lt;- map2gene(&quot;CETP&quot;, coords = genes, SNPs = imputeOut)
+
+# Filter for CETP SNP genotypes
+impCETPgeno &lt;- imputed[, impCETP$SNP]</code></pre>
+<div id="exercise-1" class="section level4">
+<h4>Exercise</h4>
+<p>How many genes are in the ‘genes’ data frame? What information does this file provide and why will we need it? How many genes are located on chromosome 16?</p>
+</div>
+<div id="exercise-2" class="section level4">
+<h4>Exercise</h4>
+<p>Explain step-by-step what the map2gene() function does? What does each statement in the function do?</p>
+</div>
+</div>
+<div id="saving-work-for-following-labs" class="section level3">
+<h3>Saving work for following labs…</h3>
+<p>You can save the necessary data from this lab by running the following commands:</p>
+<pre class="r"><code>save(genoBim, imputed, target, rules, phenodata, support, genes, impCETP, impCETPgeno, 
+    imputeOut, GWAA, map2gene, file = &quot;m3_lab2_save.RData&quot;)</code></pre>
+</div>
+<div id="on-your-own" class="section level3">
+<h3>On your own</h3>
+<ul>
+<li>Choose a different gene on chromosome 16 to subset the imputed SNPs for. Run the map2gene() function on it.</li>
+<li>Is this gene bigger or smaller than the CETP gene in terms of number of imputed SNPs? How many SNPs were in CETP and how many are in the gene you chose?</li>
+<li>If you chose a gene that didn’t have any SNPs within or near it, why do you think this happened?</li>
+</ul>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+

@@ -15,7 +15,7 @@
         .navbar-header
           %a.navbar-brand(href="/") 
 
-            The ORSG Project
+            Home
 
           %button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar')
             %span.sr-only Toggle navigation
@@ -40,12 +40,39 @@
                 %li
                   = link_to 'About', '/str/about.html'
                 %li.dropdown-submenu
+                  %a(tabindex='-1' href='#')Module 1: Data Preprocessing
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Lab 1', '/str/Mod1_Lab1_Data_Structure.html'
+                    %li
+                      = link_to 'Lab 2', '/str/Mod1_Lab2_SNP_FilteringI.html'
+                    %li
+                      = link_to 'Lab 3', '/str/Mod1_Lab3_Sample_Filtering.html'
+                    %li
+                      = link_to 'Lab 4', '/str/Mod1_Lab4_SNP_FilteringII.html'
+                %li.dropdown-submenu
                   %a(tabindex='-1' href='#')Module 2: New Data Generation
                   %ul.dropdown-menu
                     %li
-                      = link_to 'Lab 1', '/str/Lab1_PCs_Computation.html'
+                      = link_to 'Lab 1', '/str/Mod2_Lab1_PCs_Computation.html'
                     %li
-                      = link_to 'Lab 2', '/str/Lab2_Imputing_nontypedSNPs.html'
+                      = link_to 'Lab 2', '/str/Mod2_Lab2_Imputing_nontypedSNPs.html'
+                %li.dropdown-submenu
+                  %a(tabindex='-1' href='#')Module 3: GWAA
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Lab 1', '/str/Mod3_Lab1_GWAA_typedSNPs.html'
+                    %li
+                      = link_to 'Lab 2', '/str/Mod3_Lab2_GWAA_untypedSNPs.html'
+                %li.dropdown-submenu
+                  %a(tabindex='-1' href='#')Module 4: Post Analytics
+                  %ul.dropdown-menu
+                    %li
+                      = link_to 'Lab 1', '/str/Mod4_Lab1_Genomic_interrogation.html'
+                    %li
+                      = link_to 'Lab 2', '/str/Mod4_Lab2_Quality_Control.html'
+                    %li
+                      = link_to 'Lab 3', '/str/Mod4_Lab3_Visualization.html'
             %li.dropdown
               %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
                 Software

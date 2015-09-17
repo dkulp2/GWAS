@@ -1,0 +1,168 @@
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+
+
+<div id="understanding-genetic-data-structure" class="section level2">
+<h2>Understanding Genetic Data Structure</h2>
+<p>(This lab was adapted for statsTeachR by Sara Nunez, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>The first step in any statistical analysis is to understand the data your working with. No analysis is useful if the data formats and meanings are misunderstood. Genetic data is complex in that it is not just a simple .csv file that can be read into R. Instead, data are typically organized into either (1) .ped and .map files or (2) .bim, .bed and .fam files. R can be used to read in either set of file types (utilizing external packages), though the second set of files is substantially smaller and thus generally preferable*. In this lab, we describe and explore the elements of the .bim, .bed and .fam files, as well as show how these files can be read into R for analysis.</p>
+<div id="penncath-data" class="section level3">
+<h3>PennCath data</h3>
+<p>In this module series that accompanies the full tutorial (ADD LINK TO TUTORIAL), we utilize the PennCath cohort data, which arises from a Genome-wide association (GWA) study of coronary artery disease (CAD) and cardiovascular risk factors based at the University of Pennsylvania Medical Center. For computational purposes, we will be working with a random subset of the .bim, .bed and fam files, which are made publically available along with the full data files at (ADD URL HERE). If you would like to use the full version instead of the subsetted version, simply edit the URL to point to the appropriate links.</p>
+<p>The complete data set has a total of n = 3850 individuals that were recruited between July 1998 and March 2003. A nested case-control study of European ancestry severe angiographic CAD cases and angiographic normal controls were selected for genome wide genotyping. Samples were genotyped using the Affymetrix 6.0 GeneChip and genotypes were called using the Birdseed calling algorithm. De-identified data used in the tutorial are comprised of n = 1401 individuals with genotype information across 861,473 single-nucleotide polymorphisms (SNPs). Corresponding clinical data, including age, sex, high-density lipoprotein (HDL)-cholesterol (HDL-C), low-density lipoprotein (LDL)-cholesterol, triglycerides (TGs) and CAD status are available as well. HDL-cholesterol, LDL-cholesterol and TGs are all quantitative traits and well- described cardiovascular disease risk factors. Notably, PennCath is one of the core GWA studies nested within the Coronary ARtery DIsease Genome-wide Replication And Meta-analysis (CARDIoGRAM) consortium meta-data, and serves as a representative regional population with no admixture.</p>
+</div>
+<div id="read-in-the-data" class="section level3">
+<h3>Read in the data</h3>
+<p>In order to break down the structure of the different data files, we will first read in the .bim, .bed and .fam files together using the command read.plink() found in the snpStats package provided by Bioconductor.</p>
+<pre class="r"><code>source(&quot;http://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;snpStats&quot;)</code></pre>
+<pre><code>## 
+## The downloaded binary packages are in
+##  /var/folders/q5/brz1dtz54w99g1mft67shggm0000gp/T//Rtmp2RngR5/downloaded_packages</code></pre>
+<pre class="r"><code>library(snpStats)
+library(RCurl)
+
+
+# read in data in two steps:
+
+library(downloader)
+bedFile&lt;- download(&quot;https://www.mtholyoke.edu/courses/afoulkes/Data/statsTeachR/GWAS_data.bed&quot;,
+destfile = &quot;GWAS_data.bed&quot;)
+bimFile&lt;- download(&quot;https://www.mtholyoke.edu/courses/afoulkes/Data/statsTeachR/GWAS_data.bim&quot;, destfile = &quot;GWAS_data.bim&quot;)
+famFile&lt;- download(&quot;https://www.mtholyoke.edu/courses/afoulkes/Data/statsTeachR/GWAS_data.fam&quot;,
+destfile = &quot;GWAS_data.fam&quot;)
+
+# step 2: read in the local files using read.plink()
+data &lt;- read.plink(&quot;GWAS_data.bed&quot;,&quot;GWAS_data.bim&quot;,&quot;GWAS_data.fam&quot;,na.strings=(&quot;-9&quot;))
+
+# what class is &quot;data&quot;
+class(data)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code># how many elements are in &quot;data&quot;
+length(data)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>You will first notice that when read in this way, the data is of class “list” and has 3 elements in it. Each element corresponds to the three kinds of data that were read into R. We will next explore each component as each serves a different purpose in analysis and will be needed in the upcoming labs.</p>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>Before we look at each piece of data in detail, try looking at the general structure of it using the function str(). You’ll notice that there is information on all three of the objects in the list. What does each element of the list correspond to (e.g. what is it called and what appears to be in it)? Of what ``class&quot; is the genotypes object?</p>
+</div>
+</div>
+<div id="the-.bim-file" class="section level3">
+<h3>The .bim file</h3>
+<p>The .bim file contains information on each SNP and can be seen by calling the map element in the data object (see tutorial for relationship between .bim and .map file formats).</p>
+<pre class="r"><code>bim &lt;- data$map
+head(bim)</code></pre>
+<pre><code>##            chromosome   snp.name cM  position allele.1 allele.2
+## rs4579145           4  rs4579145  0  78303781        T        C
+## rs2768995           6  rs2768995  0   6911315        C        T
+## rs10125738          9 rs10125738  0 101066136        A        G
+## rs888263           18   rs888263  0  12750253        G        A
+## rs7639361           3  rs7639361  0  80138205        A        C
+## rs2430512          17  rs2430512  0  69675940        T        C</code></pre>
+<p>As you can see from the fist six observations displayed above, this file has a row for each SNP and six columns describing the SNPs. The columns correspond to chromosome number, RS number (SNP identifier), genetic distance, the position on the chromosome and the two alleles, respectively. Note that in most contexts, “allele 1” is also referred to as the “minor allele” and “allele 2” refers to the “major allele” at each SNP. It is also important to note that SNP names and locations can change based on the genetic build your data is based on. Here, the RS numbers and positions are from builg Hg19.</p>
+<div id="exercise-1" class="section level4">
+<h4>Exercise</h4>
+<p>Start investigating the data at hand. How many SNPs are present? Execute the command table(bim$chromosome). Which chromosomes are represented? Which has the most SNPs in this data?</p>
+</div>
+</div>
+<div id="the-.bed-file" class="section level3">
+<h3>The .bed file</h3>
+<p>The raw version of the .bed file contains a binary version of the genotype data. This is the largest of the three files because it contains every SNP in the study, as well as the genotype at that snp for each individual. When we read this file into R, however, it’s automatically translated into the genotype information from the binary code. R then store this object as a SnpMatrix object that is critical to SNP analysis. This SnpMatrix corresponds to the genotypes element in the data object.</p>
+<pre class="r"><code>(bed &lt;- data$genotypes)</code></pre>
+<pre><code>## A SnpMatrix with  1401 rows and  500000 columns
+## Row names:  10002 ... 11596 
+## Col names:  rs4579145 ... rs946221</code></pre>
+<div id="exercise-2" class="section level4">
+<h4>Exercise</h4>
+<p>What do the columns in this matrix represent? What do the rows represent? How many SNPs are in this matrix? How many individuals are present? What does the element corresponding to the <span class="math">\(ith\)</span> row and <span class="math">\(jth\)</span> column represent?</p>
+</div>
+</div>
+<div id="the-.fam-file" class="section level3">
+<h3>The .fam file</h3>
+<p>Finally, the .fam file contains the participant identification information, including a row for each individual and six columns, corresponding to “Family ID Number”, “Sample ID Number”,“Paternal ID Number”, “Maternal ID Number”, “Sex”, and “Phenotype”. The .fam file can be called by referring to the .fam element of the data object.</p>
+<pre class="r"><code>fam &lt;- data$fam
+head(fam)</code></pre>
+<pre><code>##       pedigree member father mother sex affected
+## 10002    10002      1      0      0   1        1
+## 10004    10004      1      0      0   2        1
+## 10005    10005      1      0      0   1        2
+## 10007    10007      1      0      0   1        1
+## 10008    10008      1      0      0   1        2
+## 10009    10009      1      0      0   1        2</code></pre>
+<p>Note that not all of these columns contain information depending the nature of the data collection process and study design. In this case, we also have a separate clinical file with several outcomes and covariates that will be read into R in the next section.</p>
+<div id="exercise-3" class="section level4">
+<h4>Exercise</h4>
+<p>How many observations are there in the fam file? How many males are there(assuming males are coded as 1)? How many females? How many levels of the phenotype variable are there? What does the ``pedigree&quot; column correspond to? Does it look familar (where else have you seen it)?</p>
+</div>
+</div>
+<div id="the-clinical-data" class="section level3">
+<h3>The clinical data</h3>
+<p>Finally, in some instances you may have acess to a separate phenotype file that contains information on things like additional covariates for each individual and other “outcome variables” you may be interested in (e.g. something other than affected or variable that codes affected differently). The rows of this file represent each subject and the columns correspond to the available covariates and phenotypes. We read this data in separately as it is a simple .txt file.</p>
+<pre class="r"><code>library(RCurl)
+clinicalURL &lt;- getURL(&quot;https://www.mtholyoke.edu/courses/afoulkes/Data/statsTeachR/GWAS_clinical.csv&quot;)
+clinical &lt;- read.csv(text = clinicalURL, colClasses = c(&quot;character&quot;, rep(&quot;factor&quot;,
+2), rep(&quot;numeric&quot;, 2)))
+rownames(clinical) &lt;- clinical$FamID
+print(head(clinical))</code></pre>
+<pre><code>##       FamID CAD sex age  tg  hdl  ldl
+## 10002 10002   1   1  60  NA &lt;NA&gt; &lt;NA&gt;
+## 10004 10004   1   2  50  55   23   75
+## 10005 10005   1   1  55 105   37   69
+## 10007 10007   1   1  52 314   54  108
+## 10008 10008   1   1  58 161   40   94
+## 10009 10009   1   1  59 171   46   92</code></pre>
+<div id="exercise-4" class="section level4">
+<h4>Exercise</h4>
+<p>Explore the clinical data. How many complete observations are there? What is the age range of study participants? Which column of this data set links it to all the others? How many people are CAD<span class="math">\(+\)</span> (<span class="math">\(CAD=1\)</span>)?</p>
+</div>
+</div>
+<div id="saving-work-for-following-labs" class="section level3">
+<h3>Saving work for following labs…</h3>
+<p>Now that all the data is read into R, we need to save the objects for the rest of the labs. Note that some of the objects must first be renamed for the purpose of future labs. You can rename and save the necessary data by running the following commands:</p>
+<pre class="r"><code>genotype &lt;- data$genotypes
+genoBim &lt;- data$map
+colnames(genoBim)&lt;-c(&quot;chr&quot;, &quot;SNP&quot;, &quot;gen.dist&quot;, &quot;position&quot;, &quot;A1&quot;, &quot;A2&quot;)
+
+save(genotype,genoBim,clinical,file=&quot;lab1_save.RData&quot;)</code></pre>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
