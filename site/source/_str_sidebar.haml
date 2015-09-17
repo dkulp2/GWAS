@@ -1,0 +1,16 @@
+.col-xs-4.col-sm-2.col-md-2.sidebar.sidebar-left.sidebar-animate.sidebar-sm-show
+  %ul.nav.navbar-stacked.list-group
+    - if current_page.url =~ /Mod1/ then
+      %p Module 1: Data Preprocessing
+      =partial "str_mod1"
+    - else
+      - if current_page.url =~ /Mod2/ then
+        %p Module 2: New Data Generation
+        =partial "str_mod2"
+      - else
+        - if current_page.url =~ /Mod3/ then
+          %p Module 3: GWAA
+          =partial "str_mod3"
+        - else
+          %p Module 4: Post Analytics
+          =partial "str_mod4"
