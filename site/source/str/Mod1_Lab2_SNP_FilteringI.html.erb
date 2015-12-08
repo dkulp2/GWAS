@@ -21,7 +21,7 @@ img {
 
 <div id="snp-level-filtering-part-i" class="section level2">
 <h2>SNP level filtering (Part I)</h2>
-<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from our GWAS tutorial.)</p>
 <p>Before analyzing any associations between biomarkers and traits, genotype data is usually filtered by a sequence of quality control criteria.The second step in GWA analysis is removing (also referred to as “filtering” single-nucleotide polymorphisms (SNPs) to be excluded from the analysis. The reasons for this exlcusion include large amounts of missing data, low variability and genotyping errors. We will look at two out of the three filtering criteria in this lab using the data saved from lab 1.</p>
 <div id="loading-data-and-creating-snp-summary-statistics" class="section level3">
 <h3>Loading data and creating SNP summary statistics</h3>
@@ -54,7 +54,7 @@ head(snpsum.col)</code></pre>
 ## rs2430512  0.0000000000 0.002166065 0.9978339  0.04034939</code></pre>
 <div id="exercise" class="section level4">
 <h4>Exercise</h4>
-<p>What do the collumns of the SNP summary statistics represent? What do the row represent? How many SNPs are there?</p>
+<p>What do the columns of the SNP summary statistics represent? What do the row represent? How many SNPs are there?</p>
 </div>
 </div>
 <div id="call-rate" class="section level3">
@@ -105,7 +105,7 @@ print(genotype)</code></pre>
 <div id="on-your-own" class="section level3">
 <h3>On Your Own</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the unfiltered dataframe.Please calculate the call rate for rs35329321 using ONLY the information from row names and the column “Calls” in the snpsum.col dataframe.(hint: you can find the row of rs7563461 by printing out the first six rows of the data and find the maximum number of calls)</p></li>
+<li><p>Using the unfiltered dataframe, calculate the call rate for 10th SNP using ONLY the information from row names and the column “calls” in the snpsum.col dataframe.</p></li>
 <li><p>Now that we know how to filter the SNPs using MAF, let’s try to calculate MAF by hand.</p></li>
 </ol>
 <pre class="r"><code>geno &lt;- as(genotype[,1], &quot;numeric&quot;)  
@@ -116,7 +116,7 @@ table(geno)</code></pre>
 <p>We have a table with genotype information with 0,1 and 2 value. 0 represents homozygous minor allele, 1 is heterozygous and 2 is homozygous major allele. Let’s say for exampple of a single variable site in which AA is present in 75% of population, Aa is present in 20% and aa is present in 5%. The frequency of A allele is equal to (75+75+20)%/2 = 85%, while frequency of a is (20+5+5)%/2 = 15%. Using all the information above, calculate the MAF using the data provided in the table.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>How many SNPs are removed if call rate is set to 90% and MAF is 5%? Is this more or less conservative than the threshold in the example above?</p></li>
-<li><p>Use the unfiltered dataframe. Please caculate MAF for rs1921315 using ONLY the genotype frequencies, i.e. information in the three columns P.AA ,P.AB and P.BB. (hint: first extract the row of rs1921315)</p></li>
+<li><p>Using the unfiltered dataframe, calculate MAF for the 5th SNP using ONLY the genotype frequencies, i.e. information in the three columns P.AA ,P.AB and P.BB.</p></li>
 </ol>
 </div>
 </div>
