@@ -21,7 +21,7 @@ img {
 
 <div id="snp-level-filtering-part-ii---hardy-weinberg-equilibrium" class="section level2">
 <h2>SNP level filtering (Part II) - Hardy-Weinberg Equilibrium</h2>
-<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from the GWAS tutorial written by Reed et al.)</p>
+<p>(This lab was adapted for statsTeachR by Tu Dao, Siying Chen, Nicholas Reich and Andrea Foulkes from our GWAS tutorial.)</p>
 <p>After filtering the sample, we proceed to filter the SNPs with Hardy Weinberg Equilibrium (HWE). HWE states that probability of an allele occuring on one homolog does not depend on which allele is present on the other homolog in a large, randomly mating population that remain stable over generations. Violation of HWE can be an indication of the presence of population substructure or occurence of a genotyping error. While it is not always true, it is common to remove any SNPs that violated HWE to avoid genotyping error. Departures of HWE at a given SNPs are usually measured with a chi-square goodnness-of-fit test between the observed and expected genotypes.</p>
 <p>In this lab, we filter our SNPs based on HWE p &lt; 1*10^-6 in CAD controls. It results in 7643 SNPs remain for the association analysis.</p>
 <pre class="r"><code>load(&quot;lab3_save.RData&quot;)
