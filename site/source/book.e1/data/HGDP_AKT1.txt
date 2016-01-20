@@ -1,0 +1,1065 @@
+Well	ID	Gender	Population	Geographic.origin	Geographic.area	AKT1.C0756A	AKT1.C6024T	AKT1.G2347T	AKT1.G2375A
+B12	HGDP00980	F	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	TT	AA
+A12	HGDP01406	M	Bantu	Kenya	Central Africa	CA	CT	TT	AA
+E5	HGDP01266	M	Mozabite	Algeria (Mzab)	Northern Africa	AA	TT	TT	AA
+B9	HGDP01006	F	Karitiana	Brazil	South America	AA	TT	TT	AA
+E1	HGDP01220	M	Daur	China	China	AA	TT	TT	AA
+H2	HGDP01288	M	Han	China	China	AA	TT	TT	AA
+G3	HGDP01246	M	Xibo	China	China	AA	TT	TT	AA
+H10	HGDP00705	M	Colombian	Colombia	South America	AA	TT	TT	AA
+H11	HGDP00706	F	Colombian	Colombia	South America	AA	TT	TT	AA
+H12	HGDP00707	F	Colombian	Colombia	South America	AA	TT	TT	AA
+A2	HGDP00708	F	Colombian	Colombia	South America	AA	TT	TT	AA
+A3	HGDP00709	M	Colombian	Colombia	South America	AA	TT	TT	AA
+A4	HGDP00710	M	Colombian	Colombia	South America	AA	TT	TT	AA
+F5	HGDP00598	M	Druze	Israel (Carmel)	Israel	AA	TT	TT	AA
+G11	HGDP00684	F	Palestinian	Israel (Central)	Israel	AA	TT	TT	AA
+C2	HGDP00667	F	Sardinian	Italy	Southern Europe	AA	TT	TT	AA
+E10	HGDP01155	M	North Italian	Italy (Bergamo)	Southern Europe	AA	TT	TT	AA
+B7	HGDP01415	M	Bantu	Kenya	Central Africa	AA	TT	TT	AA
+B8	HGDP01416	M	Bantu	Kenya	Central Africa	AA	TT	TT	AA
+G4	HGDP00865	F	Maya	Mexico	Central America	AA	TT	TT	AA
+A5	HGDP00940	M	Yoruba	Nigeria	Central Africa	AA	TT	TT	AA
+A6	HGDP00941	M	Yoruba	Nigeria	Central Africa	AA	TT	TT	AA
+C6	HGDP00359	M	Burusho	Pakistan	Pakistan	AA	TT	TT	AA
+D12	HGDP00445	M	Burusho	Pakistan	Pakistan	AA	TT	TT	AA
+B7	HGDP00326	M	Kalash	Pakistan	Pakistan	AA	TT	TT	AA
+B10	HGDP00887	M	Russian	Russia	Russia	AA	TT	TT	AA
+F9	HGDP00918	F	Mandenka	Senegal	Central Africa	AA	TT	TT	AA
+G4	HGDP01284	M	Mandenka	Senegal	Central Africa	AA	TT	TT	AA
+G11	HGDP00977	M	Han	China	China	CC	CC	GT	GA
+A11	HGDP01405	M	Bantu	Kenya	Central Africa	AA	CT	GT	GA
+D12	HGDP01261	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GA
+E2	HGDP01263	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GA
+E9	HGDP01270	F	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GA
+D6	HGDP00491	M	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+D8	HGDP00656	F	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+D12	HGDP00660	F	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+E5	HGDP00787	F	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+E6	HGDP00788	M	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+E7	HGDP00789	M	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+F1	HGDP00979	F	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+F2	HGDP01027	F	NAN Melanesian	Bougainville	Southern Europe	CA	CT	GT	GA
+B8	HGDP01005	M	Karitiana	Brazil	South America	CA	CT	GT	GA
+C1	HGDP01010	F	Karitiana	Brazil	South America	CA	CT	GT	GA
+C9	HGDP01018	F	Karitiana	Brazil	South America	CA	CT	GT	GA
+B2	HGDP00712	F	Cambodian	Cambodia	Southeast Asia	CA	CT	GT	GA
+A2	HGDP00448	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+A3	HGDP00461	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+A6	HGDP00466	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+A8	HGDP00470	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+A11	HGDP00475	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+A12	HGDP00477	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GT	GA
+B3	HGDP00451	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GA
+B11	HGDP00460	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GA
+C3	HGDP00986	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GA
+C11	HGDP01091	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GA
+D1	HGDP01093	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GA
+H10	HGDP01309	M	Dai	China	China	CA	CT	GT	GA
+H11	HGDP01310	M	Dai	China	China	CA	CT	GT	GA
+D6	HGDP01213	M	Daur	China	China	CA	CT	GT	GA
+D10	HGDP01217	M	Daur	China	China	CA	CT	GT	GA
+D11	HGDP01218	M	Daur	China	China	CA	CT	GT	GA
+D12	HGDP01219	F	Daur	China	China	CA	CT	GT	GA
+E3	HGDP01222	F	Daur	China	China	CA	CT	GT	GA
+E8	HGDP00779	M	Han	China	China	CA	CT	GT	GA
+F10	HGDP00785	M	Han	China	China	CA	CT	GT	GA
+F11	HGDP00786	M	Han	China	China	CA	CT	GT	GA
+E10	HGDP00815	M	Han	China	China	CA	CT	GT	GA
+G3	HGDP00817	F	Han	China	China	CA	CT	GT	GA
+E11	HGDP00818	F	Han	China	China	CA	CT	GT	GA
+G5	HGDP00820	F	Han	China	China	CA	CT	GT	GA
+H8	HGDP01294	M	Han	China	China	CA	CT	GT	GA
+F3	HGDP01234	F	Hezhen	China	China	CA	CT	GT	GA
+F6	HGDP01237	M	Hezhen	China	China	CA	CT	GT	GA
+F7	HGDP01238	F	Hezhen	China	China	CA	CT	GT	GA
+B11	HGDP01191	M	Miaozu	China	China	CA	CT	GT	GA
+C5	HGDP01197	F	Miaozu	China	China	CA	CT	GT	GA
+E7	HGDP01226	M	Mongola	China	China	CA	CT	GT	GA
+E9	HGDP01228	M	Mongola	China	China	CA	CT	GT	GA
+C6	HGDP01339	M	Naxi	China	China	CA	CT	GT	GA
+C9	HGDP01342	M	Naxi	China	China	CA	CT	GT	GA
+D1	HGDP01208	M	Oroqen	China	China	CA	CT	GT	GA
+B7	HGDP01328	M	She	China	China	CA	CT	GT	GA
+B11	HGDP01332	M	She	China	China	CA	CT	GT	GA
+C3	HGDP01336	F	She	China	China	CA	CT	GT	GA
+A2	HGDP01097	M	Tujia	China	China	CA	CT	GT	GA
+A5	HGDP01100	M	Tujia	China	China	CA	CT	GT	GA
+A8	HGDP01103	M	Tujia	China	China	CA	CT	GT	GA
+G11	HGDP01298	M	Uygur	China	China	CA	CT	GT	GA
+G12	HGDP01299	M	Uygur	China	China	CA	CT	GT	GA
+G1	HGDP01244	M	Xibo	China	China	CA	CT	GT	GA
+B2	HGDP01182	M	Yizu	China	China	CA	CT	GT	GA
+H8	HGDP00703	M	Colombian	Colombia	South America	CA	CT	GT	GA
+A8	HGDP00970	F	Colombian	Colombia	South America	CA	CT	GT	GA
+F6	HGDP00513	F	French	France	Southern Europe	CA	CT	GT	GA
+F11	HGDP00518	M	French	France	Southern Europe	CA	CT	GT	GA
+F12	HGDP00519	M	French	France	Southern Europe	CA	CT	GT	GA
+G5	HGDP00524	F	French	France	Southern Europe	CA	CT	GT	GA
+G11	HGDP00530	M	French	France	Southern Europe	CA	CT	GT	GA
+G12	HGDP00531	F	French	France	Southern Europe	CA	CT	GT	GA
+H1	HGDP00532	F	French	France	Southern Europe	CA	CT	GT	GA
+H11	HGDP01359	M	French Basque	France	Southern Europe	CA	CT	GT	GA
+H12	HGDP01360	M	French Basque	France	Southern Europe	CA	CT	GT	GA
+A10	HGDP01369	F	French Basque	France	Southern Europe	CA	CT	GT	GA
+A12	HGDP01371	M	French Basque	France	Southern Europe	CA	CT	GT	GA
+D1	HGDP00568	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GA
+E7	HGDP00586	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GA
+G1	HGDP00606	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GA
+G2	HGDP00675	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+A2	HGDP00697	F	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+A10	HGDP00726	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+A12	HGDP00728	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+B4	HGDP00731	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+B5	HGDP00732	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+B7	HGDP00734	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GA
+F10	HGDP00607	F	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GA
+G5	HGDP00614	F	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GA
+G8	HGDP00617	M	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GA
+A3	HGDP00635	F	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GA
+C5	HGDP00670	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+C10	HGDP01062	F	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+C11	HGDP01063	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+C12	HGDP01064	F	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+D9	HGDP01073	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+D11	HGDP01075	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GA
+F8	HGDP01163	M	Tuscan	Italy	Southern Europe	CA	CT	GT	GA
+E4	HGDP01147	M	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GA
+E5	HGDP01149	M	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GA
+E9	HGDP01154	M	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GA
+F2	HGDP01172	F	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GA
+F3	HGDP01173	M	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GA
+G2	HGDP00747	M	Japanese	Japan	Japan	CA	CT	GT	GA
+G6	HGDP00751	M	Japanese	Japan	Japan	CA	CT	GT	GA
+G8	HGDP00753	M	Japanese	Japan	Japan	CA	CT	GT	GA
+H3	HGDP00760	F	Japanese	Japan	Japan	CA	CT	GT	GA
+H4	HGDP00761	F	Japanese	Japan	Japan	CA	CT	GT	GA
+H6	HGDP00763	M	Japanese	Japan	Japan	CA	CT	GT	GA
+H7	HGDP00764	M	Japanese	Japan	Japan	CA	CT	GT	GA
+H8	HGDP00765	F	Japanese	Japan	Japan	CA	CT	GT	GA
+H10	HGDP00767	M	Japanese	Japan	Japan	CA	CT	GT	GA
+H12	HGDP00768	M	Japanese	Japan	Japan	CA	CT	GT	GA
+A8	HGDP00791	M	Japanese	Japan	Japan	CA	CT	GT	GA
+A9	HGDP00828	M	Japanese	Japan	Japan	CA	CT	GT	GA
+B2	HGDP01408	M	Bantu	Kenya	Central Africa	CA	CT	GT	GA
+B6	HGDP01414	F	Bantu	Kenya	Central Africa	CA	CT	GT	GA
+B11	HGDP01419	M	Bantu	Kenya	Central Africa	CA	CT	GT	GA
+F5	HGDP00854	F	Maya	Mexico	Central America	CA	CT	GT	GA
+F9	HGDP00858	F	Maya	Mexico	Central America	CA	CT	GT	GA
+F10	HGDP00859	F	Maya	Mexico	Central America	CA	CT	GT	GA
+G2	HGDP00863	F	Maya	Mexico	Central America	CA	CT	GT	GA
+H3	HGDP00876	F	Maya	Mexico	Central America	CA	CT	GT	GA
+E6	HGDP01051	F	Pima	Mexico	Central America	CA	CT	GT	GA
+E8	HGDP01053	F	Pima	Mexico	Central America	CA	CT	GT	GA
+E10	HGDP01055	M	Pima	Mexico	Central America	CA	CT	GT	GA
+E11	HGDP01056	F	Pima	Mexico	Central America	CA	CT	GT	GA
+C4	HGDP00544	F	Papuan	New Guinea	New Guinea	CA	CT	GT	GA
+G8	HGDP00921	F	Yoruba	Nigeria	Central Africa	CA	CT	GT	GA
+G12	HGDP00925	F	Yoruba	Nigeria	Central Africa	CA	CT	GT	GA
+H8	HGDP00933	F	Yoruba	Nigeria	Central Africa	CA	CT	GT	GA
+H10	HGDP00935	F	Yoruba	Nigeria	Central Africa	CA	CT	GT	GA
+A2	HGDP00937	M	Yoruba	Nigeria	Central Africa	CA	CT	GT	GA
+G3	HGDP00795	M	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GA
+G5	HGDP00797	F	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GA
+G7	HGDP00799	F	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GA
+H3	HGDP00807	M	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GA
+F7	HGDP00068	M	Balochi	Pakistan	Pakistan	CA	CT	GT	GA
+G10	HGDP00098	M	Balochi	Pakistan	Pakistan	CA	CT	GT	GA
+C1	HGDP00338	F	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C2	HGDP00341	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C4	HGDP00351	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C9	HGDP00372	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C10	HGDP00376	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C11	HGDP00382	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+C12	HGDP00388	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+D1	HGDP00392	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GA
+G11	HGDP00099	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GA
+H10	HGDP00112	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GA
+A4	HGDP00118	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GA
+A12	HGDP00128	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GA
+H10	HGDP00277	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GA
+B4	HGDP00319	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GA
+B5	HGDP00321	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GA
+B10	HGDP00333	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GA
+C7	HGDP00149	M	Makrani	Pakistan	Pakistan	CA	CT	GT	GA
+G7	HGDP00239	F	Pathan	Pakistan	Pakistan	CA	CT	GT	GA
+D6	HGDP00165	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GA
+D10	HGDP00173	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GA
+E3	HGDP00183	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GA
+E10	HGDP00197	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GA
+E11	HGDP00199	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GA
+B4	HGDP00881	F	Russian	Russia	Russia	CA	CT	GT	GA
+B6	HGDP00883	M	Russian	Russia	Russia	CA	CT	GT	GA
+B11	HGDP00888	M	Russian	Russia	Russia	CA	CT	GT	GA
+C6	HGDP00895	M	Russian	Russia	Russia	CA	CT	GT	GA
+C8	HGDP00897	M	Russian	Russia	Russia	CA	CT	GT	GA
+E7	HGDP00904	M	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+E10	HGDP00907	M	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+E12	HGDP00909	F	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+F1	HGDP00910	F	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+F6	HGDP00915	F	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+F10	HGDP00919	M	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+F12	HGDP01200	M	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+G1	HGDP01201	F	Mandenka	Senegal	Central Africa	CA	CT	GT	GA
+C7	HGDP00993	M	Bantu	South Africa	South Africa	CA	CT	GT	GA
+D2	HGDP01031	M	Bantu	South Africa	South Africa	CA	CT	GT	GA
+C3	HGDP00992	M	San 	Namidia	Central Africa	AA	TT	GT	GA
+G9	HGDP00922	F	Yoruba	Nigeria	Central Africa	CA	CT	TT	GA
+G10	HGDP00923	M	Yoruba	Nigeria	Central Africa	CA	CT	TT	GA
+H9	HGDP00934	F	Yoruba	Nigeria	Central Africa	CA	CT	TT	GA
+A4	HGDP00939	F	Yoruba	Nigeria	Central Africa	CA	CT	TT	GA
+G5	HGDP01285	M	Mandenka	Senegal	Central Africa	CA	CT	TT	GA
+A5	HGDP00465	M	Biaka Pygmies	Central African Republic	Central Africa	AA	TT	TT	GA
+B2	HGDP00479	M	Biaka Pygmies 	Central African Republic	Central Africa	AA	TT	TT	GA
+C8	HGDP01088	M	Biaka Pygmies 	Central African Republic	Central Africa	AA	TT	TT	GA
+D9	HGDP00576	M	Druze	Israel (Carmel)	Israel	AA	TT	TT	GA
+E8	HGDP00587	F	Druze	Israel (Carmel)	Israel	AA	TT	TT	GA
+B2	HGDP00729	M	Palestinian	Israel (Central)	Israel	AA	TT	TT	GA
+D10	HGDP01074	F	Sardinian	Italy	Southern Europe	AA	TT	TT	GA
+G1	HGDP00226	M	Pathan	Pakistan	Pakistan	AA	TT	TT	GA
+E5	HGDP00949	M	Yakut	Siberia	Russia	AA	TT	TT	GA
+B9	HGDP00458	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	TT	TT	GA
+H4	HGDP00929	M	Yoruba	Nigeria	Central Africa	CA	TT	TT	GA
+G7	HGDP00920	F	Yoruba	Nigeria	Central Africa	CA	CC	GG	GG
+D7	HGDP01256	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+D8	HGDP01257	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+D9	HGDP01258	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+D10	HGDP01259	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+D11	HGDP01260	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+E4	HGDP01265	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+E7	HGDP01268	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+E8	HGDP01269	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+E10	HGDP01271	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+E12	HGDP01273	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+F1	HGDP01274	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+F3	HGDP01276	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+F4	HGDP01277	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+F9	HGDP01282	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GG	GG
+D5	HGDP00490	M	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+D7	HGDP00655	M	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+D9	HGDP00657	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+D10	HGDP00658	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+D11	HGDP00659	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E1	HGDP00661	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E2	HGDP00662	M	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E3	HGDP00663	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E4	HGDP00664	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E8	HGDP00823	M	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E9	HGDP00824	M	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E10	HGDP00825	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E11	HGDP00826	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+E12	HGDP00978	F	NAN Melanesian	Bougainville	Southern Europe	CC	CC	GG	GG
+A10	HGDP00995	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+A11	HGDP00996	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+A12	HGDP00997	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+B2	HGDP00998	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+B3	HGDP00999	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+B4	HGDP01000	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+B5	HGDP01001	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+B6	HGDP01003	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+B7	HGDP01004	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+B10	HGDP01007	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+B11	HGDP01008	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+B12	HGDP01009	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+C2	HGDP01011	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+C3	HGDP01012	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+C4	HGDP01013	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+C5	HGDP01014	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+C6	HGDP01015	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+C7	HGDP01016	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+C8	HGDP01017	F	Karitiana	Brazil	South America	CC	CC	GG	GG
+C10	HGDP01019	M	Karitiana	Brazil	South America	CC	CC	GG	GG
+C12	HGDP00830	F	Surui	Brazil	South America	CC	CC	GG	GG
+D1	HGDP00832	F	Surui	Brazil	South America	CC	CC	GG	GG
+D2	HGDP00833	F	Surui	Brazil	South America	CC	CC	GG	GG
+D3	HGDP00834	M	Surui	Brazil	South America	CC	CC	GG	GG
+D4	HGDP00835	M	Surui	Brazil	South America	CC	CC	GG	GG
+D5	HGDP00837	M	Surui	Brazil	South America	CC	CC	GG	GG
+D6	HGDP00838	F	Surui	Brazil	South America	CC	CC	GG	GG
+D7	HGDP00839	M	Surui	Brazil	South America	CC	CC	GG	GG
+D8	HGDP00840	F	Surui	Brazil	South America	CC	CC	GG	GG
+D9	HGDP00841	F	Surui	Brazil	South America	CC	CC	GG	GG
+D10	HGDP00842	M	Surui	Brazil	South America	CC	CC	GG	GG
+D11	HGDP00843	M	Surui	Brazil	South America	CC	CC	GG	GG
+D12	HGDP00844	M	Surui	Brazil	South America	CC	CC	GG	GG
+E1	HGDP00845	M	Surui	Brazil	South America	CC	CC	GG	GG
+E2	HGDP00846	F	Surui	Brazil	South America	CC	CC	GG	GG
+E3	HGDP00847	M	Surui	Brazil	South America	CC	CC	GG	GG
+E4	HGDP00848	F	Surui	Brazil	South America	CC	CC	GG	GG
+E5	HGDP00849	M	Surui	Brazil	South America	CC	CC	GG	GG
+E6	HGDP00850	F	Surui	Brazil	South America	CC	CC	GG	GG
+E7	HGDP00851	M	Surui	Brazil	South America	CC	CC	GG	GG
+E8	HGDP00852	F	Surui	Brazil	South America	CC	CC	GG	GG
+B3	HGDP00713	F	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B4	HGDP00714	M	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B5	HGDP00715	M	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B6	HGDP00716	M	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B7	HGDP00717	M	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B8	HGDP00718	F	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B9	HGDP00719	F	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B10	HGDP00720	M	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+B11	HGDP00721	F	Cambodian	Cambodia	Southeast Asia	CC	CC	GG	GG
+A7	HGDP00469	M	Biaka Pygmies	Central African Republic	Central Africa	CC	CC	GG	GG
+A9	HGDP00472	M	Biaka Pygmies	Central African Republic	Central Africa	CC	CC	GG	GG
+B4	HGDP00452	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+B5	HGDP00453	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+B6	HGDP00454	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+B7	HGDP00455	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+B8	HGDP00457	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+B10	HGDP00459	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C1	HGDP00981	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C2	HGDP00985	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C4	HGDP01084	F	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C6	HGDP01086	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C7	HGDP01087	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C10	HGDP01090	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+C12	HGDP01092	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+D2	HGDP01094	M	Biaka Pygmies 	Central African Republic	Central Africa	CC	CC	GG	GG
+H8	HGDP01307	M	Dai	China	China	CC	CC	GG	GG
+H9	HGDP01308	M	Dai	China	China	CC	CC	GG	GG
+H12	HGDP01311	M	Dai	China	China	CC	CC	GG	GG
+A2	HGDP01312	M	Dai	China	China	CC	CC	GG	GG
+A3	HGDP01313	M	Dai	China	China	CC	CC	GG	GG
+A4	HGDP01314	F	Dai	China	China	CC	CC	GG	GG
+A5	HGDP01315	F	Dai	China	China	CC	CC	GG	GG
+A6	HGDP01316	F	Dai	China	China	CC	CC	GG	GG
+D7	HGDP01214	M	Daur	China	China	CC	CC	GG	GG
+D8	HGDP01215	F	Daur	China	China	CC	CC	GG	GG
+D9	HGDP01216	M	Daur	China	China	CC	CC	GG	GG
+E2	HGDP01221	M	Daur	China	China	CC	CC	GG	GG
+F3	HGDP00774	M	Han	China	China	CC	CC	GG	GG
+E7	HGDP00775	M	Han	China	China	CC	CC	GG	GG
+F4	HGDP00776	F	Han	China	China	CC	CC	GG	GG
+F5	HGDP00777	M	Han	China	China	CC	CC	GG	GG
+F6	HGDP00778	M	Han	China	China	CC	CC	GG	GG
+F7	HGDP00780	M	Han	China	China	CC	CC	GG	GG
+F8	HGDP00781	F	Han	China	China	CC	CC	GG	GG
+E2	HGDP00782	M	Han	China	China	CC	CC	GG	GG
+E3	HGDP00783	F	Han	China	China	CC	CC	GG	GG
+F9	HGDP00784	F	Han	China	China	CC	CC	GG	GG
+F12	HGDP00811	F	Han	China	China	CC	CC	GG	GG
+G1	HGDP00812	F	Han	China	China	CC	CC	GG	GG
+G2	HGDP00813	F	Han	China	China	CC	CC	GG	GG
+E9	HGDP00814	F	Han	China	China	CC	CC	GG	GG
+G4	HGDP00819	M	Han	China	China	CC	CC	GG	GG
+G6	HGDP00821	M	Han	China	China	CC	CC	GG	GG
+G7	HGDP00822	M	Han	China	China	CC	CC	GG	GG
+E4	HGDP00971	M	Han	China	China	CC	CC	GG	GG
+G8	HGDP00972	F	Han	China	China	CC	CC	GG	GG
+E5	HGDP00973	M	Han	China	China	CC	CC	GG	GG
+E12	HGDP00974	F	Han	China	China	CC	CC	GG	GG
+G9	HGDP00975	F	Han	China	China	CC	CC	GG	GG
+G10	HGDP00976	F	Han	China	China	CC	CC	GG	GG
+E6	HGDP01021	F	Han	China	China	CC	CC	GG	GG
+G12	HGDP01022	F	Han	China	China	CC	CC	GG	GG
+F1	HGDP01023	F	Han	China	China	CC	CC	GG	GG
+F2	HGDP01024	F	Han	China	China	CC	CC	GG	GG
+H1	HGDP01287	F	Han	China	China	CC	CC	GG	GG
+H3	HGDP01289	M	Han	China	China	CC	CC	GG	GG
+H4	HGDP01290	M	Han	China	China	CC	CC	GG	GG
+H5	HGDP01291	F	Han	China	China	CC	CC	GG	GG
+H6	HGDP01292	M	Han	China	China	CC	CC	GG	GG
+H7	HGDP01293	M	Han	China	China	CC	CC	GG	GG
+H9	HGDP01295	M	Han	China	China	CC	CC	GG	GG
+H10	HGDP01296	M	Han	China	China	CC	CC	GG	GG
+F2	HGDP01233	M	Hezhen	China	China	CC	CC	GG	GG
+F4	HGDP01235	M	Hezhen	China	China	CC	CC	GG	GG
+F5	HGDP01236	M	Hezhen	China	China	CC	CC	GG	GG
+F8	HGDP01239	F	Hezhen	China	China	CC	CC	GG	GG
+F9	HGDP01240	M	Hezhen	China	China	CC	CC	GG	GG
+F10	HGDP01241	M	Hezhen	China	China	CC	CC	GG	GG
+F11	HGDP01242	F	Hezhen	China	China	CC	CC	GG	GG
+A7	HGDP01317	M	Lahu	China	China	CC	CC	GG	GG
+A8	HGDP01318	M	Lahu	China	China	CC	CC	GG	GG
+A9	HGDP01319	M	Lahu	China	China	CC	CC	GG	GG
+A10	HGDP01320	M	Lahu	China	China	CC	CC	GG	GG
+A11	HGDP01321	M	Lahu	China	China	CC	CC	GG	GG
+A12	HGDP01322	M	Lahu	China	China	CC	CC	GG	GG
+B2	HGDP01323	F	Lahu	China	China	CC	CC	GG	GG
+B3	HGDP01324	F	Lahu	China	China	CC	CC	GG	GG
+B4	HGDP01325	F	Lahu	China	China	CC	CC	GG	GG
+B5	HGDP01326	M	Lahu	China	China	CC	CC	GG	GG
+B9	HGDP01189	M	Miaozu	China	China	CC	CC	GG	GG
+B10	HGDP01190	M	Miaozu	China	China	CC	CC	GG	GG
+B12	HGDP01192	M	Miaozu	China	China	CC	CC	GG	GG
+C1	HGDP01193	M	Miaozu	China	China	CC	CC	GG	GG
+C2	HGDP01194	M	Miaozu	China	China	CC	CC	GG	GG
+C3	HGDP01195	M	Miaozu	China	China	CC	CC	GG	GG
+C4	HGDP01196	F	Miaozu	China	China	CC	CC	GG	GG
+C6	HGDP01198	F	Miaozu	China	China	CC	CC	GG	GG
+E4	HGDP01223	F	Mongola	China	China	CC	CC	GG	GG
+E5	HGDP01224	M	Mongola	China	China	CC	CC	GG	GG
+E6	HGDP01225	M	Mongola	China	China	CC	CC	GG	GG
+E8	HGDP01227	M	Mongola	China	China	CC	CC	GG	GG
+E10	HGDP01229	M	Mongola	China	China	CC	CC	GG	GG
+E11	HGDP01230	M	Mongola	China	China	CC	CC	GG	GG
+E12	HGDP01231	F	Mongola	China	China	CC	CC	GG	GG
+F1	HGDP01232	F	Mongola	China	China	CC	CC	GG	GG
+C4	HGDP01337	M	Naxi	China	China	CC	CC	GG	GG
+C5	HGDP01338	M	Naxi	China	China	CC	CC	GG	GG
+C7	HGDP01340	M	Naxi	China	China	CC	CC	GG	GG
+C8	HGDP01341	M	Naxi	China	China	CC	CC	GG	GG
+C10	HGDP01343	M	Naxi	China	China	CC	CC	GG	GG
+C11	HGDP01344	M	Naxi	China	China	CC	CC	GG	GG
+C12	HGDP01345	F	Naxi	China	China	CC	CC	GG	GG
+D1	HGDP01346	F	Naxi	China	China	CC	CC	GG	GG
+C8	HGDP01203	M	Oroqen	China	China	CC	CC	GG	GG
+C9	HGDP01204	M	Oroqen	China	China	CC	CC	GG	GG
+C10	HGDP01205	M	Oroqen	China	China	CC	CC	GG	GG
+C11	HGDP01206	M	Oroqen	China	China	CC	CC	GG	GG
+C12	HGDP01207	M	Oroqen	China	China	CC	CC	GG	GG
+D2	HGDP01209	F	Oroqen	China	China	CC	CC	GG	GG
+D3	HGDP01210	M	Oroqen	China	China	CC	CC	GG	GG
+D4	HGDP01211	F	Oroqen	China	China	CC	CC	GG	GG
+D5	HGDP01212	F	Oroqen	China	China	CC	CC	GG	GG
+B6	HGDP01327	M	She	China	China	CC	CC	GG	GG
+B8	HGDP01329	M	She	China	China	CC	CC	GG	GG
+B9	HGDP01330	M	She	China	China	CC	CC	GG	GG
+B10	HGDP01331	M	She	China	China	CC	CC	GG	GG
+B12	HGDP01333	M	She	China	China	CC	CC	GG	GG
+C1	HGDP01334	F	She	China	China	CC	CC	GG	GG
+C2	HGDP01335	F	She	China	China	CC	CC	GG	GG
+D2	HGDP01347	M	Tu	China	China	CC	CC	GG	GG
+D3	HGDP01348	M	Tu	China	China	CC	CC	GG	GG
+D4	HGDP01349	M	Tu	China	China	CC	CC	GG	GG
+D5	HGDP01350	M	Tu	China	China	CC	CC	GG	GG
+D6	HGDP01351	M	Tu	China	China	CC	CC	GG	GG
+D7	HGDP01352	M	Tu	China	China	CC	CC	GG	GG
+D8	HGDP01353	M	Tu	China	China	CC	CC	GG	GG
+D9	HGDP01354	F	Tu	China	China	CC	CC	GG	GG
+D10	HGDP01355	F	Tu	China	China	CC	CC	GG	GG
+D11	HGDP01356	F	Tu	China	China	CC	CC	GG	GG
+H11	HGDP01095	M	Tujia	China	China	CC	CC	GG	GG
+H12	HGDP01096	M	Tujia	China	China	CC	CC	GG	GG
+A3	HGDP01098	F	Tujia	China	China	CC	CC	GG	GG
+A4	HGDP01099	M	Tujia	China	China	CC	CC	GG	GG
+A6	HGDP01101	M	Tujia	China	China	CC	CC	GG	GG
+A7	HGDP01102	M	Tujia	China	China	CC	CC	GG	GG
+A9	HGDP01104	M	Tujia	China	China	CC	CC	GG	GG
+G10	HGDP01297	M	Uygur	China	China	CC	CC	GG	GG
+H1	HGDP01300	M	Uygur	China	China	CC	CC	GG	GG
+H3	HGDP01302	M	Uygur	China	China	CC	CC	GG	GG
+H4	HGDP01303	M	Uygur	China	China	CC	CC	GG	GG
+H5	HGDP01304	M	Uygur	China	China	CC	CC	GG	GG
+H7	HGDP01306	F	Uygur	China	China	CC	CC	GG	GG
+G2	HGDP01245	M	Xibo	China	China	CC	CC	GG	GG
+G4	HGDP01247	M	Xibo	China	China	CC	CC	GG	GG
+G6	HGDP01249	M	Xibo	China	China	CC	CC	GG	GG
+G7	HGDP01250	M	Xibo	China	China	CC	CC	GG	GG
+G8	HGDP01251	F	Xibo	China	China	CC	CC	GG	GG
+A10	HGDP01179	M	Yizu	China	China	CC	CC	GG	GG
+A11	HGDP01180	M	Yizu	China	China	CC	CC	GG	GG
+A12	HGDP01181	M	Yizu	China	China	CC	CC	GG	GG
+B3	HGDP01183	M	Yizu	China	China	CC	CC	GG	GG
+B4	HGDP01184	M	Yizu	China	China	CC	CC	GG	GG
+B5	HGDP01185	M	Yizu	China	China	CC	CC	GG	GG
+B6	HGDP01186	M	Yizu	China	China	CC	CC	GG	GG
+B7	HGDP01187	M	Yizu	China	China	CC	CC	GG	GG
+B8	HGDP01188	F	Yizu	China	China	CC	CC	GG	GG
+H7	HGDP00702	F	Colombian	Colombia	South America	CC	CC	GG	GG
+H9	HGDP00704	F	Colombian	Colombia	South America	CC	CC	GG	GG
+A5	HGDP00792	M	Colombian	Colombia	South America	CC	CC	GG	GG
+A6	HGDP00793	F	Colombian	Colombia	South America	CC	CC	GG	GG
+A7	HGDP00827	F	Colombian	Colombia	South America	CC	CC	GG	GG
+D5	HGDP00456	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+D6	HGDP00462	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+D9	HGDP00468	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+D11	HGDP00474	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+E1	HGDP00478	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+E2	HGDP00982	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+E3	HGDP00983	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+E4	HGDP00984	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+E5	HGDP01081	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CC	GG	GG
+F7	HGDP00514	F	French	France	Southern Europe	CC	CC	GG	GG
+F8	HGDP00515	M	French	France	Southern Europe	CC	CC	GG	GG
+F9	HGDP00516	F	French	France	Southern Europe	CC	CC	GG	GG
+F10	HGDP00517	F	French	France	Southern Europe	CC	CC	GG	GG
+G2	HGDP00521	M	French	France	Southern Europe	CC	CC	GG	GG
+G3	HGDP00522	M	French	France	Southern Europe	CC	CC	GG	GG
+G4	HGDP00523	F	French	France	Southern Europe	CC	CC	GG	GG
+G6	HGDP00525	M	French	France	Southern Europe	CC	CC	GG	GG
+G8	HGDP00527	F	French	France	Southern Europe	CC	CC	GG	GG
+G9	HGDP00528	M	French	France	Southern Europe	CC	CC	GG	GG
+G10	HGDP00529	F	French	France	Southern Europe	CC	CC	GG	GG
+H4	HGDP00535	F	French	France	Southern Europe	CC	CC	GG	GG
+H5	HGDP00536	F	French	France	Southern Europe	CC	CC	GG	GG
+H6	HGDP00537	F	French	France	Southern Europe	CC	CC	GG	GG
+H7	HGDP00538	M	French	France	Southern Europe	CC	CC	GG	GG
+H8	HGDP00539	F	French	France	Southern Europe	CC	CC	GG	GG
+H10	HGDP01358	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+A2	HGDP01361	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+A5	HGDP01364	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+A6	HGDP01365	F	French Basque	France	Southern Europe	CC	CC	GG	GG
+A7	HGDP01366	F	French Basque	France	Southern Europe	CC	CC	GG	GG
+A9	HGDP01368	F	French Basque	France	Southern Europe	CC	CC	GG	GG
+A11	HGDP01370	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+B3	HGDP01373	F	French Basque	France	Southern Europe	CC	CC	GG	GG
+B4	HGDP01374	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+B6	HGDP01376	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+B7	HGDP01377	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+B8	HGDP01378	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+B9	HGDP01379	M	French Basque	France	Southern Europe	CC	CC	GG	GG
+C3	HGDP00558	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C5	HGDP00560	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C6	HGDP00561	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C7	HGDP00562	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C9	HGDP00564	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C10	HGDP00565	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C11	HGDP00566	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+C12	HGDP00567	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D2	HGDP00569	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D3	HGDP00570	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D5	HGDP00572	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D6	HGDP00573	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D7	HGDP00574	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D8	HGDP00575	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D10	HGDP00577	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D11	HGDP00578	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+D12	HGDP00579	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E1	HGDP00580	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E2	HGDP00581	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E3	HGDP00582	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E4	HGDP00583	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E6	HGDP00585	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E9	HGDP00588	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+E10	HGDP00589	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F1	HGDP00592	F	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F2	HGDP00594	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F6	HGDP00599	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F9	HGDP00602	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F10	HGDP00603	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F11	HGDP00604	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+F12	HGDP00605	M	Druze	Israel (Carmel)	Israel	CC	CC	GG	GG
+G3	HGDP00676	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G4	HGDP00677	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G6	HGDP00679	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G7	HGDP00680	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G8	HGDP00681	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G9	HGDP00682	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+G12	HGDP00685	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H1	HGDP00686	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H2	HGDP00687	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H3	HGDP00688	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H4	HGDP00689	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H6	HGDP00691	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H7	HGDP00692	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H8	HGDP00693	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H9	HGDP00694	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H10	HGDP00695	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+H11	HGDP00696	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A3	HGDP00698	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A5	HGDP00700	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A6	HGDP00722	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A7	HGDP00723	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A8	HGDP00724	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+A11	HGDP00727	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B3	HGDP00730	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B6	HGDP00733	M	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B8	HGDP00735	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B9	HGDP00736	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B11	HGDP00738	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+B12	HGDP00739	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C1	HGDP00740	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C2	HGDP00741	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C3	HGDP00742	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C4	HGDP00743	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C5	HGDP00744	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+C6	HGDP00745	F	Palestinian	Israel (Central)	Israel	CC	CC	GG	GG
+F11	HGDP00608	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+F12	HGDP00609	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G1	HGDP00610	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G2	HGDP00611	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G3	HGDP00612	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G4	HGDP00613	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G6	HGDP00615	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G7	HGDP00616	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G9	HGDP00618	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G10	HGDP00619	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+G11	HGDP00620	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H1	HGDP00622	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H2	HGDP00623	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H3	HGDP00624	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H4	HGDP00625	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H5	HGDP00626	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H6	HGDP00627	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H8	HGDP00629	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H9	HGDP00630	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H10	HGDP00631	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+H12	HGDP00633	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A4	HGDP00636	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A5	HGDP00637	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A6	HGDP00638	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A7	HGDP00639	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A9	HGDP00641	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A10	HGDP00642	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A11	HGDP00643	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+A12	HGDP00644	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B2	HGDP00645	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B5	HGDP00648	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B6	HGDP00649	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B7	HGDP00650	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B8	HGDP00651	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B9	HGDP00652	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B10	HGDP00653	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B11	HGDP00654	M	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+B12	HGDP00701	F	Bedouin	Israel (Negev)	Israel	CC	CC	GG	GG
+C3	HGDP00668	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+C4	HGDP00669	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+C6	HGDP00671	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+C8	HGDP00673	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D1	HGDP01065	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D2	HGDP01066	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D3	HGDP01067	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D5	HGDP01069	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D6	HGDP01070	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D7	HGDP01071	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D8	HGDP01072	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+D12	HGDP01076	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+E2	HGDP01078	F	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+E3	HGDP01079	M	Sardinian	Italy	Southern Europe	CC	CC	GG	GG
+F6	HGDP01161	M	Tuscan	Italy	Southern Europe	CC	CC	GG	GG
+F9	HGDP01164	M	Tuscan	Italy	Southern Europe	CC	CC	GG	GG
+F10	HGDP01166	M	Tuscan	Italy	Southern Europe	CC	CC	GG	GG
+F11	HGDP01167	M	Tuscan	Italy	Southern Europe	CC	CC	GG	GG
+G1	HGDP01169	F	Tuscan	Italy	Southern Europe	CC	CC	GG	GG
+E7	HGDP01152	M	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+E8	HGDP01153	M	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+E12	HGDP01157	F	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+F1	HGDP01171	F	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+F4	HGDP01174	M	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+F5	HGDP01177	F	North Italian	Italy (Bergamo)	Southern Europe	CC	CC	GG	GG
+G3	HGDP00748	M	Japanese	Japan	Japan	CC	CC	GG	GG
+G4	HGDP00749	M	Japanese	Japan	Japan	CC	CC	GG	GG
+G5	HGDP00750	M	Japanese	Japan	Japan	CC	CC	GG	GG
+G7	HGDP00752	M	Japanese	Japan	Japan	CC	CC	GG	GG
+G9	HGDP00754	F	Japanese	Japan	Japan	CC	CC	GG	GG
+G10	HGDP00755	M	Japanese	Japan	Japan	CC	CC	GG	GG
+G11	HGDP00756	F	Japanese	Japan	Japan	CC	CC	GG	GG
+G12	HGDP00757	M	Japanese	Japan	Japan	CC	CC	GG	GG
+H1	HGDP00758	M	Japanese	Japan	Japan	CC	CC	GG	GG
+H2	HGDP00759	M	Japanese	Japan	Japan	CC	CC	GG	GG
+H5	HGDP00762	M	Japanese	Japan	Japan	CC	CC	GG	GG
+H9	HGDP00766	M	Japanese	Japan	Japan	CC	CC	GG	GG
+A2	HGDP00769	M	Japanese	Japan	Japan	CC	CC	GG	GG
+A3	HGDP00770	M	Japanese	Japan	Japan	CC	CC	GG	GG
+A4	HGDP00771	F	Japanese	Japan	Japan	CC	CC	GG	GG
+A5	HGDP00772	F	Japanese	Japan	Japan	CC	CC	GG	GG
+A6	HGDP00773	F	Japanese	Japan	Japan	CC	CC	GG	GG
+A7	HGDP00790	M	Japanese	Japan	Japan	CC	CC	GG	GG
+A10	HGDP01025	M	Japanese	Japan	Japan	CC	CC	GG	GG
+B9	HGDP01417	M	Bantu	Kenya	Central Africa	CC	CC	GG	GG
+B10	HGDP01418	M	Bantu	Kenya	Central Africa	CC	CC	GG	GG
+F6	HGDP00855	F	Maya	Mexico	Central America	CC	CC	GG	GG
+F7	HGDP00856	M	Maya	Mexico	Central America	CC	CC	GG	GG
+F8	HGDP00857	F	Maya	Mexico	Central America	CC	CC	GG	GG
+F11	HGDP00860	F	Maya	Mexico	Central America	CC	CC	GG	GG
+F12	HGDP00861	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G1	HGDP00862	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G3	HGDP00864	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G5	HGDP00866	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G6	HGDP00867	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G7	HGDP00868	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G8	HGDP00869	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G9	HGDP00870	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G10	HGDP00871	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G11	HGDP00872	F	Maya	Mexico	Central America	CC	CC	GG	GG
+G12	HGDP00873	F	Maya	Mexico	Central America	CC	CC	GG	GG
+H1	HGDP00874	F	Maya	Mexico	Central America	CC	CC	GG	GG
+H4	HGDP00877	M	Maya	Mexico	Central America	CC	CC	GG	GG
+H5	HGDP00878	M	Maya	Mexico	Central America	CC	CC	GG	GG
+D4	HGDP01037	M	Pima	Mexico	Central America	CC	CC	GG	GG
+D5	HGDP01038	F	Pima	Mexico	Central America	CC	CC	GG	GG
+D6	HGDP01039	M	Pima	Mexico	Central America	CC	CC	GG	GG
+D7	HGDP01040	M	Pima	Mexico	Central America	CC	CC	GG	GG
+D8	HGDP01041	F	Pima	Mexico	Central America	CC	CC	GG	GG
+D9	HGDP01042	M	Pima	Mexico	Central America	CC	CC	GG	GG
+D10	HGDP01043	M	Pima	Mexico	Central America	CC	CC	GG	GG
+D11	HGDP01044	F	Pima	Mexico	Central America	CC	CC	GG	GG
+D12	HGDP01045	M	Pima	Mexico	Central America	CC	CC	GG	GG
+E1	HGDP01046	F	Pima	Mexico	Central America	CC	CC	GG	GG
+E2	HGDP01047	M	Pima	Mexico	Central America	CC	CC	GG	GG
+E3	HGDP01048	F	Pima	Mexico	Central America	CC	CC	GG	GG
+E4	HGDP01049	F	Pima	Mexico	Central America	CC	CC	GG	GG
+E5	HGDP01050	M	Pima	Mexico	Central America	CC	CC	GG	GG
+E7	HGDP01052	M	Pima	Mexico	Central America	CC	CC	GG	GG
+E9	HGDP01054	F	Pima	Mexico	Central America	CC	CC	GG	GG
+E12	HGDP01057	M	Pima	Mexico	Central America	CC	CC	GG	GG
+F1	HGDP01058	F	Pima	Mexico	Central America	CC	CC	GG	GG
+F2	HGDP01059	M	Pima	Mexico	Central America	CC	CC	GG	GG
+F3	HGDP01060	M	Pima	Mexico	Central America	CC	CC	GG	GG
+F4	HGDP01061	M	Pima	Mexico	Central America	CC	CC	GG	GG
+C4	HGDP01029	M	San 	Namidia	Central Africa	CC	CC	GG	GG
+C5	HGDP01032	M	San 	Namidia	Central Africa	CC	CC	GG	GG
+B12	HGDP00540	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C1	HGDP00541	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C3	HGDP00543	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C5	HGDP00545	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C6	HGDP00546	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C7	HGDP00547	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C8	HGDP00548	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C9	HGDP00549	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C10	HGDP00550	F	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C11	HGDP00551	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+C12	HGDP00552	F	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+D1	HGDP00553	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+D2	HGDP00554	F	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+D3	HGDP00555	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+D4	HGDP00556	M	Papuan	New Guinea	New Guinea	CC	CC	GG	GG
+G11	HGDP00924	F	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+H2	HGDP00927	M	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+H3	HGDP00928	F	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+H5	HGDP00930	M	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+A8	HGDP00943	M	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+A9	HGDP00944	M	Yoruba	Nigeria	Central Africa	CC	CC	GG	GG
+G2	HGDP00794	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+G8	HGDP00800	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+G9	HGDP00801	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+G10	HGDP00802	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+G12	HGDP00804	M	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+H1	HGDP00805	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+H2	HGDP00806	F	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+H4	HGDP00808	M	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+H5	HGDP00810	M	Orcadian	Orkney Islands	Northern Europe	CC	CC	GG	GG
+E11	HGDP00054	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+E12	HGDP00056	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F1	HGDP00057	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F2	HGDP00058	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F3	HGDP00060	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F4	HGDP00062	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F5	HGDP00064	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F6	HGDP00066	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F8	HGDP00070	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F9	HGDP00072	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F10	HGDP00074	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+F12	HGDP00078	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G1	HGDP00080	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G3	HGDP00084	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G4	HGDP00086	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G5	HGDP00088	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G6	HGDP00090	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G7	HGDP00092	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G8	HGDP00094	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+G9	HGDP00096	M	Balochi	Pakistan	Pakistan	CC	CC	GG	GG
+C9	HGDP00001	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+C10	HGDP00003	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+C11	HGDP00005	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+C12	HGDP00007	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D2	HGDP00011	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D3	HGDP00013	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D4	HGDP00015	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D5	HGDP00017	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D6	HGDP00019	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D7	HGDP00021	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D8	HGDP00023	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D9	HGDP00025	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D11	HGDP00029	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+D12	HGDP00031	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E1	HGDP00033	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E2	HGDP00035	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E6	HGDP00043	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E7	HGDP00045	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E8	HGDP00047	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+E9	HGDP00049	M	Brahui	Pakistan	Pakistan	CC	CC	GG	GG
+B12	HGDP00336	F	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+C3	HGDP00346	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+C8	HGDP00371	F	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D2	HGDP00397	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D3	HGDP00402	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D4	HGDP00407	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D5	HGDP00412	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D6	HGDP00417	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D7	HGDP00423	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D8	HGDP00428	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D10	HGDP00438	M	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+D11	HGDP00444	F	Burusho	Pakistan	Pakistan	CC	CC	GG	GG
+H1	HGDP00102	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H3	HGDP00104	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H4	HGDP00105	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H6	HGDP00108	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H7	HGDP00109	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H8	HGDP00110	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H9	HGDP00111	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H11	HGDP00113	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A3	HGDP00116	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A5	HGDP00119	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A6	HGDP00120	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A7	HGDP00121	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A8	HGDP00122	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A9	HGDP00124	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A10	HGDP00125	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+A11	HGDP00127	M	Hazara	Pakistan	Pakistan	CC	CC	GG	GG
+H8	HGDP00267	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+H9	HGDP00274	F	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+H11	HGDP00279	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+H12	HGDP00281	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A2	HGDP00285	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A3	HGDP00286	F	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A5	HGDP00290	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A7	HGDP00298	F	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A8	HGDP00302	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A9	HGDP00304	F	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A10	HGDP00307	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A11	HGDP00309	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+A12	HGDP00311	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+B2	HGDP00313	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+B3	HGDP00315	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+B6	HGDP00323	F	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+B8	HGDP00328	M	Kalash	Pakistan	Pakistan	CC	CC	GG	GG
+B5	HGDP00131	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B7	HGDP00134	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B8	HGDP00135	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B9	HGDP00136	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B10	HGDP00137	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B11	HGDP00139	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+B12	HGDP00140	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C1	HGDP00141	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C2	HGDP00143	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C3	HGDP00144	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C4	HGDP00145	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C6	HGDP00148	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C8	HGDP00150	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C10	HGDP00153	F	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C11	HGDP00154	F	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+C12	HGDP00155	F	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+D1	HGDP00157	F	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+D2	HGDP00158	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+D3	HGDP00160	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+D4	HGDP00161	M	Makrani	Pakistan	Pakistan	CC	CC	GG	GG
+F6	HGDP00213	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+F7	HGDP00214	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+F8	HGDP00216	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+F10	HGDP00220	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+F11	HGDP00222	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+F12	HGDP00224	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G3	HGDP00230	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G4	HGDP00232	F	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G5	HGDP00234	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G8	HGDP00241	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G9	HGDP00243	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G10	HGDP00244	F	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+G12	HGDP00248	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+H2	HGDP00254	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+H3	HGDP00258	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+H4	HGDP00259	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+H5	HGDP00262	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+H6	HGDP00264	M	Pathan	Pakistan	Pakistan	CC	CC	GG	GG
+D5	HGDP00163	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+D7	HGDP00167	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+D8	HGDP00169	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+D9	HGDP00171	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+D11	HGDP00175	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E2	HGDP00181	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E4	HGDP00185	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E5	HGDP00187	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E6	HGDP00189	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E7	HGDP00191	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E8	HGDP00192	F	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E9	HGDP00195	F	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+E12	HGDP00201	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+F1	HGDP00203	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+F4	HGDP00208	M	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+F5	HGDP00210	F	Sindhi	Pakistan	Pakistan	CC	CC	GG	GG
+B2	HGDP00879	M	Russian	Russia	Russia	CC	CC	GG	GG
+B7	HGDP00884	F	Russian	Russia	Russia	CC	CC	GG	GG
+B8	HGDP00885	F	Russian	Russia	Russia	CC	CC	GG	GG
+B9	HGDP00886	M	Russian	Russia	Russia	CC	CC	GG	GG
+C1	HGDP00890	M	Russian	Russia	Russia	CC	CC	GG	GG
+C4	HGDP00893	M	Russian	Russia	Russia	CC	CC	GG	GG
+C5	HGDP00894	M	Russian	Russia	Russia	CC	CC	GG	GG
+C7	HGDP00896	M	Russian	Russia	Russia	CC	CC	GG	GG
+C10	HGDP00899	F	Russian	Russia	Russia	CC	CC	GG	GG
+C11	HGDP00900	M	Russian	Russia	Russia	CC	CC	GG	GG
+D2	HGDP00903	F	Russian	Russia	Russia	CC	CC	GG	GG
+H7	HGDP01381	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+H8	HGDP01382	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+H9	HGDP01383	M	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+H11	HGDP01385	M	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+H12	HGDP01386	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A2	HGDP01387	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A3	HGDP01388	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A4	HGDP01396	M	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A5	HGDP01397	M	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A7	HGDP01399	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A8	HGDP01400	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A9	HGDP01401	F	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+A10	HGDP01402	M	Adygei	Russia Caucasus	Russia	CC	CC	GG	GG
+E8	HGDP00905	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+E9	HGDP00906	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+F3	HGDP00912	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+F4	HGDP00913	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+F7	HGDP00916	F	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+F8	HGDP00917	F	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+F11	HGDP01199	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+G2	HGDP01202	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+G3	HGDP01283	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+G6	HGDP01286	M	Mandenka	Senegal	Central Africa	CC	CC	GG	GG
+E1	HGDP00945	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E2	HGDP00946	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E3	HGDP00947	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E4	HGDP00948	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E6	HGDP00950	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E7	HGDP00951	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E8	HGDP00952	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E9	HGDP00953	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E10	HGDP00954	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+E11	HGDP00955	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+E12	HGDP00956	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F1	HGDP00957	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F2	HGDP00958	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+F3	HGDP00959	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F6	HGDP00962	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+F7	HGDP00963	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F8	HGDP00964	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+F9	HGDP00965	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+F10	HGDP00966	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F11	HGDP00967	F	Yakut	Siberia	Russia	CC	CC	GG	GG
+F12	HGDP00968	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+G1	HGDP00969	M	Yakut	Siberia	Russia	CC	CC	GG	GG
+C9	HGDP01030	M	Bantu	South Africa	South Africa	CC	CC	GG	GG
+C11	HGDP01033	M	Bantu	South Africa	South Africa	CC	CC	GG	GG
+C12	HGDP01028	M	Bantu	South Africa	South Africa	CC	CC	GG	GG
+D1	HGDP01035	M	Bantu	South Africa	South Africa	CC	CC	GG	GG
+A4	HGDP00464	M	Biaka Pygmies	Central African Republic	Central Africa	CA	CT	GG	GG
+C9	HGDP01089	M	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GG	GG
+H2	HGDP00533	M	French	France	Southern Europe	CA	CT	GG	GG
+B10	HGDP01380	F	French Basque	France	Southern Europe	CA	CT	GG	GG
+E11	HGDP00590	F	Druze	Israel (Carmel)	Israel	CA	CT	GG	GG
+A9	HGDP00725	M	Palestinian	Israel (Central)	Israel	CA	CT	GG	GG
+G12	HGDP00621	M	Bedouin	Israel (Negev)	Israel	CA	CT	GG	GG
+H2	HGDP00875	F	Maya	Mexico	Central America	CA	CT	GG	GG
+B12	HGDP00987	M	San 	Namidia	Central Africa	CA	CT	GG	GG
+C1	HGDP00988	M	San 	Namidia	Central Africa	CA	CT	GG	GG
+C2	HGDP00991	M	San 	Namidia	Central Africa	CA	CT	GG	GG
+C6	HGDP01036	M	San 	Namidia	Central Africa	CA	CT	GG	GG
+D4	HGDP00450	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CT	GG	GG
+D7	HGDP00463	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CT	GG	GG
+D10	HGDP00471	F	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CC	CT	GG	GG
+D4	HGDP01253	M	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GT	GG
+E6	HGDP01267	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GT	GG
+F8	HGDP01281	F	Mozabite	Algeria (Mzab)	Northern Africa	CC	CC	GT	GG
+B10	HGDP00737	F	Palestinian	Israel (Central)	Israel	CC	CC	GT	GG
+B4	HGDP00647	F	Bedouin	Israel (Negev)	Israel	CC	CC	GT	GG
+D4	HGDP01068	F	Sardinian	Italy	Southern Europe	CC	CC	GT	GG
+B3	HGDP01411	M	Bantu	Kenya	Central Africa	CC	CC	GT	GG
+B5	HGDP01413	M	Bantu	Kenya	Central Africa	CC	CC	GT	GG
+C2	HGDP00542	M	Papuan	New Guinea	New Guinea	CC	CC	GT	GG
+H1	HGDP00926	F	Yoruba	Nigeria	Central Africa	CC	CC	GT	GG
+H11	HGDP00936	M	Yoruba	Nigeria	Central Africa	CC	CC	GT	GG
+A3	HGDP00938	F	Yoruba	Nigeria	Central Africa	CC	CC	GT	GG
+C9	HGDP00151	F	Makrani	Pakistan	Pakistan	CC	CC	GT	GG
+B12	HGDP00889	F	Russian	Russia	Russia	CC	CC	GT	GG
+E11	HGDP00908	M	Mandenka	Senegal	Central Africa	CC	CC	GT	GG
+F2	HGDP00911	M	Mandenka	Senegal	Central Africa	CC	CC	GT	GG
+F5	HGDP00914	F	Mandenka	Senegal	Central Africa	CC	CC	GT	GG
+C10	HGDP01034	M	Bantu	South Africa	South Africa	CC	CC	GT	GG
+D5	HGDP01254	F	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+D6	HGDP01255	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+E1	HGDP01262	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+E3	HGDP01264	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+F2	HGDP01275	F	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+F5	HGDP01278	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+F6	HGDP01279	M	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+F7	HGDP01280	F	Mozabite	Algeria (Mzab)	Northern Africa	CA	CT	GT	GG
+C5	HGDP01085	F	Biaka Pygmies 	Central African Republic	Central Africa	CA	CT	GT	GG
+H2	HGDP01301	M	Uygur	China	China	CA	CT	GT	GG
+H6	HGDP01305	F	Uygur	China	China	CA	CT	GT	GG
+F12	HGDP01243	M	Xibo	China	China	CA	CT	GT	GG
+G5	HGDP01248	M	Xibo	China	China	CA	CT	GT	GG
+D3	HGDP00449	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CA	CT	GT	GG
+D8	HGDP00467	M	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CA	CT	GT	GG
+F4	HGDP00511	M	French	France	Southern Europe	CA	CT	GT	GG
+F5	HGDP00512	M	French	France	Southern Europe	CA	CT	GT	GG
+G1	HGDP00520	F	French	France	Southern Europe	CA	CT	GT	GG
+G7	HGDP00526	F	French	France	Southern Europe	CA	CT	GT	GG
+H3	HGDP00534	F	French	France	Southern Europe	CA	CT	GT	GG
+H9	HGDP01357	M	French Basque	France	Southern Europe	CA	CT	GT	GG
+A3	HGDP01362	M	French Basque	France	Southern Europe	CA	CT	GT	GG
+A4	HGDP01363	F	French Basque	France	Southern Europe	CA	CT	GT	GG
+A8	HGDP01367	F	French Basque	France	Southern Europe	CA	CT	GT	GG
+B2	HGDP01372	M	French Basque	France	Southern Europe	CA	CT	GT	GG
+B5	HGDP01375	M	French Basque	France	Southern Europe	CA	CT	GT	GG
+C2	HGDP00557	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+C4	HGDP00559	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+C8	HGDP00563	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+D4	HGDP00571	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+E5	HGDP00584	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+E12	HGDP00591	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+F3	HGDP00595	M	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+F4	HGDP00597	M	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+F7	HGDP00600	M	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+F8	HGDP00601	F	Druze	Israel (Carmel)	Israel	CA	CT	GT	GG
+G5	HGDP00678	M	Palestinian	Israel (Central)	Israel	CA	CT	GT	GG
+G10	HGDP00683	F	Palestinian	Israel (Central)	Israel	CA	CT	GT	GG
+H5	HGDP00690	F	Palestinian	Israel (Central)	Israel	CA	CT	GT	GG
+A4	HGDP00699	F	Palestinian	Israel (Central)	Israel	CA	CT	GT	GG
+C7	HGDP00746	F	Palestinian	Israel (Central)	Israel	CA	CT	GT	GG
+H7	HGDP00628	M	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GG
+H11	HGDP00632	F	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GG
+A2	HGDP00634	F	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GG
+A8	HGDP00640	M	Bedouin	Israel (Negev)	Israel	CA	CT	GT	GG
+C1	HGDP00666	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GG
+C7	HGDP00672	F	Sardinian	Italy	Southern Europe	CA	CT	GT	GG
+C9	HGDP00674	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GG
+E1	HGDP01077	M	Sardinian	Italy	Southern Europe	CA	CT	GT	GG
+F7	HGDP01162	M	Tuscan	Italy	Southern Europe	CA	CT	GT	GG
+F12	HGDP01168	F	Tuscan	Italy	Southern Europe	CA	CT	GT	GG
+E6	HGDP01151	M	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GG
+E11	HGDP01156	F	North Italian	Italy (Bergamo)	Southern Europe	CA	CT	GT	GG
+G4	HGDP00796	F	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GG
+G6	HGDP00798	M	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GG
+G11	HGDP00803	M	Orcadian	Orkney Islands	Northern Europe	CA	CT	GT	GG
+E10	HGDP00052	M	Balochi	Pakistan	Pakistan	CA	CT	GT	GG
+F11	HGDP00076	M	Balochi	Pakistan	Pakistan	CA	CT	GT	GG
+G2	HGDP00082	M	Balochi	Pakistan	Pakistan	CA	CT	GT	GG
+D1	HGDP00009	M	Brahui	Pakistan	Pakistan	CA	CT	GT	GG
+D10	HGDP00027	M	Brahui	Pakistan	Pakistan	CA	CT	GT	GG
+E3	HGDP00037	M	Brahui	Pakistan	Pakistan	CA	CT	GT	GG
+E4	HGDP00039	M	Brahui	Pakistan	Pakistan	CA	CT	GT	GG
+D9	HGDP00433	M	Burusho	Pakistan	Pakistan	CA	CT	GT	GG
+G12	HGDP00100	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GG
+H2	HGDP00103	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GG
+H5	HGDP00106	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GG
+A2	HGDP00115	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GG
+B2	HGDP00129	M	Hazara	Pakistan	Pakistan	CA	CT	GT	GG
+A4	HGDP00288	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GG
+A6	HGDP00292	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GG
+B9	HGDP00330	M	Kalash	Pakistan	Pakistan	CA	CT	GT	GG
+B3	HGDP00130	M	Makrani	Pakistan	Pakistan	CA	CT	GT	GG
+B6	HGDP00133	M	Makrani	Pakistan	Pakistan	CA	CT	GT	GG
+C5	HGDP00146	M	Makrani	Pakistan	Pakistan	CA	CT	GT	GG
+F9	HGDP00218	M	Pathan	Pakistan	Pakistan	CA	CT	GT	GG
+G2	HGDP00228	M	Pathan	Pakistan	Pakistan	CA	CT	GT	GG
+G6	HGDP00237	F	Pathan	Pakistan	Pakistan	CA	CT	GT	GG
+G11	HGDP00247	F	Pathan	Pakistan	Pakistan	CA	CT	GT	GG
+D12	HGDP00177	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GG
+E1	HGDP00179	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GG
+F2	HGDP00205	M	Sindhi	Pakistan	Pakistan	CA	CT	GT	GG
+F3	HGDP00206	F	Sindhi	Pakistan	Pakistan	CA	CT	GT	GG
+B3	HGDP00880	M	Russian	Russia	Russia	CA	CT	GT	GG
+B5	HGDP00882	M	Russian	Russia	Russia	CA	CT	GT	GG
+C9	HGDP00898	F	Russian	Russia	Russia	CA	CT	GT	GG
+C12	HGDP00901	F	Russian	Russia	Russia	CA	CT	GT	GG
+D1	HGDP00902	F	Russian	Russia	Russia	CA	CT	GT	GG
+H10	HGDP01384	F	Adygei	Russia Caucasus	Russia	CA	CT	GT	GG
+A11	HGDP01403	M	Adygei	Russia Caucasus	Russia	CA	CT	GT	GG
+F4	HGDP00960	M	Yakut	Siberia	Russia	CA	CT	GT	GG
+F5	HGDP00961	M	Yakut	Siberia	Russia	CA	CT	GT	GG
+C8	HGDP00994	M	Bantu	South Africa	South Africa	CA	CT	GT	GG
+B4	HGDP01412	M	Bantu	Kenya	Central Africa	CC	CT	GT	GG
+C2	HGDP00891	M	Russian	Russia	Russia	CC	CT	GT	GG
+A10	HGDP00473	M	Biaka Pygmies	Central African Republic	Central Africa	AA	TT	GT	GG
+D12	HGDP00476	F	Mbuti Pygmies	Democratic Republic of Congo	Central Africa	CA	TT	GT	GG
+H6	HGDP00931	M	Yoruba	Nigeria	Central Africa	CC	CC	TT	GG
+H7	HGDP00932	M	Yoruba	Nigeria	Central Africa	CA	CT	TT	GG
+A7	HGDP00942	M	Yoruba	Nigeria	Central Africa	CC	CT	TT	GG
+E11	HGDP01272	M	Mozabite	Algeria (Mzab)	Northern Africa	AA	TT	TT	GG
+B3	HGDP00646	F	Bedouin	Israel (Negev)	Israel	AA	TT	TT	GG
+B12	HGDP00665	M	Sardinian	Italy	Southern Europe	AA	TT	TT	GG
+E5	HGDP00041	M	Brahui	Pakistan	Pakistan	AA	TT	TT	GG
+C5	HGDP00356	F	Burusho	Pakistan	Pakistan	AA	TT	TT	GG
+C7	HGDP00364	M	Burusho	Pakistan	Pakistan	AA	TT	TT	GG
+H1	HGDP00251	M	Pathan	Pakistan	Pakistan	AA	TT	TT	GG
+C3	HGDP00892	M	Russian	Russia	Russia	AA	TT	TT	GG
+A6	HGDP01398	F	Adygei	Russia Caucasus	Russia	AA	TT	TT	GG
+A12	HGDP01404	M	Adygei	Russia Caucasus	Russia	AA	TT	TT	GG
+A12	HGDP00711	M	Cambodian	Cambodia	Southeast Asia	NA	NA	NA	GG

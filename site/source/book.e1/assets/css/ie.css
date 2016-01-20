@@ -1,0 +1,49 @@
+/*	-------------------------------------------------------------
+ 
+	CORPORATE BUSINESS TEMPLATE
+ 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Description:IE Hacks
+	Nom:ie.css
+	Version:1.0
+	Date:August 22th, 2009 
+ 
+	This file is part of a site template for sale at ThemeForest.net.
+	See: http://themeforest.net/user/simonbouchard/portfolio
+	Copyright ©2009 Simon Bouchard <info@simonbouchard.com>
+	
+ 
+-------------------------------------------------------------	*/
+
+
+/*	-------------------------------------------------------------
+	TYPOGRAPHY
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+p {font-size:13px !important;}
+
+/*	-------------------------------------------------------------
+	DISABLE DROPDOWN NAVIGATION
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+.header #nav li.sub a:hover {
+	border:none; }
+
+.header #nav li a {
+	border:none; }
+	
+.header #nav li ul {
+	visibility: hidden; }
+
+
+/*	-------------------------------------------------------------
+	SIDEBAR
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+.sidebar {
+	padding:50px 26px 30px 0;
+	background: none; }
+
+.scroll ol {
+	right:35px;}

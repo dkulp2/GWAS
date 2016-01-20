@@ -1,0 +1,99 @@
+@charset "UTF-8"; /* http://www.w3.org/International/questions/qa-css-charset */
+
+/*	-------------------------------------------------------------
+ 
+	CORPORATE BUSINESS TEMPLATE
+ 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Description:Forms cascading style sheet
+	Nom:forms.css
+	Version:1.0
+	Date:August 22th, 2009
+ 
+	This file is part of a site template for sale at ThemeForest.net.
+	See: http://themeforest.net/user/simonbouchard/portfolio
+	Copyright ©2009 Simon Bouchard <info@simonbouchard.com>
+ 
+-------------------------------------------------------------	*/
+
+/*	-------------------------------------------------------------
+	STYLES FOR SCREEN / PROJECTION
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+@media screen, projection {
+
+form { 
+	padding:7px 0 0 0; }
+
+form li { 
+	position:relative; }
+
+form label {
+	position: absolute;
+	top:1px;
+	left:10px; 
+	font-size:11px;
+	color:#666; 
+	float: left; 
+	width: 100px; 
+	padding: 8px 0 0 0; 
+	font-weight: normal; 
+	display:block; }
+
+form input, form textarea {
+	font-family: "Georgia", "Times New Roman", Arial, Helvetica, sans-serif;
+	background: #f7f7f7;
+	border: 1px solid #ccc;
+	color: #666;
+	font-size:11px;
+	margin: 4px 0 13px 0;
+	outline: none;
+	padding: 6px;
+	width: 100%; }
+
+form input:hover, form textarea:hover { border: 1px solid #b5b4b4; }
+
+form input:focus, form textarea:focus {
+	border: 1px solid #b5b4b4;
+	color: #666; }
+
+form input.submit {
+	background: #b4b4b4;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	display: block;
+	font-size: 11px;
+	font-weight:bold;
+	height: 33px;
+	margin: 0;
+	outline: none;
+	text-transform: uppercase;
+	padding: 2px 10px 4px 10px;
+	width: auto; }
+
+form input.submit:hover {
+	cursor:pointer; }
+
+form input.submit:hover {
+	background: #47add9;  }
+		
+form input.error { border: 1px solid #cc0000; }
+
+/* Error Handling */
+form .errorbox { 
+	display:none; 
+	margin:0; 
+	font-weight:bold; 
+	color:#bb252c; }
+
+form li.alert label { 
+	color:#bb252c; }
+
+
+/*	-------------------------------------------------------------
+	CLOSING STYLES FOR SCREEN / PROJECTION
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+}
