@@ -40,6 +40,12 @@
                 = partial "_str_menu"
             %li.dropdown
               %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+                Book
+                %span.caret
+              %ul.dropdown-menu(role='menu')
+                = partial "_booke1_menu"
+            %li.dropdown
+              %a.dropdown-toggle(href='#' data-toggle='dropdown' role='button')
                 Software
                 %span.caret
               %ul.dropdown-menu(role='menu')
@@ -50,11 +56,14 @@
     .container-fluid(role='main')
       .row
 
-        - if current_page.url =~ /^\/(str|tut)\// then
+        - if current_page.url =~ /^\/(str|tut|book.e1)\// then
           - if current_page.url =~ /^\/str\// then
             = partial "str_sidebar"
           - else
-            = partial "tut_sidebar"
+            - if current_page.url =~ /^\/tut\// then
+              = partial "tut_sidebar"
+            - else
+              = partial "booke1_sidebar"
           .main.col-sm-10.col-sm-offset-2
             ~ yield
         - else

@@ -12,5 +12,6 @@
           %p Module 3: GWAA
           =partial "str_mod3"
         - else
-          %p Module 4: Post Analytics
-          =partial "str_mod4"
+          - if current_page.url =~ /Mod4/ then
+            %p Module 4: Post Analytics
+            =partial "str_mod4"

@@ -1,5 +1,5 @@
 # Reading in Virco data:
-virco <- read.csv("http://people.umass.edu/foulkes/asg/data/Virco_data.csv", header=T, sep=",")
+virco <- read.csv("http://stat-gen.org/book.e1/data/Virco_data.csv", header=T, sep=",")
 
 # Necessary code from Example 6.2:
 attach(virco)

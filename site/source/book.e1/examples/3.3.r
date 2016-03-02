@@ -1,5 +1,5 @@
 # Reading in FAMuSS data:
-fms <- read.delim("http://people.umass.edu/foulkes/asg/data/FMS_data.txt", header=T, sep="\t")
+fms <- read.delim("http://stat-gen.org/book.e1/data/FMS_data.txt", header=T, sep="\t")
 
 # Example 3.3 (Measuring LD based on r^2 and the \chi^2-statistic):
 attach(fms)

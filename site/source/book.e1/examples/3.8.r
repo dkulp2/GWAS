@@ -1,5 +1,5 @@
 # Reading in HGDP data:
-hgdp <- read.delim("http://people.umass.edu/foulkes/asg/data/HGDP_AKT1.txt", header=T, sep="\t")
+hgdp <- read.delim("http://stat-gen.org/book.e1/data/HGDP_AKT1.txt", header=T, sep="\t")
 
 # Example 3.8 (HWE and geographic origin):
 attach(hgdp)
