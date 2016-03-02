@@ -44,6 +44,7 @@ Dr. Qian is an Associate Professor of Statistics at the University of Massachuse
 Qian received a B.S. in Statistics from Renmin University of China in 2002 and a Ph.D. in Biostatistics from Emory University in 2009.
 
 ### Undergradute Members
+{:style='clear:both'}
 
 ##### Siying Chen
 Mount Holyoke College '16
