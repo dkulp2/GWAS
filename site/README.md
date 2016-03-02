@@ -14,13 +14,44 @@ This system uses *kramdown* as its markdown engine.  Different
 markdown systems are very similar, but kramdown has its own
 [quick reference manaual](http://kramdown.gettalong.org/quickref.html).
 
-The only note of interest is that this site uses the
-[bootstrap](http://getbootstrap.com) style sheets, which means that
-there are certain classes that can be assigned to HTML elements for
-consistent look, for example the class `.page-header` might be applied
-to the top section of a page and a thin horizontal line is drawn below
-it.  You can add class attributes in kramdown with {:.page-header} on
-the line immediately below the element.
+This site uses the [bootstrap](http://getbootstrap.com) style sheets,
+which means that there are certain classes that can be assigned to
+HTML elements for consistent look, for example the class
+`.page-header` might be applied to the top section of a page and a
+thin horizontal line is drawn below it.  You can add class attributes
+in kramdown with {:.page-header} on the line immediately below the
+element.
+
+The setup has become rather complex over time. Part of the issue is
+that different parts of the website are generated through different
+processes. For example, the tutorial ("tut/" folder) was generated in
+the sibling folder (../R, see Makefile there). The statsTeachR class
+modules contain similar code and instructions ("str/" folder), but
+were generated from knitr files that are not part of this repo (see
+"Random Notes", below). The first edition of Applied Statistical
+Genetics in R ("book.e1/") came from a different website and were
+manually edited to incorporate into this website.
+
+"str", "tut" and "book.e1" folders each have custom sidebars that are
+displayed conditionally by including "partials", which are the files
+beginning with underscores. 
+
+"tut" displays a sidebar that is the same as its menu, i.e.
+_tut_sidebar.haml includes _tut_menu.erb.
+
+"str" displays a sidebar of the individual labs for a selected module.
+The _str_modN.haml files contain the different labs and
+_str_sidebar.haml includes the corresponding _str_mod?.haml depending
+on which module. _str_menu.haml includes all of the _str_mod?.haml files, too.
+
+"book.e1" displays a sidebar that is unique to the first edition and
+so exists only in _booke1_sidebar.haml.
+
+All this is controlled in the master "layouts/layout.haml", which has
+become quite complicated to edit, itself, due to the cascading menus and 
+factored menus just described.
+
+
 
 # Build information
 

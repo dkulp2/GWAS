@@ -1,5 +1,5 @@
 # Reading in FAMuSS data:
-fms <- read.delim("http://people.umass.edu/foulkes/asg/data/FMS_data.txt", header=T, sep="\t")
+fms <- read.delim("http://stat-gen.org/book.e1/data/FMS_data.txt", header=T, sep="\t")
 
 # Example 2.5 (M-sample tests of association for a quantitative trait)
 attach(fms)

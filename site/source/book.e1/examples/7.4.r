@@ -1,5 +1,5 @@
 # Reading in FAMuSS data:
-fms <- read.delim("http://people.umass.edu/foulkes/asg/data/FMS_data.txt", header=T, sep="\t")
+fms <- read.delim("http://stat-gen.org/book.e1/data/FMS_data.txt", header=T, sep="\t")
 
 # Example 7.4 (MIRF):
 install.packages("mirf")

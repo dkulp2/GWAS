@@ -1,5 +1,5 @@
 # Reading in Virco data:
-virco <- read.csv("http://people.umass.edu/foulkes/asg/data/Virco_data.csv", header=T, sep=",")
+virco <- read.csv("http://stat-gen.org/book.e1/data/Virco_data.csv", header=T, sep=",")
 
 # Example 7.5 (Application of logic regression):
 attach(virco)
