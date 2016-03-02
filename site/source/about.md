@@ -5,7 +5,7 @@ title: Foulkes Lab at Mt Holyoke College
 # About the Foulkes Lab
 
 
-![Kendade Clapp Hall](tower.JPG){:class="bio-photo-right" width="200" height="400"}
+![Kendade Clapp Hall](tower.JPG){:class="bio-photo-right" height="400"}
 
 
 ##### The ORSG project was created and is maintained by the members of the Foulkes Lab. 
