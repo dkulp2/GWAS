@@ -1,20 +1,26 @@
 ---
-title: Foulkes Lab at Mt Holyoke College
+title: Foulkes Lab at Mount Holyoke College
 ---
 
-# About the Foulkes Lab
+# About Foulkes Lab
 
 
-![Kendade Clapp Hall](tower.JPG){:class="bio-photo-right" height="400"}
+![Clapp Hall Tower](tower.JPG){:class="bio-photo-right" height="400"}
 
 
 ##### The ORSG project was created and is maintained by the members of the Foulkes Lab. 
 
 
 ### The Lab
-Located at Mount Holyoke College in South Hadley, MA, we are dedicated to the understanding and development of statistical methods in the realm of genomic data. Collaborating with investigators across multiple disciplines ranging from oncology to immunology, we investigate techniques for analyzing single nucleotide polymorphisms (SNPs) and disease outcomes, while considering the complex correlation structure of the human genome. Notably, we are interested in determining the association of biomarkers and given regions of the genome such as genes, lincRNAs, enhancer elements and other biologically relevant topologies. With the ever-changing knowledge of the functionaility of DNA, we believe it is essential to find appropriate and reproducible analytic methods for determining true causes of disease, and are committed to improving this process.
 
-### Andrea S. Foulkes, Sc.D
+Located at Mount Holyoke College in South Hadley, MA, we are dedicated to the understanding and development of statistical methods in the realm of genomic data. Collaborating with investigators across multiple disciplines ranging from oncology to immunology, we investigate techniques for analyzing single nucleotide polymorphisms (SNPs) and disease outcomes, while considering the complex correlation structure of the human genome. Notably, we are interested in determining the association of biomarkers and given regions of the genome such as genes, lincRNAs, enhancer elements and other biologically relevant topologies. With the ever-changing knowledge of the functionality of DNA, we believe it is essential to find appropriate and reproducible analytic methods for determining true causes of disease, and are committed to improving this process.
+
+
+###Director
+{:class='bio-section'}
+
+
+###Andrea S. Foulkes, Sc.D
 {:class='bio-header'}
 
 ![Andrea Foulkes](foulkes.jpg){:class="bio-photo" width="140" height="200"}
@@ -24,15 +30,9 @@ Dr. Foulkes is a Professor of Statistics at Mount Holyoke College. Her research 
 
 Foulkes received a B.A. in Mathematics from Brown University in 1994 and an Sc.D. in Biostatistics from Harvard School of Public Health in 2000.
 
-
-### Sara M. Nuñez
-{:class='bio-header'}
-
-![Sara Nuñez](sara.jpg){:class="bio-photo" width="140" height="200"}
-
-Sara has been a Research Scientist under Dr. Foulkes since January 2014. As a recent graduate from the Biostatistics Master's program at the University of Massachusetts, Amherst, she is interested in developing her statistical genetic understanding and mentoring undergraduates who are interested in the same field before she returns to school for her Ph.D. Her work has included developing teaching modules for statistical learning in R as well as conducting a range of genetic association analyses utilizing both existing and novel methods. Through this work, her research interests have gravitated towards integrative analyses of various biological mechanisms through statistical modeling.
-
-Nuñez received a B.A. in Mathematics from Boston College in 2013 and an M.S. in Biostatistics from the University of Massachusetts, Amherst School of Public Health in 2015.
+### <span style="color:red">Faculty Collaborators </span>
+{:class='bio-section'}
+{:style='clear:both'}
 
 ### Jing Qian Ph.D
 {:class='bio-header'}
@@ -43,8 +43,64 @@ Dr. Qian is an Associate Professor of Statistics at the University of Massachuse
 
 Qian received a B.S. in Statistics from Renmin University of China in 2002 and a Ph.D. in Biostatistics from Emory University in 2009.
 
-### Undergradute Members
+
+### Evan Ray Ph.D
+{:class='bio-header'}
+
+![Evan Ray](evan.png){:class="bio-photo" width="140" height="200"}
+
+Evan Ray is an Assistant Professor of Statistics in the Department of Mathematics and Statistics at Mount Holyoke College.  His research focuses on non-parametric and ensemble methods for time series prediction and classification. His recent work has developed these methods in the context of predicting the timing and severity of the spread of infectious diseases including influenza and dengue fever. He has also developed methods for classifying physical activity according to its type and intensity using accelerometer data.
+
+Ray received a B.S. in Mathematics from the University of Massachusetts, Boston and a PhD in statistics from the University of Massachusetts, Amherst.
+
+###Lab Members
+{:class='bio-section'}
 {:style='clear:both'}
+
+### Regina Brecha
+{:class='bio-header'}
+
+
+![Regina Brecha](regina.jpg){:class="bio-photo" width="140" height="200"}
+
+Regina has been working in Dr. Foulkes' lab since January 2018. In addition to statistical methods in genomics, she is interested in the application of data in human rights and global public health settings.
+
+Brecha received a B.A. in Statistics from the Mount Holyoke College. 
+
+
+###Undergraduate Lab Members
+{:style='clear:both; padding-top: 20px'}
+
+
+#### Rachel Bostick
+{:class='bio-header'}
+
+Mount Holyoke College Statistics '20
+![Rachel Bostick](rachel.JPG){:class="bio-photo" width="140" height="200"}
+
+#### Amelia Johnson
+{:class='bio-header'}
+
+Mount Holyoke College Mathematics '20
+![Amelia Johnson](amelia.jpg){:class="bio-photo" width="140" height="200"}
+
+#### Savannah Romeo
+{:class='bio-header'}
+
+Mount Holyoke College Biology '19
+![Savannah Romeo](savannah.jpg){:class="bio-photo" width="140" height="200"}
+
+
+### Additional Undergraduate Affiliates
+{:style='clear:both; padding-top: 20px'}
+
+#####  Yue (Holly) Hong
+Mount Holyoke College '20
+
+##### Jiaxuan (Alice) Ji
+Mount Holyoke College '21
+
+### Former Members
 
 ##### Siying Chen
 Mount Holyoke College '16
@@ -76,11 +132,8 @@ Mount Holyoke College '18
 ##### Yunshi Zhou
 Mount Holyoke College '18
 
-### Former Members
-
 ##### Eric R. Reed
 Currently pursuing a Ph.D. in Bioinformatics from Boston University
 
 ##### Tu Dao
 Mount Holyoke College '17
-
